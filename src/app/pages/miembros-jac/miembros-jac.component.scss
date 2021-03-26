@@ -1,0 +1,49 @@
+
+th, td{
+    font-size: large;
+    text-align: center;
+}
+
+
+.icono{
+    border: none;
+    background: transparent;
+    width: 100%;
+}
+
+
+.tabla{
+    height: 5px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+
+h1{
+    text-align: center;
+    padding-top: 20px;
+    font-family:  'Times New Roman', Times, serif;
+    font-size: 75px;
+}
+
+.fa-sync-alt{
+    padding-left: 10px;
+}
+
+.new{
+    width: 100%;
+}
+
+.select{
+    border: none;
+    background: transparent;
+}
+
+.fa-edit{
+    color:green;
+    display: inline-block;
+}
+
+.btn-outline-info{
+    width: 100%;
+}

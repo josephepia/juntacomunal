@@ -1,0 +1,44 @@
+
+
+<div class="container">
+  <h1>Miembros de la JAC</h1><br>
+
+  <div>
+    <button class="btn btn-outline-info" (click)='abrirRegistrarJAC()'>Registrar nuevo miembro</button>
+  </div>
+
+  <div class="card">
+    <div class="card-body cliente">
+      
+      <div class="table-container">
+        <table id="tabla" class="table-striped tabla">
+          <thead>
+            <tr>
+              <th scope="col">Identificacion</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Fech. Naci.</th>
+              <th scope="col">Genero</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Direccion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let miembro of keys(miembros)">
+              <td>{{miembros[miembro]?.identificacion}}</td>
+              <td>{{miembros[miembro]?.nombrehabitante}}</td>
+              <td>{{miembros[miembro]?.apellidohabitante}}</td>
+              <td>{{miembros[miembro]?.nacimientohabitante}}</td>
+              <td>{{miembros[miembro]?.generohabitante}}</td>
+              <td>{{miembros[miembro]?.telefonohabitante}}</td>
+              <td>{{miembros[miembro]?.direccionhabitante}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

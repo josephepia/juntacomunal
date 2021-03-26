@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import firebase from "firebase/app";
+
 @Component({
   selector: 'app-habitantes',
   templateUrl: './habitantes.component.html',
