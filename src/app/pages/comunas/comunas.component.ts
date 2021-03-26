@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import firebase from "firebase/app"
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-comunas',
@@ -8,6 +9,13 @@ import firebase from "firebase/app"
   styleUrls: ['./comunas.component.scss']
 })
 export class ComunasComponent implements OnInit {
+
+  navigationExtras: NavigationExtras = {
+    state: {
+      value: null
+    }
+  };
+  router: any;
 
   constructor(public dialog: MatDialog) { 
     firebase.database().ref('comunas').on('value',(datos)=>{
@@ -70,5 +78,6 @@ export class ComunasComponent implements OnInit {
   keys(objeto: Object){
     return Object.keys(objeto || {})
   }
+  
 
 }
