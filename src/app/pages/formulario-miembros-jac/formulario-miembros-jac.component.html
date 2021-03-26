@@ -7,7 +7,7 @@
       <div class="modal-body">
         <h1>Datos Personales</h1><br>
 
-          <div>
+          <div class="datos">
             <mat-form-field style="padding-right: 15px;">
                 <mat-label>Identificacion</mat-label>
                 <input matInput placeholder="Identificacion" [(ngModel)]="identificacion" [ngModelOptions]="{standalone: true}">
@@ -26,7 +26,7 @@
     
         
     
-          <div>
+          <div class="datos">
             <mat-form-field style="padding-right: 15px;">
                 <mat-label>Fecha de nacimiento</mat-label>
                 <input matInput placeholder="Nacimientohabitante" [(ngModel)]="nacimientohabitante" [ngModelOptions]="{standalone: true}">
@@ -44,19 +44,18 @@
           </div>
           
 
-        <div>
-            <div class="col-md-4 mb-3">
-                <mat-form-field>
-                    <mat-label>Direccion</mat-label>
-                    <input matInput placeholder="Direccionhabitante" [(ngModel)]="direccionhabitante" [ngModelOptions]="{standalone: true}">
-                  </mat-form-field>
-              </div>
-        </div>
         
-        <hr>
+          <div class="datos">
+              <mat-form-field>
+                  <mat-label>Direccion</mat-label>
+                  <input matInput placeholder="Direccionhabitante" [(ngModel)]="direccionhabitante" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+        
     
-        <div>
+        <div class="modal-footer">
           <button class="btn btn-outline-info" (click) = registrarhabitante() >Registrar Cliente</button>
+          <button type="button" class="btn btn-outline-danger" (click)="onReset()">Cancelar</button>
         </div>
     
       </div>

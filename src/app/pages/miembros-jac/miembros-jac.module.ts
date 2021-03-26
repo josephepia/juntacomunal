@@ -12,6 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormularioMiembrosJACComponent} from '../formulario-miembros-jac/formulario-miembros-jac.component'
+
 
 @NgModule({
   declarations: [MiembrosJACComponent],
@@ -24,7 +28,12 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    NgbModule,
+    NgbPaginationModule, NgbAlertModule
+  ],
+  entryComponents: [
+    FormularioMiembrosJACComponent
   ]
 })
 export class MiembrosJACModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from "firebase/app";
-import { MatDialog } from '@angular/material/dialog';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormularioMiembrosJACComponent} from '../formulario-miembros-jac/formulario-miembros-jac.component'
 @Component({
   selector: 'app-miembros-jac',
   templateUrl: './miembros-jac.component.html',
@@ -19,9 +19,10 @@ export class MiembrosJACComponent implements OnInit {
 
   miembros:any
 
-  constructor() { 
-    
-  }
+
+  constructor(
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.consultarMiembros()
@@ -41,6 +42,10 @@ export class MiembrosJACComponent implements OnInit {
       }
     })
 
+  }
+
+  abrirRegistrarJAC() {
+    this.modalService.open(FormularioMiembrosJACComponent, { size: 'lg' });
   }
 
 }
