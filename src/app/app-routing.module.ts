@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'formulariobarrios', loadChildren: () => import('./pages/formulariobarrios/formulariobarrios.module').then(m => m.FormulariobarriosModule) },
   { path: 'barrios', loadChildren: () => import('./pages/barrios/barrios.module').then(m => m.BarriosModule) },
   { path: 'habitantes', loadChildren: () => import('./pages/GestionHabitantes/habitantes/habitantes.module').then(m => m.HabitantesModule) },
+  { path: 'navprincipal', loadChildren: () => import('./pages/navprincipal/navprincipal.module').then(m => m.NavprincipalModule) },
   
 ];
 
