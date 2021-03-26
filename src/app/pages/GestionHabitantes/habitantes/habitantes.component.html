@@ -1,0 +1,39 @@
+
+
+<div class="col-xs-6">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombrehabitante" [(ngModel)]="nombrehabitante" >
+    </mat-form-field>
+</div>
+<div class="col-xs-6">
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input matInput placeholder="Apellidohabitante" [(ngModel)]="apellidohabitante" >
+    </mat-form-field>
+</div>
+<div class="col-xs-6">
+    <mat-form-field>
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input matInput placeholder="Nacimientohabitante" [(ngModel)]="nacimientohabitante">
+    </mat-form-field>
+</div>
+<div class="col-xs-6">
+    <mat-form-field>
+      <mat-label>Genero</mat-label>
+      <input matInput placeholder="Generohabitante" [(ngModel)]="generohabitante" >
+    </mat-form-field>
+</div>
+<div class="col-xs-6">
+    <mat-form-field>
+      <mat-label>Telefono</mat-label>
+      <input matInput placeholder="Telefonohabitante" [(ngModel)]="telefonohabitante">
+    </mat-form-field>
+</div>
+<div class="col-xs-6">
+    <mat-form-field>
+      <mat-label>Direccion</mat-label>
+      <input matInput placeholder="Direccionhabitante" [(ngModel)]="direccionhabitante">
+    </mat-form-field>
+</div>
+<button mat-button color="primary" (click)="registrarhabitante()">Registrar</button>
