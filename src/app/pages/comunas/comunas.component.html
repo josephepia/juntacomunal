@@ -1,0 +1,10 @@
+
+
+<mat-card *ngFor="let comuna of keys(comunas)">
+    Nombre comuna: {{comunas[comuna]?.nombre}}
+    <p>Numero de barrios: {{comunas[comuna]?.numerobarrios}}</p>
+    <p>Barrios</p>
+    
+</mat-card>
+
+<button mat-raised-button [routerLink]="['/formulariocomunas']">guardar</button>
