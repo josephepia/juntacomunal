@@ -1,30 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MiembrosJACRoutingModule } from './miembros-jac-routing.module';
-import { MiembrosJACComponent } from './miembros-jac.component';
+import { FormularioMiembrosJACRoutingModule } from './formulario-miembros-jac-routing.module';
+import { FormularioMiembrosJACComponent } from './formulario-miembros-jac.component';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
-  declarations: [MiembrosJACComponent],
+  declarations: [FormularioMiembrosJACComponent],
   imports: [
     CommonModule,
-    MiembrosJACRoutingModule,
+    FormularioMiembrosJACRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatButtonModule,
-    MatCardModule,
-    MatTableModule
+    MatButtonModule
   ]
 })
-export class MiembrosJACModule { }
+export class FormularioMiembrosJACModule { }

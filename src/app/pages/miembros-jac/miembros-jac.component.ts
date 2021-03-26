@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from "firebase/app";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-miembros-jac',
@@ -16,28 +17,30 @@ export class MiembrosJACComponent implements OnInit {
   telefonohabitante:any
   direccionhabitante:any
 
-  constructor() { }
+  miembros:any
+
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
+    this.consultarMiembros()
   }
 
   keys(objeto: Object){
     return Object.keys(objeto || {})
   }
 
-  registrarhabitante(){
-    console.log("di click en registrar");
-      
-    firebase.database().ref('habitantes').push({
-      identificacion: this.identificacion,
-      nombrehabitante:this.nombrehabitante,
-      apellidohabitante: this.apellidohabitante,
-      nacimientohabitante: this.nacimientohabitante,
-      generohabitante:this.generohabitante,
-      telefonohabitante:this.telefonohabitante,
-      direccionhabitante:this.direccionhabitante,
-      rol: "MIEMBRO"
+  consultarMiembros(){
+
+    firebase.database().ref('habitantes').orderByChild('rol').equalTo("MIEMBRO").once("value",(datos)=>{
+      if(datos.exists()){
+        this.miembros = datos.val()
+      }else{
+        this.miembros = {}
+      }
     })
+
   }
 
 }

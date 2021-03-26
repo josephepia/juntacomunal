@@ -1,65 +1,40 @@
-<div class="todo">
-    <form>
-      <div class="modal-header">
-          <h4 class="modal-title">Registrar Miembros</h4>
+
+
+<div class="container">
+  <h1>Miembros de la JAC</h1><br>
+
+  <div class="card">
+    <div class="card-body cliente">
+      
+      <div class="table-container">
+        <table id="tabla" class="table-striped tabla">
+          <thead>
+            <tr>
+              <th scope="col">Identificacion</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Fech. Naci.</th>
+              <th scope="col">Genero</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Direccion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let miembro of keys(miembros)">
+              <td>{{miembros[miembro]?.identificacion}}</td>
+              <td>{{miembros[miembro]?.nombrehabitante}}</td>
+              <td>{{miembros[miembro]?.apellidohabitante}}</td>
+              <td>{{miembros[miembro]?.nacimientohabitante}}</td>
+              <td>{{miembros[miembro]?.generohabitante}}</td>
+              <td>{{miembros[miembro]?.telefonohabitante}}</td>
+              <td>{{miembros[miembro]?.direccionhabitante}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    
-      <div class="modal-body">
-        <h1>Datos Personales</h1><br>
+    </div>
 
-          <div>
-            <mat-form-field style="padding-right: 15px;">
-                <mat-label>Identificacion</mat-label>
-                <input matInput placeholder="Identificacion" [(ngModel)]="identificacion" [ngModelOptions]="{standalone: true}">
-            </mat-form-field>
-
-            <mat-form-field style="padding-right: 15px;">
-                <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Nombrehabitante" [(ngModel)]="nombrehabitante" [ngModelOptions]="{standalone: true}">
-            </mat-form-field>
-
-            <mat-form-field style="padding-right: 15px;">
-                <mat-label>Apellido</mat-label>
-                <input matInput placeholder="Apellidohabitante" [(ngModel)]="apellidohabitante" [ngModelOptions]="{standalone: true}">
-            </mat-form-field>
-          </div>
-    
-        
-    
-          <div>
-            <mat-form-field style="padding-right: 15px;">
-                <mat-label>Fecha de nacimiento</mat-label>
-                <input matInput placeholder="Nacimientohabitante" [(ngModel)]="nacimientohabitante" [ngModelOptions]="{standalone: true}">
-              </mat-form-field>
-
-              <mat-form-field style="padding-right: 15px;">
-                <mat-label>Genero</mat-label>
-                <input matInput placeholder="Generohabitante" [(ngModel)]="generohabitante" [ngModelOptions]="{standalone: true}">
-              </mat-form-field>
-
-              <mat-form-field style="padding-right: 15px;">
-                <mat-label>Telefono</mat-label>
-                <input matInput placeholder="Telefonohabitante" [(ngModel)]="telefonohabitante" [ngModelOptions]="{standalone: true}">
-            </mat-form-field>
-          </div>
-          
-
-        <div>
-            <div class="col-md-4 mb-3">
-                <mat-form-field>
-                    <mat-label>Direccion</mat-label>
-                    <input matInput placeholder="Direccionhabitante" [(ngModel)]="direccionhabitante" [ngModelOptions]="{standalone: true}">
-                  </mat-form-field>
-              </div>
-        </div>
-        
-        <hr>
-    
-        <div>
-          <button class="btn btn-outline-info" (click) = registrarhabitante() >Registrar Cliente</button>
-        </div>
-    
-      </div>
-    </form>
-    
   </div>
+</div>
+
+
