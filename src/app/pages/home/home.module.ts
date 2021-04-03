@@ -26,6 +26,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatButtonModule,
    NavprincipalModule
+  ],
+  exports:[
+    HomeComponent
   ]
 })
 export class HomeModule { }
