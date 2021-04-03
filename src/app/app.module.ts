@@ -1,3 +1,6 @@
+import { NavprincipalModule } from './pages/navprincipal/navprincipal.module';
+import { HomeModule } from './pages/home/home.module';
+import { NavprincipalComponent } from './pages/navprincipal/navprincipal.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
+    //NavprincipalComponent
+   
     //FormularioComunaComponent,
   ],
   imports: [
@@ -29,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    //HomeModule
+    //NavprincipalModule
   
   ],
   providers: [],
