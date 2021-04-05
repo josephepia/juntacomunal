@@ -23,14 +23,9 @@
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
-<<<<<<< Updated upstream
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^4.6.0",
     "cov-jsapi": "^0.1.37",
-=======
-    "bootstrap": "^4.6.0",
-    "bootswatch": "^4.6.0",
->>>>>>> Stashed changes
     "firebase": "^8.3.1",
     "flexboxgrid-sass": "^8.0.5",
     "jquery": "^3.6.0",
