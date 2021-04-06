@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'navprincipal', loadChildren: () => import('./pages/navprincipal/navprincipal.module').then(m => m.NavprincipalModule) },
   { path: 'MiembrosJAC', loadChildren: () => import('./pages/miembros-jac/miembros-jac.module').then(m => m.MiembrosJACModule) },
   { path: 'FormularioMiembrosJAC', loadChildren: () => import('./pages/formulario-miembros-jac/formulario-miembros-jac.module').then(m => m.FormularioMiembrosJACModule) },
-  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) }
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+  { path: 'SolicitudRegistroHabitantes', loadChildren: () => import('./pages/GestionHabitantes/solicitud-registro-habitantes/solicitud-registro-habitantes.module').then(m => m.SolicitudRegistroHabitantesModule) },
+  { path: 'Consultasolicitudhabitantes', loadChildren: () => import('./pages/GestionHabitantes/consultasolicitudhabitantes/consultasolicitudhabitantes.module').then(m => m.ConsultasolicitudhabitantesModule) }
 
 ];
 

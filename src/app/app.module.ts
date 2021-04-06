@@ -15,6 +15,10 @@ import { environment } from 'src/environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatStepperModule} from '@angular/material/stepper';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @NgModule({
@@ -34,6 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    MatStepperModule,
+    CdkStepperModule,
     //HomeModule
     //NavprincipalModule
   
