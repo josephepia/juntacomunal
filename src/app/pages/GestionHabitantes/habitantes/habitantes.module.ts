@@ -8,7 +8,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatCardHarness} from '@angular/material/card/testing';
 
 @NgModule({
   declarations: [HabitantesComponent],
@@ -19,7 +20,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+  
+    
 
     
   ]
