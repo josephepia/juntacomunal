@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from "firebase/app";
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+
 
 @Component({
   selector: 'app-formulario-miembros-jac',
@@ -8,6 +10,14 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./formulario-miembros-jac.component.scss']
 })
 export class FormularioMiembrosJACComponent implements OnInit {
+
+  
+  constructor(
+    public activeModal: NgbActiveModal,
+  ) { }
+
+  
+
 
   identificacion:any
   nombrehabitante:any
@@ -17,14 +27,11 @@ export class FormularioMiembrosJACComponent implements OnInit {
   telefonohabitante:any
   direccionhabitante:any
 
-  constructor(
-    public activeModal: NgbActiveModal
-  ) { }
+  
 
   ngOnInit(): void {
-  }
 
-  
+  }
 
   registrarhabitante(){
     console.log("di click en registrar");
@@ -41,14 +48,18 @@ export class FormularioMiembrosJACComponent implements OnInit {
         rol: "MIEMBRO"
       })
   
-      alert("REGISTRO EXITOSO");
+      alert("REGISTRO EXITOSO RECARGAR LA PAGINA PARA VER LOS CAMBIOS");
+      this.activeModal.close();
     }catch(e){
       alert("ALGO SALIO MAL");
+
     }
   }
 
   onReset(){
     this.activeModal.close();
   }
+
+
 
 }

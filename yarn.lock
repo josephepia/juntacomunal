@@ -136,7 +136,7 @@
   dependencies:
     "tslib" "^2.0.0"
 
-"@angular/cdk@^11.2.6", "@angular/cdk@11.2.7":
+"@angular/cdk@^11.0.0", "@angular/cdk@^11.2.6", "@angular/cdk@11.2.7":
   "integrity" "sha512-18h7dyXHl/h+rsXFoNpqxiFCDhqewXVPpLG/WWeiFXKdtHeIk1yzfoSjo7nBzclicFFN/A+M2IQSIt21doJ0aA=="
   "resolved" "https://registry.npmjs.org/@angular/cdk/-/cdk-11.2.7.tgz"
   "version" "11.2.7"
@@ -173,7 +173,7 @@
     "universal-analytics" "0.4.23"
     "uuid" "8.3.2"
 
-"@angular/common@^11.0.0", "@angular/common@^11.0.0 || ^12.0.0-0", "@angular/common@~11.2.6", "@angular/common@11.2.8":
+"@angular/common@^11.0.0", "@angular/common@^11.0.0 || ^12.0.0-0", "@angular/common@>=11.0.0", "@angular/common@~11.2.6", "@angular/common@11.2.8":
   "integrity" "sha512-li3UjvtrTf66hf75JBJsurPt6UTuICEpwDgtrTelbj76bvR78OCC3roLpYXy16QX/VTpJpjE8e4rKDXrgpFkDg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-11.2.8.tgz"
   "version" "11.2.8"
@@ -208,10 +208,17 @@
   dependencies:
     "tslib" "^2.0.0"
 
-"@angular/core@^11.0.0", "@angular/core@^11.0.0 || ^12.0.0-0", "@angular/core@>=2.3.1 <12.0.0 || ^11.0.0-next || ^11.1.0-next || ^11.2.0-next", "@angular/core@~11.2.6", "@angular/core@11.2.8":
+"@angular/core@^11.0.0", "@angular/core@^11.0.0 || ^12.0.0-0", "@angular/core@>=11.0.0", "@angular/core@>=2.3.1 <12.0.0 || ^11.0.0-next || ^11.1.0-next || ^11.2.0-next", "@angular/core@~11.2.6", "@angular/core@11.2.8":
   "integrity" "sha512-6Epm1gPy0V8nraQuzhLOmIGfpY230zAp2ETFIa2YOH/1sSRoU6Y7gpQ5My84nGq6Z6jaQ6oOThJl46IDUMx9sg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-11.2.8.tgz"
   "version" "11.2.8"
+  dependencies:
+    "tslib" "^2.0.0"
+
+"@angular/flex-layout@*":
+  "integrity" "sha512-unfhw3abZuKtdwQicRStHCYGbANPTHYg4WNRQk/RC5Mxq+4WOp4Q8HI7GqRHCGUYDCGUP7w1sU/oDt8f09nM8w=="
+  "resolved" "https://registry.npmjs.org/@angular/flex-layout/-/flex-layout-11.0.0-beta.33.tgz"
+  "version" "11.0.0-beta.33"
   dependencies:
     "tslib" "^2.0.0"
 
@@ -245,7 +252,7 @@
   dependencies:
     "tslib" "^2.0.0"
 
-"@angular/platform-browser@~11.2.6", "@angular/platform-browser@11.2.8":
+"@angular/platform-browser@>=11.0.0", "@angular/platform-browser@~11.2.6", "@angular/platform-browser@11.2.8":
   "integrity" "sha512-bWYln8Jb7UM4Jnd51hB8X51EBb2puIIyDjhFoDvDg1e6rS0NCBCP/ZLys9zkjwhnAXwEEEFZc/XSaHvgaT1Nag=="
   "resolved" "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-11.2.8.tgz"
   "version" "11.2.8"
@@ -8813,7 +8820,7 @@
   dependencies:
     "aproba" "^1.1.1"
 
-"rxjs@^6.5.3", "rxjs@^6.5.5", "rxjs@^6.6.0", "rxjs@~6.6.0":
+"rxjs@^6.0.0", "rxjs@^6.5.3", "rxjs@^6.5.5", "rxjs@^6.6.0", "rxjs@~6.6.0":
   "integrity" "sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-6.6.7.tgz"
   "version" "6.6.7"

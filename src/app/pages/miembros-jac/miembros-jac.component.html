@@ -1,66 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" >JAC</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-              <a class="nav-link"  [routerLink]="['/home']">Pagina principal
-                  <span class="sr-only">(current)</span>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/comunas']">Comunas</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/barrios']">Barrios</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/habitantes']">Habitantes</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/MiembrosJAC']">Junta de Accion Comunal</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Prox</a>
-          </li>
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                  aria-expanded="false">Prox</a>
-              <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-          </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0"> 
-          <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-              <a class="nav-link"[routerLink]="['/login']" >Iniciar sesion</a>
-          </li>
-          </ul>
-      </form>
-  </div>
-</nav>
-
-
 
 <div class="container">
   <h1>Miembros de la JAC</h1><br>
-
-  <div>
-    <button class="btn btn-outline-info" (click)='abrirRegistrarJAC()'>Registrar nuevo miembro</button>
-  </div>
-
+  <hr>
+  <!--
   <div class="card">
     <div class="card-body cliente">
-      
+
       <div class="table-container">
         <table id="tabla" class="table-striped tabla">
           <thead>
@@ -72,6 +17,7 @@
               <th scope="col">Genero</th>
               <th scope="col">Telefono</th>
               <th scope="col">Direccion</th>
+              <th scope="col">Opciones</th>
             </tr>
           </thead>
           <tbody>
@@ -83,13 +29,59 @@
               <td>{{miembros[miembro]?.generohabitante}}</td>
               <td>{{miembros[miembro]?.telefonohabitante}}</td>
               <td>{{miembros[miembro]?.direccionhabitante}}</td>
+              <td>
+                <div class="wrapper">
+                  <div class="button">
+                    <div class="icon">
+                      <i  class="fas fa-pen"></i></div>
+                    <span>Editar</span>
+                  </div>
+                  <div class="button">
+                    <div class="icon">
+                      <i class="fas fa-trash-alt"></i></div>
+                    <span>Eliminar</span>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
+
       </div>
     </div>
 
   </div>
+  -->
+
+  <div class="card" *ngFor="let miembro of keys(miembros)">
+
+    <div class="title">
+      <h2>{{miembros[miembro]?.apellidohabitante}} {{miembros[miembro]?.nombrehabitante}}</h2>
+    </div>
+    <div class="des">
+      <p>Cc. {{miembros[miembro]?.identificacion}}</p>
+      <p>Telefono: {{miembros[miembro]?.telefonohabitante}}</p>
+      <p>Direccion: {{miembros[miembro]?.direccionhabitante}}</p>
+      
+      <div class="wrapper">
+        <div class="button">
+          <div class="icon">
+            <i  class="fas fa-pen"></i></div>
+        </div>
+        <div class="button">
+          <div class="icon">
+            <i class="fas fa-trash-alt"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttonFlooting">
+    <div class="icon">
+      <i class="fas fa-plus" (click)='abrirRegistrarJAC()'></i></div>
+  </div>
+    
+
+
+
 </div>
-
-
