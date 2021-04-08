@@ -14,8 +14,10 @@ import { environment } from 'src/environments/environment';
 //import { FormularioComunaComponent } from './components/formulario-comuna/formulario-comuna.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   
 })
 export class AppModule { 
-
   constructor(){
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebaseConfig);
