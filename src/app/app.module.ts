@@ -16,7 +16,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {MatStepperModule} from '@angular/material/stepper';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 
 @NgModule({
@@ -36,8 +43,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    Registro-y-consulta-de-solicitud-habitante
+    MatStepperModule,
+    CdkStepperModule,
+    //HomeModule
+    //NavprincipalModule
+
     MatToolbarModule,
     NavprincipalModule
+
   
   ],
   providers: [],

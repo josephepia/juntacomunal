@@ -8,7 +8,6 @@ import firebase from "firebase/app";
 })
 export class HabitantesComponent implements OnInit {
 
-  
   nombrehabitante:any
   apellidohabitante:any
   nacimientohabitante:any

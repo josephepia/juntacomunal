@@ -1,0 +1,31 @@
+
+<div class="card">
+    <div class="card-body cliente">
+      
+      <div class="table-container">
+        <table id="tabla" class="table-striped tabla">
+          <thead>
+            <tr>
+              <th scope="col">Cedula del Habitante</th>
+              <th scope="col">Correo del habitante</th>
+              <th scope="col">Direccion del habitante</th>
+              <th scope="col">Estado de la solicitud</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let solicitud of keys(solicitudes)">
+              <td>{{solicitudes[solicitud]?.cedulahabitante}}</td>
+              <td>{{solicitudes[solicitud]?.correohabitante}}</td>
+              <td>{{solicitudes[solicitud]?.direccionhabitante}}</td>
+              
+            </tr>
+          </tbody>
+          <button type="button" class="btn btn-dark mt-2 btn-sm"[routerLink]="['/login']" >Atras</button>
+        </table>
+       
+      </div>
+      
+    </div>
+    
+
+  </div>

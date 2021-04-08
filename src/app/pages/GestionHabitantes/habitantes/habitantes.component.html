@@ -1,39 +1,65 @@
+<mat-card class="example-card">
+  <mat-card-header>
 
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title></mat-card-title>
+    <mat-card-title>Registro Habitantes</mat-card-title>
+    <mat-card-title></mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="https://www.enter.co/wp-content/uploads/2016/02/Registrar-el-IMEI-del-Celular-1024x768.jpg" alt="Photo of a Shiba Inu">
+  <div class="col-xs-20">
+  <mat-card-content>
+    <div>
+      <div class="row">
+        <div class="col-xs-6 row">
+          <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Nombrehabitante" required [(ngModel)]="nombrehabitante">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-6 row">
+          <mat-form-field>
+            <mat-label>Apellido</mat-label>
+            <input type="text" matInput placeholder="Apellidohabitante" required [(ngModel)]="apellidohabitante">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 row">
+          <mat-form-field>
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input type="date" matInput placeholder="Nacimientohabitante" required [(ngModel)]="nacimientohabitante">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-6 row">
+          <mat-form-field>
+            <mat-label>Genero</mat-label>
+            <input type="text" matInput placeholder="Generohabitante" required [(ngModel)]="generohabitante">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 row">
+          <mat-form-field>
+            <mat-label>Telefono</mat-label>
+            <input type="tel" matInput placeholder="Telefonohabitante" required [(ngModel)]="telefonohabitante">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-6 row">
+          <mat-form-field>
+            <mat-label>Direccion</mat-label>
+            <input type="text" matInput placeholder="Direccionhabitante" required [(ngModel)]="direccionhabitante">
+          </mat-form-field>
+          
+        </div>
 
-<div class="col-xs-6">
-    <mat-form-field>
-      <mat-label>Nombre</mat-label>
-      <input matInput placeholder="Nombrehabitante" [(ngModel)]="nombrehabitante" >
-    </mat-form-field>
+      </div>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="registrarhabitante()">Registrar</button>
+      </mat-card-actions>
+    </div>
+  </mat-card-content>
+  
 </div>
-<div class="col-xs-6">
-    <mat-form-field>
-      <mat-label>Apellido</mat-label>
-      <input matInput placeholder="Apellidohabitante" [(ngModel)]="apellidohabitante" >
-    </mat-form-field>
-</div>
-<div class="col-xs-6">
-    <mat-form-field>
-      <mat-label>Fecha de nacimiento</mat-label>
-      <input matInput placeholder="Nacimientohabitante" [(ngModel)]="nacimientohabitante">
-    </mat-form-field>
-</div>
-<div class="col-xs-6">
-    <mat-form-field>
-      <mat-label>Genero</mat-label>
-      <input matInput placeholder="Generohabitante" [(ngModel)]="generohabitante" >
-    </mat-form-field>
-</div>
-<div class="col-xs-6">
-    <mat-form-field>
-      <mat-label>Telefono</mat-label>
-      <input matInput placeholder="Telefonohabitante" [(ngModel)]="telefonohabitante">
-    </mat-form-field>
-</div>
-<div class="col-xs-6">
-    <mat-form-field>
-      <mat-label>Direccion</mat-label>
-      <input matInput placeholder="Direccionhabitante" [(ngModel)]="direccionhabitante">
-    </mat-form-field>
-</div>
-<button mat-button color="primary" (click)="registrarhabitante()">Registrar</button>
+  
+</mat-card>
