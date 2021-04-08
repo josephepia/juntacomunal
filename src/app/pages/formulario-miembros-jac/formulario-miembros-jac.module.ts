@@ -7,8 +7,8 @@ import { FormularioMiembrosJACComponent } from './formulario-miembros-jac.compon
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
   ]
 })
-export class FormularioMiembrosJACModule { }
+export class FormularioMiembrosJACModule {}
