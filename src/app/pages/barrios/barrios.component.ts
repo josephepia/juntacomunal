@@ -32,5 +32,6 @@ export class BarriosComponent implements OnInit {
       }
     })
   }
+  
 
 }

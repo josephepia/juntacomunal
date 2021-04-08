@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    //HomeModule
-    //NavprincipalModule
+    MatToolbarModule,
+    NavprincipalModule
   
   ],
   providers: [],
