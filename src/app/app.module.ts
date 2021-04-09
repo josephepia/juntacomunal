@@ -44,7 +44,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    Registro-y-consulta-de-solicitud-habitante
+   // Registro-y-consulta-de-solicitud-habitante,
     MatStepperModule,
     CdkStepperModule,
     //HomeModule
