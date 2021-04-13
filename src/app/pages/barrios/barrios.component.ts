@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase/app';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormulariobarriosComponent} from '../formulariobarrios/formulariobarrios.component'
+
 @Component({
   selector: 'app-barrios',
   templateUrl: './barrios.component.html',
@@ -7,7 +10,9 @@ import firebase from 'firebase/app';
 })
 export class BarriosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
     this.consultarBarrios()
@@ -31,6 +36,10 @@ export class BarriosComponent implements OnInit {
         
       }
     })
+  }
+
+  abrirRegistrarBarrios() {  
+    this.modalService.open(FormulariobarriosComponent, { centered: true });
   }
   
 

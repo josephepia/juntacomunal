@@ -14,6 +14,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     FormsModule,
     MatButtonModule
+  ],
+  entryComponents: [
+    FormulariocomunasComponent
   ]
 })
 export class FormulariocomunasModule { }
