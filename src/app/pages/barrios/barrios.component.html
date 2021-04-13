@@ -1,31 +1,32 @@
-
-<hr>
-<h1>Barrios de Valledupar</h1><br>
-<hr>
-
-<div class="card" *ngFor="let barrio of keys(barrios)">
-
-    <div class="title">
-      <h2>Nombre Barrio:</h2>
-      <p>{{barrios[barrio]?.nombre}}</p>
-    </div>
-    <div class="des">
-        <h2>Comuna que Pertenece:</h2>
-        <p>{{barrios[barrio].nombrecomuna}}</p>
-      <div class="wrapper">
-        <div class="button">
-          <div class="icon">
-            <i  class="fas fa-pen"></i></div>
-        </div>
-        <div class="button">
-          <div class="icon">
-            <i class="fas fa-trash-alt"></i></div>
+<div class="container">
+  
+  <hr>
+    <h1>Barrios de Valledupar</h1><br>
+  <hr>
+  
+  <div class="card" *ngFor="let barrio of keys(barrios)">
+  
+      <div class="title">
+        <h2>{{barrios[barrio]?.nombre}}</h2>
+      </div>
+      <div class="des">
+          <p>Comuna: <br> {{barrios[barrio].nombrecomuna}}</p>
+        <div class="wrapper">
+          <div class="button">
+            <div class="icon">
+              <i  class="fas fa-pen"></i></div>
+          </div>
+          <div class="button">
+            <div class="icon">
+              <i class="fas fa-trash-alt"></i></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="buttonFlooting">
-    <div class="icon">
-      <i class="fas fa-plus" [routerLink]="['/formulariobarrios']" ></i></div>
-  </div>
+  
+    <div class="buttonFlooting">
+      <div class="icon">
+        <i class="fas fa-plus" [routerLink]="['/formulariobarrios']" ></i></div>
+    </div>
+  
+</div>
