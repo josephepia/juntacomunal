@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from "firebase/app";
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+
 @Component({
   selector: 'app-formulariobarrios',
   templateUrl: './formulariobarrios.component.html',
@@ -11,9 +14,14 @@ export class FormulariobarriosComponent implements OnInit {
   estrato:any
   nombre:any
   comunas:any
-  constructor() { }
+
+  constructor(
+    public activeModal: NgbActiveModal,
+  ) { }
 
   ngOnInit(): void {
+    setTimeout(()=> {
+    },1300)
     this.consultarComunas()
   }
 
@@ -35,12 +43,24 @@ export class FormulariobarriosComponent implements OnInit {
     console.log("di click en registrar");
     console.log('variables -> ',this.comuna,this.estrato,this.nombre);
     
-    firebase.database().ref('barrios').push({
-      comuna:this.comuna,
-      estrato: this.estrato,
-      nombre: this.nombre,
-      nombrecomuna: this.comunas[this.comuna].nombre
-    })
+    try {
+      firebase.database().ref('barrios').push({
+        comuna:this.comuna,
+        estrato: this.estrato,
+        nombre: this.nombre,
+        nombrecomuna: this.comunas[this.comuna].nombre
+      })
+  
+      alert("REGISTRO EXITOSO");
+      this.activeModal.close();
+    } catch (error) {
+      alert("ALGO SALIO MAL");
+    }
+    
+  }
+
+  onReset(){
+    this.activeModal.close();
   }
 
 }

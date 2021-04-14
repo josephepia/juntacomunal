@@ -15,6 +15,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatButtonModule,
     MatGridListModule
-  ]
+  ],
 })
 export class BarriosModule { }

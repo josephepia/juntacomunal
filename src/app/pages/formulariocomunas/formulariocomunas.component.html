@@ -1,18 +1,27 @@
-<div class="row center-xs">
-    <div class="row center-xs"> <h4>Registrar comuna</h4></div>
-    <div class="row center-xs">
-        <mat-form-field class="example-form-field">
-            <mat-label>Nombre</mat-label>
-            <input matInput type="text" [(ngModel)]="nombre">
-            
-          </mat-form-field>
+
+<div class="modal-header">
+    <h2 class="modal-title">Registrar nueva comuna</h2>
+  </div>
+  
+  <div class="modal-body">
+  
+    <h1>Datos de la comuna</h1><br>
+  
+    <div class="datos">
+  
+      <mat-label>Nombre de la Comuna: </mat-label>
+      <input class="form-control" [(ngModel)]="nombre">
+    
+      <br>
+
     </div>
-    
+  
+    <br>
+  
+    <div class="modal-footer">
+      <button class="btn btn-outline-info" (click)="registrar()">Registrar Comuna</button>
+      <button type="button" class="btn btn-outline-danger" (click)="onReset()">Cancelar</button>
+    </div>
+  
 </div>
-<div>
-    <button mat-button color="primary" (click)="registrar()">guardar</button>
-    <button type="button" class="btn btn-dark mt-2 btn-sm"[routerLink]="['/comunas']" >Atras</button>
-</div>
-<div> 
-    
-</div>
+  

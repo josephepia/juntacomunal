@@ -20,6 +20,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatButtonModule
 
+  ],
+  entryComponents: [
+    FormulariobarriosComponent
   ]
 })
 export class FormulariobarriosModule { }
