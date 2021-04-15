@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "junta-de-accion-comunal"
+  },
+  "targets": {
+    "junta-de-accion-comunal": {
+      "hosting": {
+        "produccion": [
+          "juntaaccioncomunal"
+        ],
+        "pruebas": [
+          "juntaaccioncomulatest"
+        ]
+      }
+    }
+  }
+}
