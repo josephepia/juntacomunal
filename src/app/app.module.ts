@@ -16,7 +16,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {MatStepperModule} from '@angular/material/stepper';
 import {CdkStepperModule} from '@angular/cdk/stepper';
@@ -24,24 +24,34 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FormularioComunaComponent } from './components/formulario-comuna/formulario-comuna.component';
+import { FormulariocomunasComponent } from './pages/formulariocomunas/formulariocomunas.component';
+import { FormulariocomunasModule } from './pages/formulariocomunas/formulariocomunas.module';
+import { MatInputModule } from '@angular/material/input';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    FormularioComunaComponent,
+    
     //NavprincipalComponent
    
     //FormularioComunaComponent,
+  ],
+  entryComponents: [
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatDialogModule,
+   
     MatButtonModule,
-    MatFormFieldModule,
+    
+
     FormsModule,
     ReactiveFormsModule,
    // Registro-y-consulta-de-solicitud-habitante,
@@ -49,9 +59,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CdkStepperModule,
     //HomeModule
     //NavprincipalModule
-
+   // MatFormFieldModule,
     MatToolbarModule,
-    NavprincipalModule
+    NavprincipalModule,
+
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
 
   
   ],
