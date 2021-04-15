@@ -1,0 +1,22 @@
+
+#.travis.yml
+language: node_js
+node_js:
+  - "14.15.1"
+branches:
+only:
+  - master
+  - develop
+before_script:
+  - npm install -g firebase-tools
+  - npm install -g @angular/cli
+script:
+  - ng build --prod
+after_success:
+  - firebase deploy --only hosting:"pruebas" --token $FIREBASE_TOKEN
+notifications:
+  email:
+    - remixlebo@gmail.com
+    - manefra2010@gmail.com
+  on_failure: change #cuando es necesario la notificacion [never,change,always]
+  on_success: change #cuando es necesario la notificacion [never,change,always]
