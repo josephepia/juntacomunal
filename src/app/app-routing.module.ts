@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: 'SolicitudRegistroHabitantes', loadChildren: () => import('./pages/GestionHabitantes/solicitud-registro-habitantes/solicitud-registro-habitantes.module').then(m => m.SolicitudRegistroHabitantesModule) },
   { path: 'Consultasolicitudhabitantes', loadChildren: () => import('./pages/GestionHabitantes/consultasolicitudhabitantes/consultasolicitudhabitantes.module').then(m => m.ConsultasolicitudhabitantesModule) },
-  { path: 'comuna/:id', loadChildren: () => import('./pages/comuna/comuna.module').then(m => m.ComunaModule) }
+  { path: 'comunas/:id', loadChildren: () => import('./pages/comuna/comuna.module').then(m => m.ComunaModule) }
 
 ];
 

@@ -28,6 +28,7 @@ import { FormularioComunaComponent } from './components/formulario-comuna/formul
 import { FormulariocomunasComponent } from './pages/formulariocomunas/formulariocomunas.component';
 import { FormulariocomunasModule } from './pages/formulariocomunas/formulariocomunas.module';
 import { MatInputModule } from '@angular/material/input';
+import { ModalConfirmacionComponent } from './components/modal-confirmacion/modal-confirmacion.component';
 
 
 
@@ -35,6 +36,8 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     AppComponent,
     FormularioComunaComponent,
+    ModalConfirmacionComponent,
+    
     
     //NavprincipalComponent
    

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { FormularioComunaComponent } from 'src/app/components/formulario-comuna/formulario-comuna.component';
+import { ModalConfirmacionComponent } from 'src/app/components/modal-confirmacion/modal-confirmacion.component';
 import { FormulariocomunasComponent } from '../formulariocomunas/formulariocomunas.component';
 @Component({
   selector: 'app-comuna',
@@ -54,6 +55,32 @@ export class ComunaComponent implements OnInit {
       this.consultarComunaOne(this.comuna.id)
     })
     .catch((error)=>console.log("ocurrio un error al modificar ->",error))
+  }
+
+
+  
+  modalEliminar(){
+    const dialogRef = this.dialog.open(ModalConfirmacionComponent,{data: {titulo:"Seguro desea eliminar?",detalle:"esta accion es irreversible"}});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result',result);
+      if(result){
+         this.eliminar()
+      }
+      //luego de recibir los datos los mandamos a firebase
+    
+    });
+  }
+
+  //eliminar
+  eliminar(){
+    firebase.database().ref('comunas/'+this.comuna.id)
+    .set(null)
+    .then(()=>{
+      console.log('comuna eliminada correctamte')
+      this.router.navigate(['/comunas']);
+    })
+    .catch((error)=>console.log('ocurrio un error al intentar eliminar la comuna ',error))
   }
 
 }

@@ -12,8 +12,22 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button color="primary" (click)="modalFormulario()">modificar</button>
+            <button mat-button color="primary" >modificar</button>
         
         </mat-card-actions>
       </mat-card>
+</div>
+
+<div class="row end-xs">
+  <div class="box" (click)="modalEliminar()">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="box" (click)="modalFormulario()">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+  
 </div>

@@ -4,7 +4,7 @@
   <h1>Comunas de Valledupar</h1><br>
   <hr>
   
-  <div class="card" *ngFor="let comuna of keys(comunas)">
+  <div class="card" *ngFor="let comuna of keys(comunas)" [routerLink]="['/comunas/', comuna]">
   
       <div class="title">
         <h2>{{comunas[comuna]?.nombre}}</h2>
