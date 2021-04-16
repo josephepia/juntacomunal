@@ -28,7 +28,3 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: ./node_modules/.bin/firebase deploy --only hosting:"pruebas" --token "$FIREBASE_TOKEN"
-      - persist_to_workspace:
-        root: .
-        paths:
-          - .
