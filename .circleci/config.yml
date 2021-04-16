@@ -13,7 +13,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: install firebase tool
-          command: npm install -g firebase-tools
+          command: "sudo npm install -g firebase-tools"
       - run:
           name: Install Dependencies
           command: npm install
