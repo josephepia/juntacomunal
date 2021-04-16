@@ -1,6 +1,24 @@
 version: 2.1
 jobs:
-  build:
+  unit-tests:
+    machine: true
+    steps:
+        - checkout
+        - run: echo "Running unit tests"
+
+  integration-tests:
+    machine: true
+    steps:
+      - checkout
+      - run: echo "Running integration tests"
+
+  stress-tests:
+      machine: true
+      steps:
+        - checkout
+        - run: echo "Running stress tests"
+        
+  deploy-stage:
     docker:
       - image: cimg/node:12.16
     working_directory: ~/repo
@@ -25,3 +43,83 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: ./node_modules/.bin/firebase deploy --only hosting:"pruebas" --token "$FIREBASE_TOKEN"
+
+  deploy-prod:
+    docker:
+      - image: cimg/node:12.16
+    working_directory: ~/repo
+    
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build Application
+          command: npm run build
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Deploy to Firebase
+          command: ./node_modules/.bin/firebase deploy --only hosting:"produccion" --token "$FIREBASE_TOKEN"
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+     
+      # # Run the unit tests
+      #   - unit-tests:
+      #       filters:
+      #           tags:
+      #               only: /^[0-9]+.[0-9]+.[0-9]+$/ # Regex that match a release number like this 4.9.12
+
+      #   # Run the integration tests
+      #   - integration-tests:    
+      #       filters:
+      #           tags:
+      #               only: /^[0-9]+.[0-9]+.[0-9]+$/
+
+      #   # Run the stress tests
+      #   - stress-tests:
+      #       filters:
+      #           branches:
+      #               only:
+      #                   - master
+      #           tags:
+      #               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - hold:
+          type: approval
+          requires:
+              - unit-tests
+              - integration-tests
+              - stress-tests
+          filters:
+              branches:
+                  ignore: /.*/
+              tags:
+                  only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - deploy-stage:
+          requires:
+            #- build
+            # fase de pruebas 
+            - unit-tests
+            - integration-tests
+            - stress-tests
+          filters:
+            branches:
+              only: develop
+      
+      - deploy-prod:
+          requires:
+            - hold
+          filters:
+            branches:
+              only: master
