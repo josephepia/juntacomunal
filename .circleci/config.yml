@@ -4,10 +4,7 @@ jobs:
     docker:
       - image: cimg/node:12.16
     working_directory: ~/repo
-    - persist_to_workspace:
-      root: .
-      paths:
-        - .
+    
     steps:
       - checkout
       # Download and cache dependencies
@@ -31,3 +28,7 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: ./node_modules/.bin/firebase deploy --only hosting:"pruebas" --token "$FIREBASE_TOKEN"
+      - persist_to_workspace:
+        root: .
+        paths:
+          - .
