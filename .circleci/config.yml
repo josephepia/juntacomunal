@@ -92,7 +92,7 @@ workflows:
           filters:
               branches:
                   only:
-                      - master
+                    - master
               tags:
                   only: /^[0-9]+.[0-9]+.[0-9]+$/
       - hold:
@@ -103,7 +103,8 @@ workflows:
               - stress-tests
           filters:
               branches:
-                  ignore: /.*/
+                  only:
+                    - master
               tags:
                   only: /^[0-9]+.[0-9]+.[0-9]+$/
       - deploy-stage:
