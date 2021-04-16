@@ -4,6 +4,10 @@ jobs:
     docker:
       - image: cimg/node:12.16
     working_directory: ~/repo
+    - persist_to_workspace:
+      root: .
+      paths:
+        - .
     steps:
       - checkout
       # Download and cache dependencies
