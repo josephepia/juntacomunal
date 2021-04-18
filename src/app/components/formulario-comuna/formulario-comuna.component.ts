@@ -10,11 +10,11 @@ import { FormulariocomunasComponent } from 'src/app/pages/formulariocomunas/form
 })
 export class FormularioComunaComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<FormulariocomunasComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<FormulariocomunasComponent>, @Inject(MAT_DIALOG_DATA) public datosquellegan: any) { }
 
 
   ngOnInit(): void {
-    this.formulario.controls.nombre.setValue(this.data.nombre|| null);
+    this.formulario.controls.nombre.setValue(this.datosquellegan?.comuna?.nombre|| null);
   }
 
   //estructura para usar formulario reactivo

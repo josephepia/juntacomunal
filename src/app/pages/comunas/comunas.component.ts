@@ -4,6 +4,7 @@ import firebase from "firebase/app"
 import { NavigationExtras, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormulariocomunasComponent} from '../formulariocomunas/formulariocomunas.component'
+import { FormularioComunaComponent } from 'src/app/components/formulario-comuna/formulario-comuna.component';
 
 @Component({
   selector: 'app-comunas',
@@ -11,7 +12,7 @@ import { FormulariocomunasComponent} from '../formulariocomunas/formulariocomuna
   styleUrls: ['./comunas.component.scss']
 })
 export class ComunasComponent implements OnInit {
-
+  comuna:any = {}
   navigationExtras: NavigationExtras = {
     state: {
       value: null
@@ -78,5 +79,28 @@ export class ComunasComponent implements OnInit {
     this.modalService.open(FormulariocomunasComponent, { centered: true });
   }
   
+  modalFormulario(){
+    const dialogRef = this.dialog.open(FormularioComunaComponent, {data: {titulo: "Registrar", comuna: null}});
+
+    dialogRef.afterClosed().subscribe(comuna => {
+      console.log('datos ingresados al crear comuna',comuna);
+      if(comuna){
+         // registrar datos en firebase
+        this.registrarComuna(comuna)
+      }
+      //luego de recibir los datos los mandamos a firebase
+    
+    });
+  }
+
+  
+  registrarComuna(datos: Object){
+    firebase.database()
+    .ref('comunas/').push(datos)
+    .then(()=> {
+      console.log("registrada correctamente")
+    })
+    .catch((error)=>console.log("ocurrio un error al registrar ->",error))
+  }
 
 }

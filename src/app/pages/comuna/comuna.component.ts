@@ -35,7 +35,7 @@ export class ComunaComponent implements OnInit {
   //metodo para llamar al modal
 
   modalFormulario(){
-    const dialogRef = this.dialog.open(FormularioComunaComponent,{data: this.comuna});
+    const dialogRef = this.dialog.open(FormularioComunaComponent,{data:  {titulo: "modificar", comuna: this.comuna}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result',result);
