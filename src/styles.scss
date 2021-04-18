@@ -127,3 +127,202 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+// arreglo hasta 1000 recomendado para propiedades que no usen porcentaje
+@for $i from 0 through 1000{
+  //------------------------ redondear bordes 
+  .borde-radio-#{$i} {
+    border-radius: #{$i}px !important;
+    --border-radius: #{$i}px !important;
+  }
+
+  .borde-radio-top-#{$i} {
+    border-radius: #{$i}px #{$i}px 0 0 !important;
+    --border-radius: #{$i}px #{$i}px 0 0 !important;
+
+  }
+
+  .borde-radio-buton-#{$i} {
+    border-radius: 0 0 #{$i}px #{$i}px !important;
+  }
+  //--------------------------
+
+  // margen
+  .margin-#{$i} {
+    margin: #{$i}px !important;
+  }
+  //margin vertical
+  .margin-vertical-#{$i} {
+    margin-top: #{$i}px !important;
+    margin-bottom: #{$i}px !important;
+  }
+  //margin horizontal
+  .margin-horizontal-#{$i} {
+    margin-left: #{$i}px !important;
+    margin-right: #{$i}px !important;
+  }
+  //margin top
+  .margin-top-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  //marging bottom
+  .margin-bottom-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  //margin margin-left
+  .margin-left-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  //margin right
+  .margin-right-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+
+  //pading
+  .padding-#{$i} {
+    padding: #{$i}px !important;
+  }
+
+  .padding-top-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+  .padding-bottom-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+  .padding-start-#{$i} {
+    padding-left: #{$i}px !important;
+  }
+  .padding-end-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+
+  .padding-horizontal-#{$i} {
+    padding-left: #{$i}px !important;
+    padding-right: #{$i}px !important;
+  }
+
+  .padding-vertical-#{$i} {
+    padding-top: #{$i}px !important;
+    padding-bottom: #{$i}px !important;
+  }
+
+  //-------- tamano del texto en pixeles
+  .text-#{$i} {
+    font-size: #{$i}px !important;
+  }
+  //
+  // ancho en pixeles 
+  .w-#{$i} {
+    width: #{$i}px !important;
+  }
+  // alto en pixeles
+  .h-#{$i} {
+    height: #{$i}px !important;
+  }
+
+  //alto y ancho mismo tamano
+  .h-w-#{$i} {
+    height: #{$i}px !important;
+    width: #{$i}px !important;
+
+  }
+  // truncar texto especificando a partir de que linea
+  .trunc-#{$i} {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $i;
+    
+    -webkit-box-orient: vertical;
+    
+  }
+  //------------------------
+  // le cambia el tamano a cualquien elemento en forma simetrica 
+  .avatar-#{$i} {
+    overflow: hidden;
+    width: #{$i}px !important;
+    height: #{$i}px !important;
+  }
+
+  .max-h-#{$i} {
+    max-width: #{$i}px !important;
+  }
+
+  .maxmin-h-#{$i} {
+    min-height: #{$i}px !important;
+    max-height: #{$i}px !important;
+  }
+}
+//clases que utilizan porcentaje
+@for $i from 0 through 100{
+
+ 
+  // clip path mascara
+
+ .clip-circle-#{$i}p {
+    clip-path: circle(0% + $i at center);
+  }
+  
+
+  //tiempo de espera para animacion
+
+  .custom-delay-#{$i}{
+    animation-delay: #{$i/10}s !important; 
+  }
+  //borde radio porcentaje
+  .borde-radio-#{$i}p {
+    border-radius: 0% + $i !important;
+  }
+  // ancho en porcentaje 
+  .w-p-#{$i} {
+    width: 0% + $i !important;
+  }
+  // alto en porcentaje
+  .h-p-#{$i} {
+    height: 0% + $i !important;
+  }
+
+  //margin
+  .margin-#{$i}-porcent {
+    margin: 0% + $i !important;
+  }
+  //margin vertical
+  .margin-vertical-#{$i}porcent {
+    margin-top: 0% + $i !important;
+    margin-bottom: 0% + $i !important;
+  }
+  //margin horizontal
+  .margin-horizontal-#{$i}porcent {
+    margin-left: 0% + $i !important;
+    margin-right: 0% + $i !important;
+  }
+  //margin top
+  .margin-top-#{$i}porcent {
+    margin-top: 0% + $i !important;
+  }
+  //marging bottom
+  .margin-bottom-#{$i}porcent {
+    margin-bottom: 0% + $i !important;
+  }
+  //margin margin-left
+  .margin-left-#{$i}porcent {
+    margin-left: 0% + $i !important;
+  }
+  //margin right
+  .margin-right-#{$i}porcent {
+    margin-right: 0% + $i !important;
+  }
+
+  //pading
+  .padding-#{$i}porcent {
+    padding: 0% + $i !important;
+  }
+
+  .padding-horizontal-#{$i}porcent {
+    padding-left: 0% + $i !important;
+    padding-right: 0% + $i !important;
+  }
+
+  .padding-vertical-#{$i}porcent {
+    padding-top: 0% + $i !important;
+    padding-bottom: 0% + $i !important;
+  }
+}

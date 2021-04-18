@@ -3,7 +3,7 @@ import { HomeModule } from './pages/home/home.module';
 import { NavprincipalComponent } from './pages/navprincipal/navprincipal.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatSelectModule} from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,7 +53,7 @@ import { FormularioBarriosComponent } from './components/formulario-barrios/form
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-   
+   MatSelectModule,
     MatButtonModule,
     
 

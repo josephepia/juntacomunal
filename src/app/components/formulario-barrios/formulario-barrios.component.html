@@ -1,1 +1,46 @@
-<p>formulario-barrios works!</p>
+<form [formGroup]="formulario" (ngSubmit)="guardar()" (keyup.enter)="guardar()" autocomplete="on">
+
+    <div class="row center-xs">
+        <h4>{{datosquellegan?.titulo}} barrio</h4>
+    </div>
+    <mat-dialog-content>
+
+        <div class="row center-xs">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre (*)</mat-label>
+                <input matInput placeholder="Nombre" formControlName="nombre">
+            </mat-form-field>
+          
+            <mat-form-field appearance="fill">
+                <mat-label>Comuna</mat-label>
+                <mat-select formControlName="idComuna" >
+                    <mat-option>Seleccione</mat-option>
+                    <mat-option *ngFor="let comuna of keys(comunas)" [value]="comuna">
+                        {{comunas[comuna].nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+           
+             <mat-form-field appearance="fill">
+                <mat-label>Estrato</mat-label>
+                <mat-select formControlName="estrato" >
+                    <mat-option>Seleccione</mat-option>
+                    <mat-option [value]="1">1</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="3">3</mat-option>
+                    <mat-option [value]="4">4</mat-option>
+                    <mat-option [value]="5">5</mat-option>
+                    <mat-option [value]="6">6</mat-option>
+                </mat-select>
+             </mat-form-field>
+        </div>
+    </mat-dialog-content>
+        <div class="row center-xs">
+            
+        </div>
+    <div class="row center-xs">
+        <button mat-flat-button (click)="cancelar()" type="button">Cancelar</button>
+        <button mat-flat-button (click)="guardar()" type="submit" [disabled]="formulario.invalid">Guardar</button>
+    </div>
+
+</form>
