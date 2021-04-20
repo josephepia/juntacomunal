@@ -95,6 +95,16 @@ workflows:
                       - master
               tags:
                   only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - deploy-stage:
+          requires:
+            #- build
+            # fase de pruebas 
+            - unit-tests
+            - integration-tests
+            - stress-tests
+          filters:
+            branches:
+              only: develop
       - hold:
           type: approval
           requires:
@@ -106,17 +116,6 @@ workflows:
                   ignore: /.*/
               tags:
                   only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - deploy-stage:
-          requires:
-            #- build
-            # fase de pruebas 
-            - unit-tests
-            - integration-tests
-            - stress-tests
-          filters:
-            branches:
-              only: develop
-      
       - deploy-prod:
           requires:
             - hold
