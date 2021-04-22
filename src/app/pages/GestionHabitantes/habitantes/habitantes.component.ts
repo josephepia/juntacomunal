@@ -32,7 +32,8 @@ export class HabitantesComponent implements OnInit {
       nacimientohabitante: this.nacimientohabitante,
       generohabitante:this.generohabitante,
       telefonohabitante:this.telefonohabitante,
-      direccionhabitante:this.direccionhabitante
+      direccionhabitante:this.direccionhabitante,
+      rol:"MIEMBRO"
     })
   }
 }
