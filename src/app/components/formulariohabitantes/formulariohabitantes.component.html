@@ -1,0 +1,45 @@
+<p>formulariohabitantes works!</p>
+<form [formGroup]="formulario" (ngSubmit)="guardar()" (keyup.enter)="guardar()" autocomplete="on">
+
+    <div class="row center-xs">
+        <h4>{{datosquellegan?.titulo}} Habitantes</h4>
+    </div>
+    <mat-dialog-content>
+
+        <div class="row center-xs">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre (*)</mat-label>
+                <input type="text" matInput placeholder="Nombrehabitante" formControlName="nombrehabitante">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Apellido (*)</mat-label>
+                <input matInput placeholder="Apellidohabitante" formControlName="apellidohabitante">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha nacimiento (*)</mat-label>
+                <input type="date" matInput placeholder="Nacimientohabitante" formControlName="nacimientohabitante">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Genero (*)</mat-label>
+                <input matInput placeholder="Generohabitante" formControlName="generohabitante">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Telefono (*)</mat-label>
+                <input matInput placeholder="Telefonohabitante" formControlName="telefonohabitante">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Direccion (*)</mat-label>
+                <input matInput placeholder="Nombre" formControlName="direccionhabitante">
+            </mat-form-field>
+
+
+
+        </div>
+    </mat-dialog-content>
+
+    <div class="row center-xs">
+        <button mat-flat-button (click)="cancelar()" type="button">Cancelar</button>
+        <button mat-flat-button (click)="guardar()" type="submit" [disabled]="formulario.invalid">Guardar</button>
+    </div>
+
+</form>
