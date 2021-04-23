@@ -51,6 +51,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '~bootstrap/scss/bootstrap';
 
 
+.fab-right{
+  right: 16px;
+  bottom: 16px;
+  left: auto;
+  position: fixed !important;
+}
+
+.mat-dialog-container{
+  border-radius: 10px !important;
+}
+
 // arreglo hasta 1000 recomendado para propiedades que no usen porcentaje
 @for $i from 0 through 1000{
   //------------------------ redondear bordes 

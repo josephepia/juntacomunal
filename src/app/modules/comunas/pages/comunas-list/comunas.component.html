@@ -1,33 +1,21 @@
-<div class="container">
-  
-  <hr>
-  <h1>Comunas de Valledupar</h1><br>
-  <hr>
-  
-  <div class="card" *ngFor="let comuna of keys(comunas)"  (click)="goToComuna(comuna)">
-  
-      <div class="title">
-        <h2>{{comunas[comuna]?.nombre}}</h2>
-      </div>
-      <div class="des">
-          
-          <p>Barrios: <br> {{comunas[comuna]?.numerobarrios}}</p>
-        <div class="wrapper">
-          <div class="button">
-            <div class="icon">
-              <i  class="fas fa-pen"></i></div>
-          </div>
-          <div class="button">
-            <div class="icon">
-              <i class="fas fa-trash-alt"></i></div>
-          </div>
-        </div>
-      </div>
+
+  <div class="row margin-0 start-xs padding-16">
+    <mat-card-title>Comunas</mat-card-title>
+  </div>
+
+  <div class="row start-xs padding-16">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10" *ngFor="let comuna of keys(comunas)" >
+      <mat-card (click)="goToComuna(comuna)">
+        <mat-card-header >
+          <div mat-card-avatar class="example-header-image"></div>
+
+          <mat-card-title>{{comunas[comuna]?.nombre}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Nombre de la comuna</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
     </div>
-  
-    <div class="buttonFlooting">
-      <div class="icon">
-        <i class="fas fa-plus" (click)="modalFormulario()" ></i></div>
-    </div>
-  
-</div>
+  </div>
+
+<button mat-fab color="primary" class="fab-right" (click)="modalFormulario()">
+  <mat-icon>add</mat-icon>
+</button>

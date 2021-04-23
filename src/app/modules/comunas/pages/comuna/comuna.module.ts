@@ -6,6 +6,7 @@ import { ComunaComponent } from './comuna.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 
 
 
@@ -14,9 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     CommonModule,
     ComunaRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule
+    MaterialModule
   ]
 })
 export class ComunaModule { }

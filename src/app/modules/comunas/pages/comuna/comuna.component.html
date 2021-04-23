@@ -1,33 +1,44 @@
-<div class="row center-xs">
-    <mat-card class="col-xs-4 example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-           nombre: {{comuna?.nombre}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button color="primary" >modificar</button>
-        
-        </mat-card-actions>
-      </mat-card>
-</div>
 
-<div class="row end-xs">
-  <div class="box" (click)="modalEliminar()">
-    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </div>
-  <div class="box" (click)="modalFormulario()">
-    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-      <mat-icon>edit</mat-icon>
-    </button>
+  <div class="row margin-0 start-xs padding-16">
+    <mat-card-title>{{comuna?.nombre}}</mat-card-title>
   </div>
   
-</div>
+  <div class="row center-xs padding-16 margin-0">
+    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-10 center-xs">
+      <mat-card>
+        <mat-card-header class="center-xs" >
+
+          <mat-card-title>0</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Habitantes</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-10">
+      <mat-card>
+        <mat-card-header class="center-xs" >
+
+          <mat-card-title>0</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">PQRS activos</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-10">
+      <mat-card>
+        <mat-card-header class="center-xs" >
+
+          <mat-card-title>0</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Barrios</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+
+<mat-fab-menu color="primary"
+  direction="top"
+  tooltipPosition="bottom"
+  [fabButtons]="fabButtons"
+  class="fab-right"
+  icon="edit_note"
+  (onFabMenuItemSelected)= "opcionSeleccionada($event)"
+>
+</mat-fab-menu>

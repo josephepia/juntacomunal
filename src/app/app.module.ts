@@ -26,6 +26,7 @@ import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { MaterialModule } from './shared/modules/material/material.module';
 import { MenuAdminComponent } from './shared/components/menu-admin/menu-admin.component';
 import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-invitado.component';
+import { ModalConfirmacionComponent } from './shared/components/modal-confirmacion/modal-confirmacion.component';
 
 
 
@@ -34,7 +35,7 @@ import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-in
     AppComponent,
     MenuAdminComponent,
     MenuInvitadoComponent,
-  
+    ModalConfirmacionComponent
     //NavBarComponent
     
   ],

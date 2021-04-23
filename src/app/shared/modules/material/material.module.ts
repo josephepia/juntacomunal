@@ -15,6 +15,7 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { MatFabMenuModule } from '@angular-material-extensions/fab-menu';
 
 
 const MaterialComponents = [
@@ -36,6 +37,7 @@ const MaterialComponents = [
   MatButtonModule,
   MatSidenavModule,
   MatListModule,
+  MatFabMenuModule
   
 ]
 
