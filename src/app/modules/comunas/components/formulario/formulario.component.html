@@ -1,0 +1,22 @@
+<form [formGroup]="formulario" (ngSubmit)="guardar()" (keyup.enter)="guardar()" autocomplete="on">
+
+    <div class="row center-xs">
+      <h4>{{datosEntrada?.titulo}} comuna</h4>
+    </div>
+    <mat-dialog-content>
+     
+      <div class="row center-xs">
+        <mat-form-field class="w-172" appearance="outline">
+          <mat-label>Nombre (*)</mat-label>
+          <input matInput placeholder="Nombre"  formControlName="nombre">
+        </mat-form-field>
+    
+      </div>
+    </mat-dialog-content>
+  
+    <div class="row center-xs">
+      <button mat-flat-button (click)="cancelar()" type="button">Cancelar</button>
+      <button mat-flat-button (click)="guardar()"  type="submit" [disabled]="formulario.invalid" >Guardar</button>
+    </div>
+       
+  </form>
