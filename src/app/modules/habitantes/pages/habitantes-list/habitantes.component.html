@@ -6,65 +6,67 @@
     <mat-card-title>Registro Habitantes</mat-card-title>
     <mat-card-title></mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="https://www.enter.co/wp-content/uploads/2016/02/Registrar-el-IMEI-del-Celular-1024x768.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="https://www.enter.co/wp-content/uploads/2016/02/Registrar-el-IMEI-del-Celular-1024x768.jpg"
+    alt="Photo of a Shiba Inu">
   <div class="col-xs-20">
-  <mat-card-content>
-    <div>
-      <div class="row">
-        <div class="col-xs-6 row">
-          <mat-form-field>
-            <mat-label>Nombre</mat-label>
-            <input type="text" matInput placeholder="Nombrehabitante" required [(ngModel)]="nombrehabitante">
-          </mat-form-field>
+    <mat-card-content>
+      <div>
+        <div class="row">
+          <div class="col-xs-6 row">
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput placeholder="Nombrehabitante" required [(ngModel)]="nombrehabitante">
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6 row">
+            <mat-form-field>
+              <mat-label>Apellido</mat-label>
+              <input type="text" matInput placeholder="Apellidohabitante" required [(ngModel)]="apellidohabitante">
+            </mat-form-field>
+          </div>
         </div>
-        <div class="col-xs-6 row">
-          <mat-form-field>
-            <mat-label>Apellido</mat-label>
-            <input type="text" matInput placeholder="Apellidohabitante" required [(ngModel)]="apellidohabitante">
-          </mat-form-field>
+        <div class="row">
+          <div class="col-xs-6 row">
+            <mat-form-field>
+              <mat-label>Fecha de nacimiento</mat-label>
+              <input type="date" matInput placeholder="Nacimientohabitante" required [(ngModel)]="nacimientohabitante">
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6 row">
+            <mat-form-field>
+              <mat-label>Genero</mat-label>
+              <input type="text" matInput placeholder="Generohabitante" required [(ngModel)]="generohabitante">
+            </mat-form-field>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6 row">
-          <mat-form-field>
-            <mat-label>Fecha de nacimiento</mat-label>
-            <input type="date" matInput placeholder="Nacimientohabitante" required [(ngModel)]="nacimientohabitante">
-          </mat-form-field>
-        </div>
-        <div class="col-xs-6 row">
-          <mat-form-field>
-            <mat-label>Genero</mat-label>
-            <input type="text" matInput placeholder="Generohabitante" required [(ngModel)]="generohabitante">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6 row">
-          <mat-form-field>
-            <mat-label>Telefono</mat-label>
-            <input type="tel" matInput placeholder="Telefonohabitante" required [(ngModel)]="telefonohabitante">
-          </mat-form-field>
-        </div>
-        <div class="col-xs-6 row">
-          <mat-form-field>
-            <mat-label>Direccion</mat-label>
-            <input type="text" matInput placeholder="Direccionhabitante" required [(ngModel)]="direccionhabitante">
-          </mat-form-field>
-          
-        </div>
+        <div class="row">
+          <div class="col-xs-6 row">
+            <mat-form-field>
+              <mat-label>Telefono</mat-label>
+              <input type="tel" matInput placeholder="Telefonohabitante" required [(ngModel)]="telefonohabitante">
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6 row">
+            <mat-form-field>
+              <mat-label>Direccion</mat-label>
+              <input type="text" matInput placeholder="Direccionhabitante" required [(ngModel)]="direccionhabitante">
+            </mat-form-field>
 
-      </div>
-      <mat-card-actions>
-        <button mat-button class="btn btn-dark mt-2 btn-sm" (click)="registrarhabitante()">Registrar</button>
-      </mat-card-actions>
-    </div>
-  </mat-card-content>
-  
-</div>
+          </div>
 
-<div class="buttonFlooting">
-      <div class="icon">
-        <i class="fas fa-plus" (click)="modalFormulario()" ></i></div>
+        </div>
+        <mat-card-actions>
+          <button mat-button class="btn btn-dark mt-2 btn-sm" (click)="registrarhabitante()">Registrar</button>
+        </mat-card-actions>
+      </div>
+    </mat-card-content>
+
+  </div>
+
+  <div class="buttonFlooting">
+    <div class="icon">
+      <i class="fas fa-plus"></i>
     </div>
-  
+  </div>
+
 </mat-card>

@@ -11,10 +11,6 @@ import { NavigationExtras, Router } from '@angular/router';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { FormularioComunaComponent } from 'src/app/components/formulario-comuna/formulario-comuna.component';
-import { ModalConfirmacionComponent } from 'src/app/components/modal-confirmacion/modal-confirmacion.component';
-import { FormulariohabitantesComponent } from 'src/app/components/formulariohabitantes/formulariohabitantes.component';
-
 
 
 @Component({
@@ -52,19 +48,7 @@ export class HabitantesComponent implements OnInit {
       rol:"MIEMBRO"
     })
   }
-  modalFormulario(){
-    const dialogRef = this.dialog.open(FormulariohabitantesComponent, {data: {titulo: "Registrar", habitantes: null}});
-
-    dialogRef.afterClosed().subscribe(habitantes => {
-      console.log('datos ingresados al crear comuna',habitantes);
-      if(habitantes){
-         // registrar datos en firebase
-        this. registrarhabitantes(habitantes)
-      }
-      //luego de recibir los datos los mandamos a firebase
-    
-    });
-  }
+  
   registrarhabitantes(datos: Object){
     firebase.database()
     .ref('habitantes/').push(datos)

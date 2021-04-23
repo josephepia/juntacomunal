@@ -33,9 +33,6 @@ import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-in
 // import { FormularioBarriosComponent } from './components/formulario-barrios/formulario-barrios.component';
 // import { FormularioJacComponent } from './components/formulario-jac/formulario-jac.component';
 
-import { FormulariohabitantesComponent } from './components/formulariohabitantes/formulariohabitantes.component';
-
-
 
 @NgModule({
   declarations: [
