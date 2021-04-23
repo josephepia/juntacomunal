@@ -21,19 +21,11 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
-// import { FormularioComunaComponent } from './components/formulario-comuna/formulario-comuna.component';
-// import { FormulariocomunasComponent } from './pages/formulariocomunas/formulariocomunas.component';
-// import { FormulariocomunasModule } from './pages/formulariocomunas/formulariocomunas.module';
 import { MatInputModule } from '@angular/material/input';
-//import { MaterialModule } from './shared/material/material/material.module';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { MaterialModule } from './shared/modules/material/material.module';
 import { MenuAdminComponent } from './shared/components/menu-admin/menu-admin.component';
 import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-invitado.component';
-// import { FormularioBarriosComponent } from './components/formulario-barrios/formulario-barrios.component';
-// import { FormularioJacComponent } from './components/formulario-jac/formulario-jac.component';
-
-import { FormulariohabitantesComponent } from './components/formulariohabitantes/formulariohabitantes.component';
 
 
 
