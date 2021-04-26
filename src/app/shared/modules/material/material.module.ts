@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { MatFabMenuModule } from '@angular-material-extensions/fab-menu';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 const MaterialComponents = [
@@ -37,7 +38,9 @@ const MaterialComponents = [
   MatButtonModule,
   MatSidenavModule,
   MatListModule,
-  MatFabMenuModule
+  MatFabMenuModule,
+
+  FontAwesomeModule
   
 ]
 

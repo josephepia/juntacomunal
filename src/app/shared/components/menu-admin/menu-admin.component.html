@@ -1,4 +1,5 @@
-<mat-toolbar>
+<div class="example-container" >
+   <mat-toolbar class="example-toolbar" color="primary">
     <button mat-icon-button class="example-icon" (click)="snav.toggle()" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
@@ -6,17 +7,24 @@
     <span class="example-spacer"></span>
   
   </mat-toolbar>
-
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                         
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let page of adminPages" [routerLink]="[page.url]">{{page.title}}</a>
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="shadow1">
+      <mat-nav-list class="padding-16">
+        <mat-list-item *ngFor="let page of adminPages"  [routerLink]="[page.url]">
+          <mat-icon color="primary"  *ngIf="page.iconMaterial" matListIcon>{{page.iconMaterial}}</mat-icon>
+          <h3 matLine> {{page.title}}</h3>
+          <i *ngIf="page.iconFa" [class]="page.iconFa + ' primary'" matListIcon ></i>
+        </mat-list-item>
+        
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <ng-content></ng-content> 
+     
+        <ng-content></ng-content>   
     </mat-sidenav-content>
   </mat-sidenav-container>
+</div>

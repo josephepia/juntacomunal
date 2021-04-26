@@ -28,6 +28,27 @@ $juntadeaccioncomunal-theme: mat-light-theme((
   )
 ));
 
+.primary {
+  color: mat-color($juntadeaccioncomunal-primary);
+}
+.accent {
+  color: mat-color($juntadeaccioncomunal-accent);
+}
+.warn {
+  color: mat-color($juntadeaccioncomunal-warn);
+}
+
+.primary-back {
+  background-color: mat-color($juntadeaccioncomunal-primary);
+}
+.accent-back {
+  background-color: mat-color($juntadeaccioncomunal-accent);
+}
+.warn-back {
+  background-color: mat-color($juntadeaccioncomunal-warn);
+}
+
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -60,6 +81,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-dialog-container{
   border-radius: 10px !important;
+}
+
+.shadow1 { 
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2) !important;
+}
+
+.shadow2 { 
+  box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5) !important;
+}
+
+//background color 
+back-color{
+  background-color: #F2F7FF !important;
 }
 
 // arreglo hasta 1000 recomendado para propiedades que no usen porcentaje

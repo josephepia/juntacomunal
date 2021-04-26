@@ -28,6 +28,7 @@ import { MenuAdminComponent } from './shared/components/menu-admin/menu-admin.co
 import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-invitado.component';
 
 import { ModalConfirmacionComponent } from './shared/components/modal-confirmacion/modal-confirmacion.component';
+import { CardComponent } from './shared/components/card/card.component';
 
 
 
@@ -36,7 +37,8 @@ import { ModalConfirmacionComponent } from './shared/components/modal-confirmaci
     AppComponent,
     MenuAdminComponent,
     MenuInvitadoComponent,
-    ModalConfirmacionComponent
+    ModalConfirmacionComponent,
+    CardComponent
     //NavBarComponent
     
   ],

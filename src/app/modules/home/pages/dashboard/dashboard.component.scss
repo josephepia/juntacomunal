@@ -1,3 +1,21 @@
 html,body{
     height: 100%;
+    
+}
+
+.habitantesimage{
+    background-image: url(~src/assets/habitantes.svg);
+    background-size: cover;
+}
+.comunasimage{
+    background-image: url(~src/assets/comunas.svg);
+    background-size: cover;
+}
+.barriosimage{
+    background-image: url(~src/assets/barrios.svg);
+    background-size: cover;
+}
+.pqrsimage{
+    background-image: url(~src/assets/pqrs.svg);
+    background-size: cover;
 }
