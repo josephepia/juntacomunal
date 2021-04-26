@@ -96,6 +96,26 @@ back-color{
   background-color: #F2F7FF !important;
 }
 
+
+//imagenes de fondo
+
+.habitantesimage{
+  background-image: url(~src/assets/habitantes.svg);
+  background-size: cover;
+}
+.comunasimage{
+  background-image: url(~src/assets/comunas.svg);
+  background-size: cover;
+}
+.barriosimage{
+  background-image: url(~src/assets/barrios.svg);
+  background-size: cover;
+}
+.pqrsimage{
+  background-image: url(~src/assets/pqrs.svg);
+  background-size: cover;
+}
+
 // arreglo hasta 1000 recomendado para propiedades que no usen porcentaje
 @for $i from 0 through 1000{
   //------------------------ redondear bordes 
@@ -196,12 +216,10 @@ back-color{
   }
   // truncar texto especificando a partir de que linea
   .trunc-#{$i} {
-    display: -webkit-box;
+    display: -webkit-box !important;
     overflow: hidden;
     -webkit-line-clamp: $i;
-    
     -webkit-box-orient: vertical;
-    
   }
   //------------------------
   // le cambia el tamano a cualquien elemento en forma simetrica 
