@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CargosListRoutingModule } from './cargos-list-routing.module';
 import { CargosListComponent } from './cargos-list.component';
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CargosListComponent } from './cargos-list.component';
   ],
   imports: [
     CommonModule,
-    CargosListRoutingModule
+    CargosListRoutingModule,
+    MaterialModule
   ]
 })
 export class CargosListModule { }

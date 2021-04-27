@@ -61,7 +61,7 @@ export class MenuAdminComponent implements OnDestroy {
       iconFa:'fas fa-users'
     },
     {
-      title: 'Junta adinistrativa',
+      title: 'Junta administrativa',
       url: '/junta',
       iconMaterial: null,
       iconFa:'fas fa-user-shield'

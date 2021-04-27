@@ -11,7 +11,6 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: 'barrios', loadChildren: () => import('./modules/barrios/pages/barrios-list/barrios.module').then(m => m.BarriosModule) },
   { path: 'habitantes', loadChildren: () => import('./modules/habitantes/pages/habitantes-list/habitantes.module').then(m => m.HabitantesModule) },
   { path: 'SolicitudRegistroHabitantes', loadChildren: () => import('./modules/solicitudes/pages/solicitud-registro/solicitud-registro-habitantes.module').then(m => m.SolicitudRegistroHabitantesModule) },
   { path: 'Consultasolicitudhabitantes', loadChildren: () => import('./modules/solicitudes/pages/solicitudes-list/consultasolicitudhabitantes.module').then(m => m.ConsultasolicitudhabitantesModule) },

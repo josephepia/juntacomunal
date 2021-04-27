@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { JuntasListRoutingModule } from './juntas-list-routing.module';
 import { JuntasListComponent } from './juntas-list.component';
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { JuntasListComponent } from './juntas-list.component';
   ],
   imports: [
     CommonModule,
-    JuntasListRoutingModule
+    JuntasListRoutingModule,
+    MaterialModule
   ]
 })
 export class JuntasListModule { }

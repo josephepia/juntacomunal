@@ -14,7 +14,7 @@ import { MaterialModule } from 'src/app/shared/modules/material/material.module'
     JuntaComponent,
     FormularioCargoComponent,
     FormularioMiembroComponent,
-    FormularioJuntaComponent
+    FormularioJuntaComponent,
   ],
   imports: [
     CommonModule,
