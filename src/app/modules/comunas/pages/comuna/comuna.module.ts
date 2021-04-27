@@ -15,7 +15,8 @@ import { MaterialModule } from 'src/app/shared/modules/material/material.module'
   imports: [
     CommonModule,
     ComunaRoutingModule,
-    MaterialModule
+    MaterialModule,
+    
   ]
 })
 export class ComunaModule { }

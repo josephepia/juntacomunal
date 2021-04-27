@@ -17,6 +17,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { MatFabMenuModule } from '@angular-material-extensions/fab-menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 
 
 const MaterialComponents = [
@@ -39,6 +42,10 @@ const MaterialComponents = [
   MatSidenavModule,
   MatListModule,
   MatFabMenuModule,
+  MatTableModule,
+  MatButtonToggleModule,
+
+  
 
   FontAwesomeModule
   
