@@ -100,7 +100,7 @@ export class ComunaComponent implements OnInit {
   }
 
   modalFormularioBarrio(){
-    const dialogRef = this.dialog.open(FormualrioBarrioComponent,{data:  {titulo: "Registrar", barrio: null, comuna:this.comuna}});
+    const dialogRef = this.dialog.open(FormualrioBarrioComponent,{data:  {titulo: "Registrar", barrio: {idComuna:this.comuna.id, nombreComuna:this.comuna.nombre}}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result',result);
@@ -108,7 +108,7 @@ export class ComunaComponent implements OnInit {
 
         console.log('datos del barrio a registrar -> ',result);
         
-         //this.modificar(result)
+         this.registrarBarrio(result)
       }
       //luego de recibir los datos los mandamos a firebase
     
