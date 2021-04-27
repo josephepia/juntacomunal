@@ -1,1 +1,43 @@
-<p>barrio works!</p>
+
+  <div class="row margin-0 start-xs padding-16">
+    <mat-card-title>{{barrio?.nombre}}</mat-card-title>
+  </div>
+  
+  <div class="row margin-0 center-xs padding-16">
+    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+      <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs" >
+
+          <mat-card-title>{{barrio?.numeroHabitantes || '0'}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Habitantes</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+      <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs" >
+
+          <mat-card-title>{{barrio?.pqrsActivos || '0'}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">PQRS activos</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    
+  </div>
+
+<!-- inicio tabla para habitantes-->
+
+
+
+<!-- boton foltante -->
+<mat-fab-menu color="primary"
+  direction="top"
+  tooltipPosition="bottom"
+  [fabButtons]="fabButtons"
+  class="fab-right"
+  icon="edit_note"
+  (onFabMenuItemSelected)= "opcionSeleccionada($event)"
+  
+  
+>
+</mat-fab-menu>

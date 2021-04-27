@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BarrioRoutingModule } from './barrio-routing.module';
 import { BarrioComponent } from './barrio.component';
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { BarrioComponent } from './barrio.component';
   ],
   imports: [
     CommonModule,
-    BarrioRoutingModule
+    BarrioRoutingModule,
+    MaterialModule
   ]
 })
 export class BarrioModule { }
