@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase/app';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { FormularioComponent } from '../../components/formulario/formulario.component';
 
 @Component({
@@ -11,35 +11,27 @@ import { FormularioComponent } from '../../components/formulario/formulario.comp
   styleUrls: ['./barrios.component.scss']
 })
 export class BarriosComponent implements OnInit {
-  comuna:any
-  estrato:any
-  nombre:any
-  comunas:any
+ 
+  barrios:any = {}
   constructor(
     public dialog: MatDialog,
-
+    public router: Router,
+    public route: ActivatedRoute,
     public modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
     this.consultarBarrios()
-    setTimeout(()=> {
-    },1300)
-    this.consultarComunas()
   }
-  barrios:any
-  
+
   keys(objeto: Object){
-    return Object.keys(objeto|| {})
+    return Object.keys(objeto || {})
   }
 
   consultarBarrios(){
     firebase.database().ref('barrios').on('value',(datos)=>{
       if(datos.exists()){
-        this.barrios = datos.val()
-       
-  
-        
+        this.barrios = datos.val()        
       }else{
         this.barrios = {}
         console.log('no hay datos');
@@ -48,16 +40,13 @@ export class BarriosComponent implements OnInit {
     })
   }
 
-  abrirRegistrarBarrios() {  
-    this.modalService.open(FormularioComponent, { centered: true });
-  }
 
+  
   modalFormulario(){
-    //aca no se puede mandar nada al formulario ya que se va a crear uno nuevo
-    const dialogRef = this.dialog.open(FormularioComponent, {data: {titulo: "Registrar", barrio: this.barrios}});
+    const dialogRef = this.dialog.open(FormularioComponent, {data: {titulo: "Registrar", barrio: null}, panelClass: ['row','margin-0','col-sm-8','col-md-4','col-lg-4']});
 
     dialogRef.afterClosed().subscribe(barrio => {
-      console.log('datos ingresados al crear comuna',barrio);
+      console.log('datos ingresados al crear barrio',barrio);
       if(barrio){
          // registrar datos en firebase
         this.registrarBarrio(barrio)
@@ -66,6 +55,7 @@ export class BarriosComponent implements OnInit {
     
     });
   }
+
   
   registrarBarrio(datos: Object){
     firebase.database()
@@ -75,14 +65,9 @@ export class BarriosComponent implements OnInit {
     })
     .catch((error)=>console.log("ocurrio un error al registrar ->",error))
   }
-  consultarComunas(){
-    firebase.database().ref('comunas').once('value',(datos)=>{
-      if(datos.exists()){
-        this.comunas = datos.val()
-      }else{
-        this.comunas = {}
-      }
-    })
+
+  goToBarrio(barrio:any) {
+    this.router.navigate([barrio], { relativeTo: this.route });
   }
 
 }

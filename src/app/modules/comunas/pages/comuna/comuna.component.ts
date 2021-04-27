@@ -100,7 +100,7 @@ export class ComunaComponent implements OnInit {
   }
 
   modalFormularioBarrio(){
-    const dialogRef = this.dialog.open(FormualrioBarrioComponent,{data:  {titulo: "Registrar", barrio: {idComuna:this.comuna.id, nombreComuna:this.comuna.nombre}}});
+    const dialogRef = this.dialog.open(FormualrioBarrioComponent,{data:  {titulo: "Registrar", barrio: {idComuna:this.comuna.id, nombreComuna:this.comuna.nombre}}, panelClass: ['row','margin-0','col-sm-8','col-md-4','col-lg-4']});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result',result);
