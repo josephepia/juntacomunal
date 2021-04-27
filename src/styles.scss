@@ -122,6 +122,10 @@ back-color{
   background-size: cover;
 }
 
+.cursor-pointer{
+  cursor: pointer !important;
+}
+
 // arreglo hasta 1000 recomendado para propiedades que no usen porcentaje
 @for $i from 0 through 1000{
   //------------------------ redondear bordes 
