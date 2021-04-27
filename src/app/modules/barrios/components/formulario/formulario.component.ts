@@ -26,6 +26,7 @@ export class FormularioComponent implements OnInit {
 
   async ngOnInit(){
     await this.consultarComunas()
+
     this.formulario.controls.nombre.setValue(this.datosEntrada?.barrio?.nombre|| null);
     this.formulario.controls.idComuna.setValue(this.datosEntrada?.barrio?.idComuna|| null);
     this.formulario.controls.nombreComuna.setValue(this.datosEntrada?.barrio?.nombreComuna|| null);

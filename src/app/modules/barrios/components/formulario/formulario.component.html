@@ -13,7 +13,7 @@
           
             <mat-form-field appearance="fill">
                 <mat-label>Comuna</mat-label>
-                <mat-select formControlName="idComuna" >
+                <mat-select formControlName="idComuna" [disabled]="datosEntrada?.barrio?.idComuna">
                     <mat-option>Seleccione</mat-option>
                     <mat-option *ngFor="let comuna of keys(comunas)" [value]="comuna">
                         {{comunas[comuna].nombre}}
