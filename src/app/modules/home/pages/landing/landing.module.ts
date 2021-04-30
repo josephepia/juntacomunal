@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
-import { MaterialModule } from 'src/app/shared/modules/material/material.module';
+
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { MaterialModule } from 'src/app/shared/modules/material/material.module'
   ],
   imports: [
     CommonModule,
-    LandingRoutingModule,
+    LandingRoutingModule,MatCardModule,MatGridListModule,
   ]
 })
 export class LandingModule { }
