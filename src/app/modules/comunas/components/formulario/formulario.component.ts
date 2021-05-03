@@ -1,3 +1,5 @@
+import { Comuna } from './../../../../core/Modelos/comuna';
+import { ComunaService } from './../../../../core/services/comuna.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -9,21 +11,24 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class FormularioComponent implements OnInit {
 
-  
-  constructor(public dialogRef: MatDialogRef<FormularioComponent>, @Inject(MAT_DIALOG_DATA) public datosEntrada: any) { }
+ 
+
+  constructor(private comunaService:ComunaService, public dialogRef: MatDialogRef<FormularioComponent>, @Inject(MAT_DIALOG_DATA) public datosEntrada: any) {
+   
+   }
 
 
   ngOnInit(): void {
-    this.formulario.controls.nombre.setValue(this.datosEntrada?.comuna?.nombre|| null);
+    this.formulario.controls.nombre.setValue(this.datosEntrada?.comuna?.nombre || null);
   }
 
   //estructura para usar formulario reactivo
   formulario = new FormGroup({
-    nombre: new FormControl(null,[Validators.required,Validators.maxLength(40)]),
+    nombre: new FormControl(null, [Validators.required, Validators.maxLength(40)]),
   });
 
   //al cancelar el modal
-  cancelar(){
+  cancelar() {
     this.dialogRef.close(null)
   }
 
@@ -32,7 +37,7 @@ export class FormularioComponent implements OnInit {
     if (this.formulario.invalid) {
       return;
     }
-    
+
     this.dialogRef.close(this.formulario.value);
   }
 

@@ -1,12 +1,11 @@
 export class Persona {
     
-    identificacion!: string;
-    primerNombre!: string;
-    segundoNombre!: string;
-    primerApellido!: string;
-    segundoApellido!: string;
-    correo!: string;
-    telefono!: string;
-    rol!: string;
-
+    identificacion: string | undefined;
+    primerNombre: string | undefined;
+    segundoNombre: string | undefined;
+    primerApellido: string | undefined;
+    segundoApellido: string | undefined;
+    correo: string | undefined;
+    telefono: string | undefined;
+    rol: string | undefined;
 }
