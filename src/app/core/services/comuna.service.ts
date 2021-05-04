@@ -16,13 +16,12 @@ export class ComunaService {
   constructor() {  }
   database = firebase.database();
   comuna: Comuna = new Comuna;
+  comunaRef: firebase.database.Reference = firebase.database().ref('comunas')
 
   //Crea un nueva comuna
-  public createComuna(comuna: Comuna) {
-    firebase.database().ref('comunas/' + comuna.comunaId).set({
-      comunaNombre: comuna.nombreComuna,
-      comunaMunicipio: comuna.municipioComuna
-    });
+   createComuna(comuna: Object) {
+   return this.comunaRef.push(comuna);
+ 
   }
  
   //Obtiene nueva comuna
@@ -30,24 +29,40 @@ export class ComunaService {
     var starCountRef = firebase.database().ref('comunas/' + this.comuna.comunaId + '/starCount');
     starCountRef.on('value', (snapshot) => {
     const data = snapshot.val();
-    updateStarCount(postElement, data);
+    //updateStarCount(postElement, data);
     });
 
   }
   //Obtiene todos las comunas
-  public getComunas() {
-    
+  getComunasOn(): any{
+  return this.comunaRef.on('value',(datos)=>{
+      if(datos.exists()){
+       return datos.val()
+
+        
+      }else{
+       return null
+        
+      }
+    })
+  }
+
+  getComunasOnce(){
+    return this.comunaRef.once('value').then((datos)=>{
+      if(datos.exists()){       
+        return datos.val()
+      }else{
+        return null
+      }
+      
+    }).catch((error)=>{
+      return null
+    })
   }
   //Actualiza  comuna
   public updateComuna() {
    
   }
 }
-function postElement(postElement: any, data: any) {
-  throw new Error('Function not implemented.');
-}
 
-function updateStarCount(postElement: (postElement: any, data: any) => void, data: any) {
-  throw new Error('Function not implemented.');
-}
 
