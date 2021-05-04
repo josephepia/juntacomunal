@@ -26,9 +26,9 @@ export class ComunasComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-   
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private comunaService: ComunaService
     ) { }
 
   
@@ -90,7 +90,18 @@ export class ComunasComponent implements OnInit {
       console.log('datos ingresados al crear comuna',comuna);
       if(comuna){
          // registrar datos en firebase
-        this.registrarComuna(comuna)
+
+         this.comunaService.createComuna(comuna)
+         .then(()=>{
+            console.log("comuna registrada exitosamente");
+            
+         })
+         .catch((error)=>{
+          console.log("error al registrar comuna ", error);
+
+         })
+      
+       // this.registrarComuna(comuna)
       }
       //luego de recibir los datos los mandamos a firebase
     
