@@ -34,8 +34,30 @@ export class ComunaService {
 
   }
   //Obtiene todos las comunas
-  public getComunas() {
-    
+  getComunasOn(): any{
+  return this.comunaRef.on('value',(datos)=>{
+      if(datos.exists()){
+       return datos.val()
+
+        
+      }else{
+       return null
+        
+      }
+    })
+  }
+
+  getComunasOnce(){
+    return this.comunaRef.once('value').then((datos)=>{
+      if(datos.exists()){       
+        return datos.val()
+      }else{
+        return null
+      }
+      
+    }).catch((error)=>{
+      return null
+    })
   }
   //Actualiza  comuna
   public updateComuna() {
