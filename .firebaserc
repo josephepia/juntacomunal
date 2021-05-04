@@ -5,11 +5,8 @@
   "targets": {
     "junta-de-accion-comunal": {
       "hosting": {
-        "produccion": [
-          "juntaaccioncomunal"
-        ],
-        "pruebas": [
-          "juntaaccioncomulatest"
+        "juntadeaccioncomunal": [
+          "junta-de-accion-comunal"
         ]
       }
     }

@@ -4,7 +4,8 @@ import firebase from "firebase/app"
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormularioComponent } from '../../components/formulario/formulario.component';
-
+import { Comuna } from './../../../../core/Modelos/comuna';
+import { ComunaService } from './../../../../core/services/comuna.service';
 
 @Component({
   selector: 'app-comunas',
@@ -12,6 +13,9 @@ import { FormularioComponent } from '../../components/formulario/formulario.comp
   styleUrls: ['./comunas.component.scss']
 })
 export class ComunasComponent implements OnInit {
+   
+  
+
   comuna:any = {}
   navigationExtras: NavigationExtras = {
     state: {
@@ -22,14 +26,16 @@ export class ComunasComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+   
     private route: ActivatedRoute,
     private router: Router
-    ) { 
-    
-  }
+    ) { }
+
+  
 
   comunas:any
   barrios:any
+
 
   async consultarBarrios(comuna: any){
 
