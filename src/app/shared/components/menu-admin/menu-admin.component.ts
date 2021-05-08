@@ -55,6 +55,12 @@ export class MenuAdminComponent implements OnDestroy {
       iconFa:'fas fa-city'
     },
     {
+      title: 'Barrios',
+      url: '/barrios',
+      iconMaterial: null,
+      iconFa:'fas fa-city'
+    },
+    {
       title: 'Habitantes',
       url: '/habitantes',
       iconMaterial: null,
