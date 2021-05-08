@@ -26,9 +26,9 @@ export class ComunasComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+   
     private route: ActivatedRoute,
-    private router: Router,
-    private comunaService: ComunaService
+    private router: Router
     ) { }
 
   
@@ -54,28 +54,27 @@ export class ComunasComponent implements OnInit {
     return Object.keys(this.barrios)
   }
 
-  consultarComunasOn(){
-    console.log('datos devueltos por el metodo consultar comunason ', this.comunaService.getComunasOn()); 
-   
-  }
+  consultarComunas(){
+    firebase.database().ref('comunas').on('value',(datos)=>{
+      if(datos.exists()){
+        this.comunas = datos.val()
+        for(let comuna of this.keys(datos.val())){
+           
+        }
+        console.log("datos val -> ", datos.val());
 
-  consultarComunasOnce(){
-    this.comunaService.getComunasOnce().then((comunas)=>{
-     if(comunas){
-      console.log('comunas segundo then', comunas);
-      
-      
-     }else{
-       console.log('no existen comunas');
-       
-     }
-      this.comunas = comunas || {}
+        console.log("comunas -> ", this.comunas);
+        
+      }else{
+        this.comunas = {}
+        console.log('no hay datos');
+        
+      }
     })
-   
   }
 
   ngOnInit(): void {
-    this.consultarComunasOnce();
+    this.consultarComunas();
   }
 
   keys(objeto: Object){
@@ -91,19 +90,7 @@ export class ComunasComponent implements OnInit {
       console.log('datos ingresados al crear comuna',comuna);
       if(comuna){
          // registrar datos en firebase
-
-         this.comunaService.createComuna(comuna)
-         .then(()=>{
-            console.log("comuna registrada exitosamente");
-            this.consultarComunasOnce();
-            
-         })
-         .catch((error)=>{
-          console.log("error al registrar comuna ", error);
-
-         })
-      
-       // this.registrarComuna(comuna)
+        this.registrarComuna(comuna)
       }
       //luego de recibir los datos los mandamos a firebase
     
