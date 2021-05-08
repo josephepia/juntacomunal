@@ -21,9 +21,8 @@ export class ComunaService {
   //Crea un nueva comuna
    createComuna(comuna: Object) {
    return this.comunaRef.push(comuna);
- 
   }
- 
+
   //Obtiene nueva comuna
   public getComuna() {
     var starCountRef = firebase.database().ref('comunas/' + this.comuna.comunaId + '/starCount');
@@ -31,18 +30,15 @@ export class ComunaService {
     const data = snapshot.val();
     //updateStarCount(postElement, data);
     });
-
   }
+  
   //Obtiene todos las comunas
   getComunasOn(): any{
   return this.comunaRef.on('value',(datos)=>{
       if(datos.exists()){
        return datos.val()
-
-        
       }else{
        return null
-        
       }
     })
   }
@@ -54,7 +50,6 @@ export class ComunaService {
       }else{
         return null
       }
-      
     }).catch((error)=>{
       return null
     })

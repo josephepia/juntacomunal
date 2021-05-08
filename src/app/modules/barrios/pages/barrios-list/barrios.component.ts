@@ -1,3 +1,4 @@
+import { BarrioService } from './../../../../core/services/barrio.service';
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase/app';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,36 +13,23 @@ import { FormularioComponent } from '../../components/formulario/formulario.comp
 })
 export class BarriosComponent implements OnInit {
  
-  barrios:any = {}
+  barrio: any = {}
+  barrios: any
+
   constructor(
     public dialog: MatDialog,
     public router: Router,
     public route: ActivatedRoute,
-    public modalService: NgbModal
+    public modalService: NgbModal,
+    private barrioService: BarrioService
   ) { }
-
   ngOnInit(): void {
-    this.consultarBarrios()
+    this.consultarBarriosOnce()
   }
-
   keys(objeto: Object){
     return Object.keys(objeto || {})
   }
-
-  consultarBarrios(){
-    firebase.database().ref('barrios').on('value',(datos)=>{
-      if(datos.exists()){
-        this.barrios = datos.val()        
-      }else{
-        this.barrios = {}
-        console.log('no hay datos');
-        
-      }
-    })
-  }
-
-
-  
+  //CREATE SERVICE
   modalFormulario(){
     const dialogRef = this.dialog.open(FormularioComponent, {data: {titulo: "Registrar", barrio: null}, panelClass: ['row','margin-0','col-sm-8','col-md-4','col-lg-4']});
 
@@ -49,14 +37,37 @@ export class BarriosComponent implements OnInit {
       console.log('datos ingresados al crear barrio',barrio);
       if(barrio){
          // registrar datos en firebase
-        this.registrarBarrio(barrio)
+         this.barrioService.createBarrio(barrio)
+         .then(() => {
+           console.log("Barrio registrado exitosamente");
+           this.consultarBarriosOnce();
+         })
+         .catch((error) => {
+           console.log("error al registrar Barrio ", error);
+
+         })
+
+         //this.registrarBarrio(barrio)
       }
       //luego de recibir los datos los mandamos a firebase
     
     });
   }
-
-  
+  //CONSULTAR SERVICE
+  consultarBarriosOn(){
+    console.log('datos devueltos por el metodo consultar comunason ', this.barrioService.getBarriosOn());
+  }
+  consultarBarriosOnce() {
+    this.barrioService.getBarriosOnce().then((barrios) => {
+      if (barrios) {
+        console.log('barrios segundo then', barrios);
+      } else {
+        console.log('no existen comunas');
+      }
+      this.barrios = barrios || {}
+    })
+  }
+  //REVISAR
   registrarBarrio(datos: Object){
     firebase.database()
     .ref('barrios/').push(datos)
@@ -65,7 +76,6 @@ export class BarriosComponent implements OnInit {
     })
     .catch((error)=>console.log("ocurrio un error al registrar ->",error))
   }
-
   goToBarrio(barrio:any) {
     this.router.navigate([barrio], { relativeTo: this.route });
   }
