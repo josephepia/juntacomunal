@@ -18,13 +18,10 @@ export class ComunaService {
   comuna: Comuna = new Comuna;
 
   //Crea un nueva comuna
-  public createComuna(comuna: Comuna) {
-    firebase.database().ref('comunas/' + comuna.comunaId).set({
-      comunaNombre: comuna.nombreComuna,
-      comunaMunicipio: comuna.municipioComuna
-    });
+   createComuna(comuna: Object) {
+   return this.comunaRef.push(comuna);
   }
- 
+
   //Obtiene nueva comuna
   public getComuna() {
     var starCountRef = firebase.database().ref('comunas/' + this.comuna.comunaId + '/starCount');
@@ -32,11 +29,23 @@ export class ComunaService {
     const data = snapshot.val();
     updateStarCount(postElement, data);
     });
-
   }
+  
   //Obtiene todos las comunas
   public getComunas() {
     
+  }
+
+  getComunasOnce(){
+    return this.comunaRef.once('value').then((datos)=>{
+      if(datos.exists()){       
+        return datos.val()
+      }else{
+        return null
+      }
+    }).catch((error)=>{
+      return null
+    })
   }
   //Actualiza  comuna
   public updateComuna() {

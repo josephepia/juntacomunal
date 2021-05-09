@@ -1,98 +1,103 @@
+<section class="row margin-0 start-xs padding-16">
 
-  <div class="row margin-0 start-xs padding-16">
-    <mat-card-title>{{comuna?.nombre}}</mat-card-title>
+  <div >
+    <button mat-fab color="primary" class="mat-focus-indicator fab-le mat-fab mat-button-base mat-primary"
+      routerLink="/comunas">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
   
-  <div class="row margin-0 center-xs padding-16">
-    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
-      <mat-card class="shadow1 borde-radio-10">
-        <mat-card-header class="center-xs" >
-
-          <mat-card-title>{{comuna?.numeroHabitantes || '0'}}</mat-card-title>
-          <mat-card-subtitle class="margin-bottom-0">Habitantes</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
+    <div class="example-button-row ">
+      <mat-card-title >{{comuna?.nombre}}</mat-card-title>
     </div>
-    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
-      <mat-card class="shadow1 borde-radio-10">
-        <mat-card-header class="center-xs" >
 
-          <mat-card-title>{{comuna?.pqrsActivos || '0'}}</mat-card-title>
-          <mat-card-subtitle class="margin-bottom-0">PQRS activos</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-    </div>
-    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
-      <mat-card class="shadow1 borde-radio-10">
-        <mat-card-header class="center-xs" >
 
-          <mat-card-title>{{comuna?.barrios?.length || 0}}</mat-card-title>
-          <mat-card-subtitle class="margin-bottom-0">Barrios</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-    </div>
+</section>
+
+
+
+<div class="row margin-0 center-xs padding-16">
+  <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs">
+
+        <mat-card-title>{{comuna?.numeroHabitantes || '0'}}</mat-card-title>
+        <mat-card-subtitle class="margin-bottom-0">Habitantes</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
   </div>
+  <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs">
+
+        <mat-card-title>{{comuna?.pqrsActivos || '0'}}</mat-card-title>
+        <mat-card-subtitle class="margin-bottom-0">PQRS activos</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs">
+
+        <mat-card-title>{{comuna?.barrios?.length || 0}}</mat-card-title>
+        <mat-card-subtitle class="margin-bottom-0">Barrios</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>
 
 <!-- inicio tabla barrios-->
 
 <div class="row margin-0 padding-16">
 
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg" >
-        <div mat-card-avatar class="barriosimage"></div>
-        <mat-card-title>Barrios</mat-card-title>
-        <mat-card-subtitle class="margin-bottom-0">información</mat-card-subtitle>
-     
-      </mat-card-header>
-      <mat-card-content>
-        <table mat-table [dataSource]="comuna?.barrios">
+  <mat-card class="shadow1 borde-radio-10">
+    <mat-card-header class="center-xs start-md start-lg">
+      <div mat-card-avatar class="barriosimage"></div>
+      <mat-card-title>Barrios</mat-card-title>
+      <mat-card-subtitle class="margin-bottom-0">información</mat-card-subtitle>
 
-          <!-- Position Column -->
-          <ng-container matColumnDef="index">
-            <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
-          </ng-container>
-    
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="comuna?.barrios">
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef> Nombre </th>
-            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-          </ng-container>
-      
-          <!-- Weight Column -->
-          <ng-container matColumnDef="estrato">
-            <th mat-header-cell *matHeaderCellDef> Estrato </th>
-            <td mat-cell *matCellDef="let element"> {{element.estrato}} </td>
-          </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="numeroHabitantes">
-            <th mat-header-cell *matHeaderCellDef> # Habitantes </th>
-            <td mat-cell *matCellDef="let element"> {{element.numeroHabitantes || 'sin habitantes'}} </td>
-          </ng-container>
-      
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </mat-card-content>
-    </mat-card>
+        <!-- Position Column -->
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+        </ng-container>
 
-    
-  
-  
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="estrato">
+          <th mat-header-cell *matHeaderCellDef> Estrato </th>
+          <td mat-cell *matCellDef="let element"> {{element.estrato}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="numeroHabitantes">
+          <th mat-header-cell *matHeaderCellDef> # Habitantes </th>
+          <td mat-cell *matCellDef="let element"> {{element.numeroHabitantes || 'sin habitantes'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
 </div>
 
 
 <!-- boton foltante -->
-<mat-fab-menu color="primary"
-  direction="top"
-  tooltipPosition="bottom"
-  [fabButtons]="fabButtons"
-  class="fab-right"
-  icon="edit_note"
-  (onFabMenuItemSelected)= "opcionSeleccionada($event)"
-  
-  
->
+<mat-fab-menu color="primary" direction="top" tooltipPosition="bottom" [fabButtons]="fabButtons" class="fab-right"
+  icon="edit_note" (onFabMenuItemSelected)="opcionSeleccionada($event)">
 </mat-fab-menu>

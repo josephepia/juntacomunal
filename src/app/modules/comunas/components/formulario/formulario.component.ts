@@ -13,7 +13,10 @@ export class FormularioComponent implements OnInit {
 
  
 
-  constructor(private comunaService:ComunaService, public dialogRef: MatDialogRef<FormularioComponent>, @Inject(MAT_DIALOG_DATA) public datosEntrada: any) {
+  constructor(
+    private comunaService:ComunaService, 
+    public dialogRef: MatDialogRef<FormularioComponent>, 
+    @Inject(MAT_DIALOG_DATA) public datosEntrada: any) {
    
    }
 

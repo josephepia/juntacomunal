@@ -21,11 +21,12 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-            </div>    
+            </div>
+
             <div class="rcol-xs-12 center-xs">
                 <mat-form-field appearance="fill">
                     <mat-label>Estrato</mat-label>
-                    <mat-select formControlName="estrato" >
+                    <mat-select formControlName="estrato">
                         <mat-option>Seleccione</mat-option>
                         <mat-option [value]="1">1</mat-option>
                         <mat-option [value]="2">2</mat-option>
@@ -34,21 +35,19 @@
                         <mat-option [value]="5">5</mat-option>
                         <mat-option [value]="6">6</mat-option>
                     </mat-select>
-                    </mat-form-field>
-            </div> 
+                </mat-form-field>
+            </div>
         </div>
-        
-        
-     
     </mat-dialog-content>
 
     <div class="row margin-0 center-xs">
         <div class="col-xs-6">
-          <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
+            <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
         </div>
         <div class="col-xs-6">
-          <button mat-flat-button (click)="guardar()"  type="submit" color="primary" [disabled]="formulario.invalid" >Guardar</button>
+            <button mat-flat-button (click)="guardar()" type="submit" color="primary"
+                [disabled]="formulario.invalid">Guardar</button>
         </div>
-      </div>
+    </div>
 
 </form>
