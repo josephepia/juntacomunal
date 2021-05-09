@@ -27,7 +27,12 @@ const routes: Routes = [
   },
   { path: 'junta', loadChildren: () => import('./modules/junta/junta.module').then(m => m.JuntaModule) },
   { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
-  { path: 'autenticacion', loadChildren: () => import('./modules/autenticacion/autenticacion.module').then(m => m.AutenticacionModule) }
+  { path: 'autenticacion', loadChildren: () => import('./modules/autenticacion/autenticacion.module').then(m => m.AutenticacionModule) },
+  
+  
+  { path: 'pqrs', loadChildren: () => import('./modules/pqrs/pqrs.module').then(m => m.PqrsModule) },
+  { path: 'pqrs-list', loadChildren: () => import('./modules/pqrs/pages/pqrs-list/pqrs-list.module').then(m => m.PqrsListModule) },
+  //{ path: 'pqrs', loadChildren: () => import('./modules/pqrs/pages/pqrs/pqrs.module').then(m => m.PqrsModule) }
 
 
 ];

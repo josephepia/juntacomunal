@@ -1,0 +1,54 @@
+// TITULO
+h1{
+    text-align: center;
+    padding-top: 20px;
+    font-family:  'Times New Roman', Times, serif;
+    font-size: 75px;
+}
+
+.btn-outline-info{
+    width: 100%;
+}
+
+////////////////////
+
+//ESTILO DE LOS BOTONES ELIMINAR Y MODIFICAR
+
+
+  ////////////////////////////
+
+///////////////////////////////
+
+  //ESTILO DE LAS CARDS
+
+  .title {
+    text-align: center;
+    padding-top: 10px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .des {
+    padding: 3px;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .card {
+    font-family: 'Poppins', sans-serif;
+    width: 20%;
+    display: inline-block;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 5px;
+    margin: 2%;
+    max-height: 76px;
+  }
+  .example-header-image {
+    background-image: url('https://www.flaticon.es/svg/vstatic/svg/4284/4284747.svg?token=exp=1619193812~hmac=e87d765f7f41e46a1d7b496810f01cd4');
+    background-size: cover;
+  }
+  
