@@ -13,10 +13,12 @@ import firebase from 'firebase/app';
 
 export class ComunaService {
 
-  constructor() {  }
+  constructor(
+    
+  ) {  }
   database = firebase.database();
   comuna: Comuna = new Comuna;
-
+  comunaRef: firebase.database.Reference = firebase.database().ref('comunas')
   //Crea un nueva comuna
    createComuna(comuna: Object) {
    return this.comunaRef.push(comuna);

@@ -66,10 +66,7 @@ export class ComunasComponent implements OnInit {
     });
   }
   //CONSULTAR SERVICE
-  consultarComunasOn() {
-    console.log('datos devueltos por el metodo consultar comunason ', this.comunaService.getComunasOn());
 
-  }
   consultarComunasOnce() {
     this.comunaService.getComunasOnce().then((comunas) => {
       if (comunas) {
