@@ -1,8 +1,10 @@
+import { FormularioMiembroComponent } from './../../components/formulario-miembro/formulario-miembro.component';
+import { FormularioJuntaComponent } from './../../components/formulario-junta/formulario-junta.component';
+import { MiembroJACService } from './../../../../core/services/miembro-jac.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import firebase from 'firebase/app';
-import { FormularioMiembroComponent } from '../../components/formulario-miembro/formulario-miembro.component';
 @Component({
   selector: 'app-miembros-list',
   templateUrl: './miembros-list.component.html',
@@ -10,71 +12,75 @@ import { FormularioMiembroComponent } from '../../components/formulario-miembro/
 })
 export class MiembrosListComponent implements OnInit {
 
-  identificacion:any
-  nombrehabitante:any
-  apellidohabitante:any
-  nacimientohabitante:any
-  generohabitante:any
-  telefonohabitante:any
-  direccionhabitante:any
-  rol:any
-  
-
+  miembros: any
+  miembro: any = {}
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog,
-  ) {}
-
-  miembros:any = {}
+    private miembroService: MiembroJACService
+  ) { }
 
   ngOnInit(): void {
-    this.consultarMiembros()
+    this.consultarMiembrosOnce();
   }
-  
 
-  keys(objeto: Object){
+  keys(objeto: Object) {
     return Object.keys(objeto || {})
   }
-
-  consultarMiembros(){
-
-    firebase.database().ref('MiembrosJAC').once("value",(datos)=>{
-      if(datos.exists()){
-        this.miembros = datos.val()
-      }else{
-        this.miembros = {}
-      }
-    })
-
-  }
-
-
-  modalFormulario(){
+  //CREATE SERVICE
+  modalFormulario() {
     //aca no se puede mandar nada al formulario ya que se va a crear uno nuevo
-    const dialogRef = this.dialog.open(FormularioMiembroComponent, {data: {titulo: "Registrar", miembros: this.miembros}});
+    const dialogRef = this.dialog.open(FormularioMiembroComponent, { data: { titulo: "Registrar", miembro: null }, panelClass: ['row', 'margin-0', 'col-sm-8', 'col-md-4', 'col-lg-4'] });
 
-    dialogRef.afterClosed().subscribe(miembros => {
-      console.log('datos ingresados al crear comuna',miembros);
-      if(miembros){
-         // registrar datos en firebase
-        this.registrarMiembro(miembros)
-        
+    dialogRef.afterClosed().subscribe(miembro => {
+      console.log('datos ingresados al crear Miembro', miembro);
+      if (miembro) {
+        // registrar datos en firebase
+        // registrar datos en firebase
+        this.miembroService.createMiembro(miembro)
+          .then(() => {
+            console.log("Miembro registrado exitosamente");
+            this.consultarMiembrosOnce();
+          })
+          .catch((error) => {
+            console.log("error al registrar Barrio ", error);
+
+          })
+
+        //this.registrarMiembro(miembro)
+
       }
       //luego de recibir los datos los mandamos a firebase
-    
+
     });
   }
-
-  registrarMiembro(datos:any){
-      firebase.database()
-    .ref('MiembrosJAC/').push(datos)
-    .then(()=> {
-      console.log("registrada correctamente")
+  consultarMiembrosOn() {
+    console.log('datos devueltos por el metodo consultar Miembrosason ', this.miembroService.getMiembrosOn());
+  }
+  consultarMiembrosOnce() {
+    this.miembroService.getMiembrosOnce().then((miembros) => {
+      if (miembros) {
+        console.log('miembros segundo then', miembros);
+      } else {
+        console.log('no existen miembros');
+      }
+      this.miembros = miembros || {}
     })
-    .catch((error)=>console.log("ocurrio un error al registrar ->",error))
   }
 
+  //Revisar esto
+  registrarMiembro(datos: any) {
+    firebase.database()
+      .ref('MiembrosJAC/').push(datos)
+      .then(() => {
+        console.log("registrada correctamente")
+      })
+      .catch((error) => console.log("ocurrio un error al registrar ->", error))
+  }
+  goToMiembro(miembro:any) {
+    this.router.navigate([miembro], { relativeTo: this.route });
+  }
 
 }

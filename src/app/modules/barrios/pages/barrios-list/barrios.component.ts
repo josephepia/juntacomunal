@@ -55,7 +55,7 @@ export class BarriosComponent implements OnInit {
   }
   //CONSULTAR SERVICE
   consultarBarriosOn(){
-    console.log('datos devueltos por el metodo consultar comunason ', this.barrioService.getBarriosOn());
+    console.log('datos devueltos por el metodo consultar Barriosson ', this.barrioService.getBarriosOn());
   }
   consultarBarriosOnce() {
     this.barrioService.getBarriosOnce().then((barrios) => {

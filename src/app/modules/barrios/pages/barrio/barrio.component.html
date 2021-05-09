@@ -1,7 +1,19 @@
+<section class="row margin-0 start-xs padding-16">
 
-  <div class="row margin-0 start-xs padding-16">
-    <mat-card-title>{{barrio?.nombre}}</mat-card-title>
+  <div >
+    <button mat-fab color="primary" class="mat-focus-indicator fab-le mat-fab mat-button-base mat-primary"
+      routerLink="/barrios">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
+  
+    <div class="example-button-row ">
+      <mat-card-title>{{barrio?.nombre}}</mat-card-title>
+    </div>
+
+
+</section>
+  
   
   <div class="row margin-0 center-xs padding-16">
     <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
@@ -37,7 +49,7 @@
   class="fab-right"
   icon="edit_note"
   (onFabMenuItemSelected)= "opcionSeleccionada($event)"
-  
-  
+
 >
 </mat-fab-menu>
+

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MiembroRoutingModule } from './miembro-routing.module';
 import { MiembroComponent } from './miembro.component';
-
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { MiembroComponent } from './miembro.component';
   ],
   imports: [
     CommonModule,
-    MiembroRoutingModule
+    MiembroRoutingModule,
+    MaterialModule
   ]
 })
 export class MiembroModule { }

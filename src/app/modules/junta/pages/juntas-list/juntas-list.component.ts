@@ -20,4 +20,7 @@ export class JuntasListComponent implements OnInit {
   goToCargos() {
     this.router.navigate(['cargos'], { relativeTo: this.route });
   }
+  goToMiembros() {
+    this.router.navigate(['miembros'], { relativeTo: this.route });
+  }
 }
