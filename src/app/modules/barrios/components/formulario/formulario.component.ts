@@ -9,7 +9,9 @@ import firebase from 'firebase/app'
 })
 export class FormularioComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<FormularioComponent>, @Inject(MAT_DIALOG_DATA) public datosEntrada: any) { 
+  constructor(
+    public dialogRef: MatDialogRef<FormularioComponent>, 
+    @Inject(MAT_DIALOG_DATA) public datosEntrada: any) { 
 
 
     this.formulario.controls.idComuna.valueChanges.subscribe((idcomuna)=>{
@@ -38,7 +40,6 @@ export class FormularioComponent implements OnInit {
     idComuna: new FormControl(null,[Validators.required]),
     nombreComuna: new FormControl(null,[Validators.required]),
     estrato: new FormControl(null,[Validators.required]),
-
   });
 
   controlPrueba= new FormControl(null,[Validators.required]);
