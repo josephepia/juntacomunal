@@ -19,7 +19,7 @@ import { MatFabMenuModule } from '@angular-material-extensions/fab-menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 const MaterialComponents = [
@@ -31,7 +31,7 @@ const MaterialComponents = [
   MatButtonModule,
   MatStepperModule,
   CdkStepperModule,
-  
+  MatCarouselModule.forRoot(),
   MatToolbarModule,
   MatIconModule,
 

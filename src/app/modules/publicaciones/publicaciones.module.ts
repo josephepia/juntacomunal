@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {MatCardModule} from '@angular/material/card';
+
 import { PublicacionesRoutingModule } from './publicaciones-routing.module';
 import { PublicacionesComponent } from './publicaciones.component';
 
@@ -11,7 +13,7 @@ import { PublicacionesComponent } from './publicaciones.component';
   ],
   imports: [
     CommonModule,
-    PublicacionesRoutingModule
+    PublicacionesRoutingModule,MatCardModule
   ]
 })
 export class PublicacionesModule { }

@@ -30,6 +30,8 @@ import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-in
 import { ModalConfirmacionComponent } from './shared/components/modal-confirmacion/modal-confirmacion.component';
 import { CardComponent } from './shared/components/card/card.component';
 
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 
 
 @NgModule({
@@ -47,7 +49,7 @@ import { CardComponent } from './shared/components/card/card.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     
-    
+    MatCarouselModule,
 
     FormsModule,
     ReactiveFormsModule,
