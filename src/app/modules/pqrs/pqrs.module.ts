@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PqrsRoutingModule } from './pqrs-routing.module';
 import { PqrsComponent } from './pqrs.component';
 
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { PqrsComponent } from './pqrs.component';
   ],
   imports: [
     CommonModule,
-    PqrsRoutingModule
+    PqrsRoutingModule,
+    MaterialModule
   ]
 })
 export class PqrsModule { }

@@ -1,1 +1,55 @@
-<p>pqrs works!</p>
+<br>
+<div class="row margin-0 start-xs padding-16">
+    <mat-card-title>Mas detalles</mat-card-title>
+</div>
+
+
+<!-- detalles del pqrs -->
+
+<div class="row margin-0 padding-16">
+
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg" >
+        <mat-card-subtitle class="margin-bottom-0">Asunto</mat-card-subtitle>
+        <mat-card-title>{{pqrs?.tituloPQRS}}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+
+    <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs start-md start-lg" >
+            <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
+            <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+
+    <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs start-md start-lg" >
+            <mat-card-subtitle class="margin-bottom-0">Barrio</mat-card-subtitle>
+            <mat-card-title>NN</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+
+    <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs start-md start-lg" >
+            <mat-card-title>Descripcion</mat-card-title>
+            <mat-card-subtitle class="margin-bottom-0">{{pqrs?.descripcion}}</mat-card-subtitle>
+            
+        </mat-card-header>
+    </mat-card>
+  
+</div>
+
+
+<!-- boton foltante -->
+<mat-fab-menu color="primary"
+  direction="top"
+  tooltipPosition="bottom"
+  [fabButtons]="fabButtons"
+  class="fab-right"
+  icon="edit_note"
+  (onFabMenuItemSelected)= "opcionSeleccionada($event)"
+  
+  
+>
+</mat-fab-menu>
+

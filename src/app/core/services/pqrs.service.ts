@@ -19,12 +19,12 @@ export class PQRSService {
   pqrs: PQRS = new PQRS;
   pqrsRef: firebase.database.Reference = firebase.database().ref('PQRS')
 
-  //Crea un nueva comuna
+  //Crea un nuevo PQRS
   createPQRS(pqrs: Object) {
    return this.pqrsRef.push(pqrs);
   }
  
-  //Obtiene nueva comuna
+  //no se lo que hace xD
   public getPQRS() {
     var starCountRef = firebase.database().ref('PQRS/' + this.pqrs.pqrsId + '/starCount');
     starCountRef.on('value', (snapshot) => {
@@ -33,7 +33,7 @@ export class PQRSService {
     });
   }
 
-  //Obtiene todos las comunas
+  //Obtiene todos los PQRS
   getPQRSOn(): any{
   return this.pqrsRef.on('value',(datos)=>{
       if(datos.exists()){
@@ -56,6 +56,23 @@ export class PQRSService {
       return null
     })
   }
+
+  //Obtener un PQRS
+
+  ConsultarPQRSIndividual(id: PQRS){
+    const url: firebase.database.Reference = firebase.database().ref('PQRS/'+id)
+
+    return url.once('value').then((datos)=>{
+      if(datos.exists()){
+        return datos.val();
+      }else{
+        return null
+      }
+    }).catch((error)=>{
+      return null
+    })
+  }
+ 
   
   //Actualiza  comuna
   public updateComuna() {

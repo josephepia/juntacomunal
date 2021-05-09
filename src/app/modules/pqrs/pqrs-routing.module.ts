@@ -5,7 +5,7 @@ import { PqrsComponent } from './pqrs.component';
 
 const routes: Routes = [
   //{ path: '', component: ComunasComponent, redirectTo: 'comunas', pathMatch: 'full'},
-  //{ path: ':id', loadChildren: () => import('./pages/comuna/comuna.module').then(m => m.ComunaModule) },
+  { path: ':id', loadChildren: () => import('./pages/pqrs/pqrs.module').then(m => m.PqrsModule) },
   { path: '', loadChildren: () => import('./pages/pqrs-list/pqrs-list.module').then(m => m.PqrsListModule) }
 
 ];
