@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { PublicacionRoutingModule } from './publicacion-routing.module';
 import { PublicacionComponent } from './publicacion.component';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
+
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 
 @NgModule({
   declarations: [
     PublicacionComponent
   ],
   imports: [
-    CommonModule,MatCarouselModule,
+    CommonModule,MaterialModule,
     PublicacionRoutingModule
   ]
 })

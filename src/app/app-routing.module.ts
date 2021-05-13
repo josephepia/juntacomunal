@@ -32,9 +32,9 @@ const routes: Routes = [
   
   { path: 'pqrs', loadChildren: () => import('./modules/pqrs/pqrs.module').then(m => m.PqrsModule) },
   { path: 'pqrs-list', loadChildren: () => import('./modules/pqrs/pages/pqrs-list/pqrs-list.module').then(m => m.PqrsListModule) },
-  { path: 'publicaciones', loadChildren: () => import('./modules/publicaciones/publicaciones.module').then(m => m.PublicacionesModule) },
+  //{ path: 'publicaciones', loadChildren: () => import('./modules/publicaciones/publicaciones.module').then(m => m.PublicacionesModule) },
   
-  { path: 'publicaciones-list', loadChildren: () => import('./modules/publicaciones/pages/publicaciones-list/publicaciones-list.module').then(m => m.PublicacionesListModule) },
+  { path: 'publicaciones', loadChildren: () => import('./modules/publicaciones/pages/publicaciones-list/publicaciones-list.module').then(m => m.PublicacionesListModule) },
   { path: 'publicacion', loadChildren: () => import('./modules/publicaciones/pages/publicacion/publicacion.module').then(m => m.PublicacionModule) },
   
   //{ path: 'pqrs', loadChildren: () => import('./modules/pqrs/pages/pqrs/pqrs.module').then(m => m.PqrsModule) }
