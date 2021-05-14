@@ -6,6 +6,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { PublicacionesService } from 'src/app/core/services/publicaciones.service';
+import { FormularioComponent } from '../../components/formulario/formulario.component';
 
 
 @Component({
@@ -60,8 +61,36 @@ export class PublicacionesListComponent implements OnInit {
     private router: Router,
     private publicacionesService: PublicacionesService
   ) { }
+
+  
+  modalFormulario() {
+    const dialogRef = this.dialog.open(FormularioComponent, { data: { titulo: "Registrar", publicaciones: null } });
+
+    dialogRef.afterClosed().subscribe(publicaciones => {
+      console.log('datos ingresados al crear publicaciones', publicaciones);
+      if (publicaciones) {
+        // registrar datos en firebase
+
+        this.publicacionesService.createPUBLICACIONES(publicaciones)
+          .then(() => {
+            console.log("comuna registrada exitosamente");
+            this.consultarPUBLICACIONESOnce();
+
+          })
+          .catch((error) => {
+            console.log("error al registrar comuna ", error);
+
+          })
+
+        // this.registrarComuna(comuna)
+      }
+      //luego de recibir los datos los mandamos a firebase
+
+    });
+  }
   publicaciones_list:any
   consultarPUBLICACIONESOnce(){
+    location.reload();
     this.publicacionesService.getPUBLICACIONESOnce().then((publicaciones)=>{
      if(publicaciones){
       console.log('publicaciones segundo then', this.publicaciones_list);

@@ -3,4 +3,5 @@ export class Publicaciones {
     tituloPublicacion: string | undefined;
     descripcionPublicacion: string | undefined;
     anexosPublicacion: any | undefined;
+    urlImage: any| undefined;
 }
