@@ -26,7 +26,7 @@ import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { MaterialModule } from './shared/modules/material/material.module';
 import { MenuAdminComponent } from './shared/components/menu-admin/menu-admin.component';
 import { MenuInvitadoComponent } from './shared/components/menu-invitado/menu-invitado.component';
-
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ModalConfirmacionComponent } from './shared/components/modal-confirmacion/modal-confirmacion.component';
 import { CardComponent } from './shared/components/card/card.component';
 
@@ -48,7 +48,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
+ 
     MatCarouselModule,
 
     FormsModule,

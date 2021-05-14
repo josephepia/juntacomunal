@@ -40,6 +40,19 @@ export class PublicacionesService {
   getPUBLICACIONESOnce(){
     return this.publicacionesRef.once('value').then((datos)=>{
       if(datos.exists()){       
+        return datos
+      }else{
+        return null
+      }
+      
+    }).catch((error)=>{
+      return null
+    })
+  }
+
+  getLastFivePublicacionesOnce(){
+    return this.publicacionesRef.limitToLast(5).once('value').then((datos)=>{
+      if(datos.exists()){       
         return datos.val()
       }else{
         return null
@@ -49,10 +62,10 @@ export class PublicacionesService {
       return null
     })
   }
-  ConsultarPUBLICACIONESIndividual(id: Publicaciones){
-    const url: firebase.database.Reference = firebase.database().ref('PUBLICACIONES/'+id)
+  ConsultarPUBLICACIONESIndividual(id: string){
+   // const url: firebase.database.Reference = firebase.database().ref('PUBLICACIONES/'+id)
 
-    return url.once('value').then((datos)=>{
+    return this.publicacionesRef.child(id).once('value').then((datos)=>{
       if(datos.exists()){
         return datos.val();
       }else{
