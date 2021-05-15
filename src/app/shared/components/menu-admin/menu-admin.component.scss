@@ -7,13 +7,15 @@
     left: 0;
     right: 0;
   }
-  
+  .material-icons.color_red { color: #ff0000; }
   .example-is-mobile .example-toolbar {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
   }
-  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
   h1.example-app-name {
     margin-left: 8px;
   }

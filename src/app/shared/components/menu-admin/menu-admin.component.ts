@@ -1,7 +1,9 @@
+import { UserAuthService } from 'src/app/core/services/user-auth.service';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-menu-admin',
   templateUrl: './menu-admin.component.html',
@@ -79,14 +81,22 @@ export class MenuAdminComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, library: FaIconLibrary) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+     media: MediaMatcher, 
+     library: FaIconLibrary,
+     private userAuthService: UserAuthService
+    ) {
+
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
     library.addIcons(faCoffee)
   }
-
+  CerrarSesion():void{
+    this.userAuthService.logOutSession();
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }

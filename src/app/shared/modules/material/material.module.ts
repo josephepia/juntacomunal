@@ -20,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 const MaterialComponents = [
   FormsModule,
@@ -44,7 +44,7 @@ const MaterialComponents = [
   MatFabMenuModule,
   MatTableModule,
   MatButtonToggleModule,
-
+  MatMenuModule,
   
 
   FontAwesomeModule
