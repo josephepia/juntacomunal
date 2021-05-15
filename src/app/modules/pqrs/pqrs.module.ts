@@ -5,11 +5,13 @@ import { PqrsRoutingModule } from './pqrs-routing.module';
 import { PqrsComponent } from './pqrs.component';
 
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
+import { FormularioPQRSComponent } from './components/formulario-pqrs/formulario-pqrs.component';
 
 
 @NgModule({
   declarations: [
-    PqrsComponent
+    PqrsComponent,
+    FormularioPQRSComponent
   ],
   imports: [
     CommonModule,

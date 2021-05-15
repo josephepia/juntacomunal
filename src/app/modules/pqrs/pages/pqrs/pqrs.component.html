@@ -1,55 +1,70 @@
-<br>
-<div class="row margin-0 start-xs padding-16">
-    <mat-card-title>Mas detalles</mat-card-title>
-</div>
+<section class="row margin-0 start-xs padding-16">
+  <div>
+    <button mat-fab color="primary" class="mat-focus-indicator fab-le mat-fab mat-button-base mat-primary"
+      routerLink="/pqrs">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
 
+  <div class="example-button-row ">
+    <mat-card-title>Mas detalles</mat-card-title>
+  </div>
+</section>
 
 <!-- detalles del pqrs -->
 
 <div class="row margin-0 padding-16">
 
+  <div class="padding-bottom-15 center-xs">
     <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg" >
+      <mat-card-header class="center-xs start-md start-lg">
         <mat-card-subtitle class="margin-bottom-0">Asunto</mat-card-subtitle>
         <mat-card-title>{{pqrs?.tituloPQRS}}</mat-card-title>
       </mat-card-header>
     </mat-card>
+  </div>
 
+  <div class="padding-bottom-15 center-xs">
     <mat-card class="shadow1 borde-radio-10">
-        <mat-card-header class="center-xs start-md start-lg" >
-            <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
-            <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
-        </mat-card-header>
+      <mat-card-header class="center-xs start-md start-lg">
+        <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
+        <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
+      </mat-card-header>
     </mat-card>
+  </div>
 
+  <div class="padding-bottom-15 center-xs">
     <mat-card class="shadow1 borde-radio-10">
-        <mat-card-header class="center-xs start-md start-lg" >
-            <mat-card-subtitle class="margin-bottom-0">Barrio</mat-card-subtitle>
-            <mat-card-title>NN</mat-card-title>
-        </mat-card-header>
+      <mat-card-header class="center-xs start-md start-lg">
+        <mat-card-subtitle class="margin-bottom-0">Estado</mat-card-subtitle>
+        <mat-card-title>{{pqrs?.estadoPQRS}}</mat-card-title>
+      </mat-card-header>
     </mat-card>
+  </div>
 
+  <div class="padding-bottom-15 center-xs">
     <mat-card class="shadow1 borde-radio-10">
-        <mat-card-header class="center-xs start-md start-lg" >
-            <mat-card-title>Descripcion</mat-card-title>
-            <mat-card-subtitle class="margin-bottom-0">{{pqrs?.descripcion}}</mat-card-subtitle>
-            
-        </mat-card-header>
+      <mat-card-header class="center-xs start-md start-lg">
+        <mat-card-subtitle class="margin-bottom-0">Fecha</mat-card-subtitle>
+        <mat-card-title>{{pqrs?.fecha | date:'short'}}</mat-card-title>
+      </mat-card-header>
     </mat-card>
-  
+  </div>
+
+  <div class="padding-bottom-15 center-xs">
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg">
+        <mat-card-title>Descripcion</mat-card-title>
+        <mat-card-subtitle class="margin-bottom-0">{{pqrs?.descripcion}}</mat-card-subtitle>
+
+      </mat-card-header>
+    </mat-card>
+  </div>
+
 </div>
 
 
 <!-- boton foltante -->
-<mat-fab-menu color="primary"
-  direction="top"
-  tooltipPosition="bottom"
-  [fabButtons]="fabButtons"
-  class="fab-right"
-  icon="edit_note"
-  (onFabMenuItemSelected)= "opcionSeleccionada($event)"
-  
-  
->
+<mat-fab-menu color="primary" direction="top" tooltipPosition="bottom" [fabButtons]="fabButtons" class="fab-right"
+  icon="edit_note" (onFabMenuItemSelected)="opcionSeleccionada($event)">
 </mat-fab-menu>
-

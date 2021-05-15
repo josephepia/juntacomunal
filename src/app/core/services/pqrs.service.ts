@@ -20,7 +20,8 @@ export class PQRSService {
   pqrsRef: firebase.database.Reference = firebase.database().ref('PQRS')
 
   //Crea un nuevo PQRS
-  createPQRS(pqrs: Object) {
+  createPQRS(pqrs: any) {
+    pqrs['fecha'] = firebase.database.ServerValue.TIMESTAMP
    return this.pqrsRef.push(pqrs);
   }
  

@@ -1,0 +1,36 @@
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()" (keyup.enter)="guardar()" autocomplete="on">
+
+    <div class="row center-xs">
+      <h4>{{datosEntrada?.titulo}}</h4>
+    </div>
+    <mat-dialog-content>
+     
+      <div class="row center-xs">
+        <mat-form-field appearance="outline">
+          <mat-label>Titulo de la petición (*)</mat-label>
+          <input matInput placeholder="Titulo"  formControlName="tituloPQRS">
+        </mat-form-field>
+        
+        
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Descripcion de la petición (*)</mat-label>
+          <textarea  matInput placeholder="Descripcion"  formControlName="descripcion" rows="8"></textarea>
+        </mat-form-field>
+        
+       
+       </div>
+    </mat-dialog-content>
+  
+    <div class="row center-xs">
+      <div class="col-xs">
+        <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
+
+      </div>
+      <div class="col-xs">
+        <button mat-flat-button (click)="guardar()"  type="submit" color="primary" [disabled]="formulario.invalid" >Guardar</button>
+      </div>
+    </div>
+       
+  </form>

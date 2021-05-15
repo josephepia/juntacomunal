@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import firebase from "firebase/app"
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { PQRSService } from './../../../../core/services/pqrs.service';
+import { FormularioPQRSComponent} from './../../components/formulario-pqrs/formulario-pqrs.component'
 
 
 @Component({
@@ -56,6 +57,29 @@ export class PqrsListComponent implements OnInit {
 
   goToPqrs(pqrs:any) {
     this.router.navigate([pqrs], { relativeTo: this.route });
+  }
+
+  modalFormulario() {
+    const dialogRef = this.dialog.open(FormularioPQRSComponent, { data: { titulo: "Realizar Petición", pqrs: null } });
+
+    dialogRef.afterClosed().subscribe(pqrs => {
+      console.log('datos ingresados al crear peticiones', pqrs);
+      if (pqrs) {
+        // registrar datos en firebase
+        
+
+        this.pqrsService.createPQRS(pqrs)
+          .then(() => {
+            console.log("peticion registrada exitosamente");
+            this.consultarPQRSOnce();
+
+          })
+          .catch((error) => {
+            console.log("error al registrar peticion ", error);
+
+          })
+      }
+    });
   }
 
 }

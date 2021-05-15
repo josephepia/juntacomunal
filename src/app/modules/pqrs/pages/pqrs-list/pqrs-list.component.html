@@ -8,10 +8,17 @@
         <mat-card (click)="goToPqrs(pqrs)" class="shadow1 borde-radio-10 cursor-pointer">
         <mat-card-header >
             <div mat-card-avatar class="comunasimage"></div>
-
+            
             <mat-card-title class="trunc-1">{{pqrs_list[pqrs]?.tituloPQRS}}</mat-card-title>
             <mat-card-subtitle class="margin-bottom-0">Remitente: {{pqrs_list[pqrs]?.remitente}}</mat-card-subtitle>
+            <mat-card-subtitle class="margin-bottom-1" style="color: blue;"><br>{{pqrs_list[pqrs]?.fecha | date:'short'}}</mat-card-subtitle>
+
+            
         </mat-card-header>
         </mat-card>
     </div>
 </div>
+
+<button mat-fab color="primary" class="fab-right" (click)="modalFormulario()">
+    <mat-icon>add</mat-icon>
+</button>

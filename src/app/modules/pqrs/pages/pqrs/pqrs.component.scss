@@ -11,3 +11,13 @@
     height: 400px;
     overflow: auto;
   }
+
+  section {
+    display: table;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+    
+  }
