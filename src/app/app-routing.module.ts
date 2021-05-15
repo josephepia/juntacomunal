@@ -34,6 +34,7 @@ const routes: Routes = [
   //{ path: 'pqrs-list', loadChildren: () => import('./modules/pqrs/pages/pqrs-list/pqrs-list.module').then(m => m.PqrsListModule) },
   
   { path: 'publicaciones', loadChildren: () => import('./modules/publicaciones/publicaciones.module').then(m => m.PublicacionesModule) },
+  { path: 'convenios', loadChildren: () => import('./modules/convenios/convenios.module').then(m => m.ConveniosModule) },
   
   //{ path: 'publicaciones-list', loadChildren: () => import('./modules/publicaciones/pages/publicaciones-list/publicaciones-list.module').then(m => m.PublicacionesListModule) },
 //{ path: 'publicacion', loadChildren: () => import('./modules/publicaciones/pages/publicacion/publicacion.module').then(m => m.PublicacionModule) },
