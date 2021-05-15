@@ -15,14 +15,14 @@
 
         <mat-tab label="Login">
           <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Email" value="">
-            <mat-icon matSuffix>email</mat-icon>
+            <mat-label >Email</mat-label>
+            <input type="email" matInput placeholder="Email" [(ngModel)]="email" name="email" >
+            <mat-icon color="primary" matSuffix>email</mat-icon>
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Contraseña</mat-label>
-            <input type="password" matInput placeholder="Contraseña">
-            <mat-icon matSuffix>vpn_key</mat-icon>
+            <input type="password" matInput placeholder="Contraseña"  [(ngModel)]="password" name="password">
+            <mat-icon color="primary"  matSuffix>vpn_key</mat-icon>
           </mat-form-field>
           <button mat-raised-button color="primary" class="example-full-width" (click)="login()">Login</button>
         </mat-tab>
@@ -30,18 +30,18 @@
         <mat-tab label="Registrer">
           <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Email" value="">
-            <mat-icon matSuffix>email</mat-icon>
+            <input type="email" matInput placeholder="Email" value="" [(ngModel)]="emailRegistrar" name="emailRegistrar">
+            <mat-icon color="primary"  matSuffix>email</mat-icon>
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Contraseña</mat-label>
-            <input type="password" matInput placeholder="Contraseña">
-            <mat-icon matSuffix>vpn_key</mat-icon>
+            <input type="password" matInput placeholder="Contraseña" [(ngModel)]="passwordRegistrar" name="passwordRegistrar">
+            <mat-icon color="primary"   matSuffix>vpn_key</mat-icon>
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Contraseña</mat-label>
-            <input type="password" matInput placeholder="Confirmar Contraseña">
-            <mat-icon matSuffix>vpn_key</mat-icon>
+            <input type="password" matInput placeholder="Confirmar Contraseña" [(ngModel)]="cpasswordRegistrar" name="cpasswordRegistrar">
+            <mat-icon color="primary"  matSuffix>vpn_key</mat-icon>
           </mat-form-field>
           <button mat-raised-button color="primary" class="example-full-width" (click)="registrar()">Registrar</button>
         </mat-tab>
