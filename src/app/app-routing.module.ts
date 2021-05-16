@@ -11,7 +11,6 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: 'habitantes', loadChildren: () => import('./modules/habitantes/pages/habitantes-list/habitantes.module').then(m => m.HabitantesModule) },
   { path: 'SolicitudRegistroHabitantes', loadChildren: () => import('./modules/solicitudes/pages/solicitud-registro/solicitud-registro-habitantes.module').then(m => m.SolicitudRegistroHabitantesModule) },
   { path: 'Consultasolicitudhabitantes', loadChildren: () => import('./modules/solicitudes/pages/solicitudes-list/consultasolicitudhabitantes.module').then(m => m.ConsultasolicitudhabitantesModule) },
   { path: 'comunas', loadChildren: () => import('./modules/comunas/comunas.module').then(m => m.ComunasModule),
@@ -34,6 +33,7 @@ const routes: Routes = [
   //{ path: 'pqrs-list', loadChildren: () => import('./modules/pqrs/pages/pqrs-list/pqrs-list.module').then(m => m.PqrsListModule) },
   
   { path: 'publicaciones', loadChildren: () => import('./modules/publicaciones/publicaciones.module').then(m => m.PublicacionesModule) },
+  { path: 'habitantes', loadChildren: () => import('./modules/habitantes/habitantes.module').then(m => m.HabitantesModule) },
   
   //{ path: 'publicaciones-list', loadChildren: () => import('./modules/publicaciones/pages/publicaciones-list/publicaciones-list.module').then(m => m.PublicacionesListModule) },
 //{ path: 'publicacion', loadChildren: () => import('./modules/publicaciones/pages/publicacion/publicacion.module').then(m => m.PublicacionModule) },
