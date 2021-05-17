@@ -71,6 +71,12 @@ export class MenuAdminComponent implements OnDestroy {
       iconFa: 'fas fa-file-signature'
     },
     {
+      title: 'Lista de Convenios',
+      url: '/lineasAtencion',
+      iconMaterial: null,
+      iconFa: 'fas fa-file-signature'
+    },
+    {
       title: 'Publicaciones',
       url: '/publicaciones',
       iconMaterial: null,
