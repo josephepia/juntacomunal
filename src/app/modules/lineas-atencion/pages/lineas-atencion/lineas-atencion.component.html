@@ -1,5 +1,4 @@
 <section class="row margin-0 start-xs padding-16">
-
     <div >
       <button mat-fab color="primary" class="mat-focus-indicator fab-le mat-fab mat-button-base mat-primary"
         routerLink="/lineasAtencion">
@@ -10,8 +9,51 @@
       <div class="example-button-row ">
         <mat-card-title >{{lineasAtencion?.titulo}}</mat-card-title>
       </div>
+</section>
+  <!-- detalles del Lineas -->
   
-  
-  </section>
-  
-  
+<div class="row margin-0 padding-16">
+
+  <mat-card class="shadow1 borde-radio-10">
+    <mat-card-header class="center-xs start-md start-lg" >
+      <mat-card-subtitle class="margin-bottom-0">Linea de Atención</mat-card-subtitle>
+      <mat-card-title>{{lineasAtencion?.titulo}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg" >
+          <mat-card-subtitle class="margin-bottom-0">Descripcion de Linea de Atencion</mat-card-subtitle>
+          <mat-card-title>{{lineasAtencion?.descripcion}}</mat-card-title>
+      </mat-card-header>
+  </mat-card>
+
+  <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg" >
+          <mat-card-subtitle class="margin-bottom-0">Contacto de Linea de Atencion</mat-card-subtitle>
+          <mat-card-title>{{lineasAtencion?.contacto}}</mat-card-title>
+      </mat-card-header>
+  </mat-card>
+
+  <mat-card class="shadow1 borde-radio-10">
+    <mat-card-header class="center-xs start-md start-lg" >
+        <mat-card-subtitle class="margin-bottom-0">Link de Linea de Atencion</mat-card-subtitle>
+        <mat-card-title>{{lineasAtencion?.link}}</mat-card-title>
+    </mat-card-header>
+</mat-card>
+
+</div>
+
+
+<!-- boton foltante -->
+<mat-fab-menu color="primary"
+direction="top"
+tooltipPosition="bottom"
+[fabButtons]="fabButtons"
+class="fab-right"
+icon="edit_note"
+(onFabMenuItemSelected)= "opcionSeleccionada($event)"
+
+
+>
+</mat-fab-menu>

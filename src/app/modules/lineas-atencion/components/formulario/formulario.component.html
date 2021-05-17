@@ -1,1 +1,46 @@
-<p>formulario works!</p>
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()" (keyup.enter)="guardar()" autocomplete="on">
+
+    <div class="row center-xs">
+      <h4>{{datosEntrada?.titulo}} Linea de Atención</h4>
+    </div>
+    <mat-dialog-content>
+     
+      <div class="row center-xs">
+        <mat-form-field appearance="outline">
+          <mat-label>Titulo de la Linea(*)</mat-label>
+          <input matInput placeholder="titulo"  formControlName="titulo">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Descripcion de la Linea (*)</mat-label>
+          <input matInput placeholder="descripcion"  formControlName="descripcion">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Contacto de la Linea(*)</mat-label>
+          <input matInput placeholder="contacto"  formControlName="contacto">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Link de la Linea(*)</mat-label>
+            <input matInput placeholder="link"  formControlName="link">
+          </mat-form-field>
+        <!--<mat-form-field appearance="outline">
+          <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+          <input formControlName="urlImage" hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+          <input matInput="">
+        </mat-form-field>
+        -->
+        
+      </div>
+    </mat-dialog-content>
+  
+    <div class="row center-xs">
+      <div class="col-xs">
+        <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
+
+      </div>
+      <div class="col-xs">
+        <button mat-flat-button (click)="guardar()"  type="submit" color="primary" [disabled]="formulario.invalid" >Guardar</button>
+      </div>
+    </div>
+       
+  </form>
