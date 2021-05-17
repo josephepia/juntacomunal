@@ -1,0 +1,21 @@
+  <div class="row margin-0 start-xs padding-16">
+    <mat-card-title>Lineas de Atención</mat-card-title>
+  </div>
+
+  <div class="row margin-0 start-xs padding-16">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10" *ngFor="let lineasAtencion of keys(lineasAtenciones)" >
+      <mat-card (click)="goToLineasAtencion(lineasAtencion)" class="shadow1 borde-radio-10 cursor-pointer">
+        <mat-card-header >
+          <div mat-card-avatar class="comunasimage"></div>
+
+          <mat-card-title class="trunc-1">{{lineasAtenciones[lineasAtencion]?.titulo}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Nombre de la Linea de Atencion</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+
+<button mat-fab color="primary" class="fab-right" (click)="modalFormulario()">
+  <mat-icon>add</mat-icon>
+</button>
+

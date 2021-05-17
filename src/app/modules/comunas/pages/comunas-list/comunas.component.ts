@@ -42,44 +42,33 @@ export class ComunasComponent implements OnInit {
   //CREATE SERVICE
   modalFormulario() {
     const dialogRef = this.dialog.open(FormularioComponent, { data: { titulo: "Registrar", comuna: null } });
-
     dialogRef.afterClosed().subscribe(comuna => {
       console.log('datos ingresados al crear comuna', comuna);
       if (comuna) {
         // registrar datos en firebase
-
         this.comunaService.createComuna(comuna)
           .then(() => {
             console.log("comuna registrada exitosamente");
             this.consultarComunasOnce();
-
           })
           .catch((error) => {
             console.log("error al registrar comuna ", error);
-
           })
-
         // this.registrarComuna(comuna)
       }
       //luego de recibir los datos los mandamos a firebase
-
     });
   }
   //CONSULTAR SERVICE
-
   consultarComunasOnce() {
     this.comunaService.getComunasOnce().then((comunas) => {
       if (comunas) {
         console.log('comunas segundo then', comunas);
-
-
       } else {
         console.log('no existen comunas');
-
       }
       this.comunas = comunas || {}
     })
-
   }
   //REVISAR
   goToComuna(comuna: any) {
