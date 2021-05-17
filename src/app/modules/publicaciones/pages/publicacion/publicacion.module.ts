@@ -11,7 +11,8 @@ import { MaterialModule } from 'src/app/shared/modules/material/material.module'
     PublicacionComponent
   ],
   imports: [
-    CommonModule,MaterialModule,
+    CommonModule,
+    MaterialModule,
     PublicacionRoutingModule
   ]
 })

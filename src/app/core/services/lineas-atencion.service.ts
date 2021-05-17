@@ -45,6 +45,20 @@ export class LineasAtencionService {
       return null
     })
   }
+  ConsultarLineasAtencionIndividual(id: string){
+    // const url: firebase.database.Reference = firebase.database().ref('PUBLICACIONES/'+id)
+ 
+     return this.lineasAtencionref.child(id).once('value').then((datos)=>{
+       if(datos.exists()){
+         return datos.val();
+       }else{
+         return null
+       }
+     }).catch((error)=>{
+       return null
+     })
+   }
+   
   //Actualiza  lineasAtencion
   public updateLineasAtencion() {
    

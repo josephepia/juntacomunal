@@ -1,38 +1,29 @@
 section {
     display: table;
   }
-  
   .example-label {
     display: table-cell;
     font-size: 14px;
     margin-left: 8px;
     min-width: 120px;
   }
-  
   .example-button-row {
     display: table-cell;
     width: 490px;
-    
   }
   .example-button-row .mat-card-title {
    margin: 8px 8px 8px 0;
   }
-  
-  
   .flotante{
       z-index: 10;  
       position: absolute;  
       right: 0;  
       top: 0;
-  }
-  
-  
-  
+  } 
   .example-container {
       height: 400px;
       overflow: auto;
-    }
-    
+    }  
     table {
       width: 100%;
     }

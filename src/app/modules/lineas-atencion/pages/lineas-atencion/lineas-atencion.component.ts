@@ -1,3 +1,4 @@
+import { LineasAtencionService } from './../../../../core/services/lineas-atencion.service';
 import { ModalConfirmacionComponent } from './../../../../shared/components/modal-confirmacion/modal-confirmacion.component';
 import { FormularioComponent } from './../../../lineas-atencion/components/formulario/formulario.component';
 import firebase from 'firebase/app';
@@ -12,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lineas-atencion.component.scss']
 })
 export class LineasAtencionComponent implements OnInit {
-  displayedColumns = ['index','nombre','estrato', 'numeroHabitantes'];
+
 
   fabButtons: MatFabMenu[] = [
     {
@@ -22,24 +23,21 @@ export class LineasAtencionComponent implements OnInit {
       tooltipPosition: 'left'
     },
     {
-      id: 2,
-      icon: 'location_city',
-      tooltip:"Registrar barrio",
-      tooltipPosition: 'left'
-    },
-    {
       id: 3,
       icon: 'delete',
       tooltip:"eliminar",
       tooltipPosition: 'left'
     },
   ];
-  constructor(private route: ActivatedRoute,
-    private router: Router,public dialog: MatDialog) { 
-
-    }
-
   lineasAtencion:any = {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog,
+    private lineasAtencionService: LineasAtencionService
+    ) {  }
+
+
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this.consultarLineasAtencionOnce(id);
@@ -48,13 +46,10 @@ export class LineasAtencionComponent implements OnInit {
   }
 
   consultarLineasAtencionOnce(id: any){
-    firebase.database().ref('lineasAtencion/'+id).once('value',(datos)=>{
-      if(datos.exists()){
-        this.lineasAtencion = datos.val();
-        
-        this.lineasAtencion['id']= id;
-      }
-  })
+    this.lineasAtencionService.ConsultarLineasAtencionIndividual(id).then((datos)=>{
+      this.lineasAtencion = datos;
+      this.lineasAtencion['id']= id;
+    })
   }
   
   modalFormulario(){
