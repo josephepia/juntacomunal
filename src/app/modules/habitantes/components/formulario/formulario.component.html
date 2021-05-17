@@ -1,1 +1,84 @@
-<p>formulario works!</p>
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()" (keyup.enter)="guardar()" autocomplete="on">
+
+    <div class="row center-xs">
+      <h1>{{datosEntrada?.titulo}}</h1>
+    </div>
+    <mat-dialog-content>
+     
+      <div class="row center-xs">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombres: (*)</mat-label>
+            <input matInput placeholder="Nombres"  formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Apellidos: (*)</mat-label>
+          <input  matInput placeholder="Apellidos"  formControlName="apellido">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo de documento: (*)</mat-label>
+            <mat-select formControlName="tipoidentificacion">
+                <mat-option>Seleccione</mat-option>
+                <mat-option [value]="1">Cédula de ciudadania</mat-option>
+                <mat-option [value]="2">Cédula Extranjera</mat-option>
+                <mat-option [value]="3">Tarjeta de identidad</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Numero de documento: (*)</mat-label>
+            <input  matInput placeholder="Numero de documento"  formControlName="identificacion">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha de nacimiento: (*)</mat-label>
+            <input  matInput type="date"  formControlName="fechaNacimiento">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Genero: (*)</mat-label>
+            <mat-select formControlName="genero">
+                <mat-option>Seleccione</mat-option>
+                <mat-option [value]="1">Masculino</mat-option>
+                <mat-option [value]="2">Femenino</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Numero de telefono o celular: (*)</mat-label>
+            <input  matInput placeholder="Telefono o celular"  formControlName="telefono">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Barrio: (*)</mat-label>
+            <mat-select formControlName="idBarrio" [disabled]="datosEntrada?.barrio?.idBarrio">
+                <mat-option>Seleccione</mat-option>
+                <mat-option *ngFor="let barrio of keys(barrios)" [value]="barrio">
+                    {{barrios[barrio].nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Direccion: (*)</mat-label>
+            <input  matInput placeholder="Direccion"  formControlName="direccion">
+        </mat-form-field>
+       
+       </div>
+
+       
+    </mat-dialog-content>
+  
+    <div class="row center-xs">
+      <div class="col-xs">
+        <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
+
+      </div>
+      <div class="col-xs">
+        <button mat-flat-button (click)="guardar()"  type="submit" color="primary" [disabled]="formulario.invalid" >Guardar</button>
+      </div>
+    </div>
+       
+  </form>

@@ -13,8 +13,6 @@ import { FormularioPQRSComponent} from './../../components/formulario-pqrs/formu
 })
 export class PqrsListComponent implements OnInit {
 
-  
-  comuna:any = {}
   navigationExtras: NavigationExtras = {
     state: {
       value: null
@@ -34,11 +32,11 @@ export class PqrsListComponent implements OnInit {
   consultarPQRSOnce(){
     this.pqrsService.getPQRSOnce().then((pqrs)=>{
      if(pqrs){
-      console.log('comunas segundo then', this.pqrs_list);
+      console.log('pqrs segundo then', this.pqrs_list);
       
       
      }else{
-       console.log('no existen comunas');
+       console.log('no existen pqrs');
        
      }
       this.pqrs_list = pqrs || {}
@@ -60,7 +58,7 @@ export class PqrsListComponent implements OnInit {
   }
 
   modalFormulario() {
-    const dialogRef = this.dialog.open(FormularioPQRSComponent, { data: { titulo: "Realizar Petición", pqrs: null } });
+    const dialogRef = this.dialog.open(FormularioPQRSComponent, { data: { titulo: "Realizar Petición", pqrs: null }, width: '50%' });
 
     dialogRef.afterClosed().subscribe(pqrs => {
       console.log('datos ingresados al crear peticiones', pqrs);

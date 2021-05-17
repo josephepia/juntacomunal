@@ -33,6 +33,7 @@ export class HabitanteService {
       }
     })
   }
+  
   getHabitantesOnce(){
     return this.habitanteRef.once('value').then((datos)=>{
       if(datos.exists()){       
@@ -44,6 +45,7 @@ export class HabitanteService {
       return null
     })
   }
+
   //Actualiza  comuHabitantena
   public updateHabitante() {
    
