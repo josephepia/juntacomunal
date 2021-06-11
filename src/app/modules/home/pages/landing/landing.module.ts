@@ -4,7 +4,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
 
+
+
+
+
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -13,7 +21,7 @@ import { LandingComponent } from './landing.component';
   ],
   imports: [
     CommonModule,
-    LandingRoutingModule,MatCardModule,MatGridListModule,
+    LandingRoutingModule,MatCardModule,MatGridListModule,MatButtonModule,MatRippleModule,NgbModule
   ]
 })
 export class LandingModule { }
