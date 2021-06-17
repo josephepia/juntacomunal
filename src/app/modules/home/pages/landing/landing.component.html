@@ -1,3 +1,26 @@
+<div class="row margin-0 center-xs top-xs">
+	<div class="col-xs-12 padding-0 ">
+		<ngb-carousel #carousel>
+			<ng-template ngbSlide *ngFor="let publi of ultimasPublicaciones; index as i">
+				<div class="carousel-caption">
+					<h3>Seleccione la Publicacion #{{i + 1}}</h3>
+				</div>
+				<a (click)=" goToPublicacion(publi?.id)" target="_blank" rel="nofollow noopener noreferrer">
+					<div class="picsum-img-wrapper cursor-pointer"
+						class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-0">
+						<img [src]="publi?.urlImage" alt="My image {{i + 1}} description">
+					</div>
+				</a>
+			</ng-template>
+		</ngb-carousel>
+	</div>
+</div>
+
+
+
+
+
+
 <div class="row margin-0 center-xs top-xs box_fondoazul">
 
 
@@ -92,21 +115,20 @@
 
 
 <div class="row margin-0 center-xs top-xs">
-	
+
 	<div class="col-xs-12 padding-0">
-		
-		<ngb-carousel *ngIf="images" [showNavigationIndicators]="showNavigationIndicators">
-			
-			<ng-template ngbSlide *ngFor="let image of images">
-				
+		<ngb-carousel #carousel>
+
+			<ng-template ngbSlide ngbSlide *ngFor="let image of images; index as i">
+
 				<div class="col-xs-12  center-xs top-xs picsum-img-wrapper">
-					
+
 					<img [src]="image" alt="Random slide">
-					
+
 				</div>
-				
+
 				<div class="carousel-caption">
-					
+
 
 					<h3 class="col-xs-12 padding-bottom-50 text_color_negro top-xs ">Clientes Satisfechos</h3>
 					<mat-card class="shadow1 borde-radio-20">
@@ -154,11 +176,11 @@
 
 
 <div class="row margin-0 center-xs top-xs box_fondoblanco">
-	
+
 	<div class="col-xs-12 padding-top-0 padding-0 h-100 w-100">
-		
+
 		<div class="center-xs box_fondoazul ">
-			
+
 			<div class="padding-top-0">
 				<mat-card-title class="padding-top-20" color="primary">Contactanos </mat-card-title>
 				<mat-card-subtitle class="padding-top-10 text_color_blanco">Lorem ipsum dolor sit amet consectetur
@@ -185,11 +207,11 @@
 					<mat-card-subtitle class="text_color_blanco">OPTIMIJAC@GMAIL.COM
 					</mat-card-subtitle>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 	</div>
-	
+
 </div>
