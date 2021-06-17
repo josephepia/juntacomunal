@@ -4,14 +4,15 @@ height: 100%;
 }
 //Fondos
 .box_fondoazul{
-	background: url("https://images8.alphacoders.com/632/632051.png") no-repeat center center fixed; 
+background: url("https://images8.alphacoders.com/632/632051.png") no-repeat center center fixed; 
 color:white
 }
 
 .box_fondoblanco{
-	background: url("https://images2.alphacoders.com/515/515958.jpg");
-	color:white
+
+	background-color: #ffffff;
 }
+
 // Riples 
 .posicion_riple_izquierda{
 	background-color: white;
@@ -23,12 +24,9 @@ color:white
 }
 
 .posicion_riple_centrado{
-top: -300px;
-right: 400px;
-left: 400px;
 background-color: white;
 border-radius: 20px;
-height: 100%;
+//height: 100%;
 background-repeat: no-repeat;
 background: url("https://www.presente.com.co/wp-content/uploads/2020/04/paso-2.jpg") no-repeat center center;
 background-size: 100% 100%;
@@ -36,17 +34,13 @@ background-size: 100% 100%;
 .posicion_riple_derecha{
 	
 border-radius: 20px;
-position: relative;
-top: -610px;
-right: 800px;
-left: 800px;
+//position: relative;
 background-repeat: no-repeat;
 background: url("https://image.slidesharecdn.com/presentacionflorayalaongfinal-101130163759-phpapp01/95/presentacin-a-ongs-de-sonora-1-638.jpg?cb=1422631839") no-repeat center center;
 background-size: 100% 100%;
 background-color: white;
 border-radius: 20px;
-height: 100%;
-
+//height: 100%;
 
 }
 //Carousel
@@ -132,9 +126,9 @@ top: 250px;
 	cursor: pointer;
 	text-align: center;
   
-	width: 300px;
-	height: 300px;
-	line-height: 300px;
+	//width: 150px;
+	//height: 150px;
+	//line-height: 150px;
   
 	user-select: none;
 	-webkit-user-select: none;
@@ -160,5 +154,8 @@ top:60px;
 	position: relative;
 	top:-120px;
 	}
-
+/*.pqrsimage{
+  background-image: url(~src/assets/pqrs.svg);
+  background-size: cover;
+}*/
   
