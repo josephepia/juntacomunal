@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { HabitanteRoutingModule } from './habitante-routing.module';
 import { HabitanteComponent } from './habitante.component';
 
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
+
+
 
 @NgModule({
   declarations: [
@@ -11,7 +14,8 @@ import { HabitanteComponent } from './habitante.component';
   ],
   imports: [
     CommonModule,
-    HabitanteRoutingModule
+    HabitanteRoutingModule,
+    MaterialModule
   ]
 })
 export class HabitanteModule { }

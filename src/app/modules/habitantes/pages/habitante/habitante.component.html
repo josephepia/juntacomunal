@@ -1,1 +1,119 @@
-<p>habitante works!</p>
+<br>
+<div class="profile-card">
+    <div class="card-header">
+        
+    <div class="pic">
+        <img src="../../../../../assets/fotodeperfil.jpg">
+    </div>
+
+    </div>
+</div>
+
+
+<div class="row margin-0 start-xs padding-16">
+    <h1>Datos personales</h1>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Identificacion</mat-card-subtitle>
+                <mat-card-title>{{habitante?.identificacion}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Nombre</mat-card-subtitle>
+                <mat-card-title>{{habitante?.nombre}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Apellido</mat-card-subtitle>
+                <mat-card-title>{{habitante?.apellido}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Fecha de nacimiento</mat-card-subtitle>
+                <mat-card-title>{{habitante?.fechaNacimiento}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Genero</mat-card-subtitle>
+                <mat-card-title>{{habitante?.genero}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Telefono</mat-card-subtitle>
+                <mat-card-title>{{habitante?.telefono}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <!--
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Barrio</mat-card-subtitle>
+                <mat-card-title>{{habitante?.barrio}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    -->
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Direccion</mat-card-subtitle>
+                <mat-card-title>{{habitante?.direccion}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <hr>
+
+    <h1>Datos de la cuenta</h1>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Usuario</mat-card-subtitle>
+                <mat-card-title>{{habitante?.usuario}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+        <mat-card class="shadow1 borde-radio-10 ">
+            <mat-card-header >
+                <mat-card-subtitle class="margin-bottom-0">Contraseña</mat-card-subtitle>
+                <mat-card-title>{{habitante?.clave}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+</div>
+
+  <!-- boton foltante -->
+<mat-fab-menu color="primary" direction="top" tooltipPosition="bottom" [fabButtons]="fabButtons" class="fab-right"
+icon="edit_note" (onFabMenuItemSelected)="opcionSeleccionada($event)">
+</mat-fab-menu>
