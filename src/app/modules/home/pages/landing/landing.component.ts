@@ -27,7 +27,8 @@ export class LandingComponent implements OnInit {
   unbounded = false;
   showNavigationArrows = false;
   showNavigationIndicators = false;
-  images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/1600/500`);
+  images = [1055].map((n) => `https://picsum.photos/id/${n}/1600/500`);
+  images2 = [1055].map((n) => `https://picsum.photos/id/${n}/1600/500`);
   imagess = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/900`);
 
   paused = false;
