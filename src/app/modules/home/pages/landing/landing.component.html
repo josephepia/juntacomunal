@@ -115,13 +115,12 @@
 
 
 <div class="row margin-0 center-xs top-xs">
-
 	<div class="col-xs-12 padding-0">
 		<ngb-carousel #carousel>
 
-			<ng-template ngbSlide ngbSlide *ngFor="let image of images; index as i">
+			<ng-template ngbSlide *ngFor="let image of images; index as i">
 
-				<div class="col-xs-12  center-xs top-xs picsum-img-wrapper">
+				<div class="col-xs-12 padding-0">
 
 					<img [src]="image" alt="Random slide">
 
@@ -130,7 +129,7 @@
 				<div class="carousel-caption">
 
 
-					<h3 class="col-xs-12 padding-bottom-50 text_color_negro top-xs ">Clientes Satisfechos</h3>
+					<h3 class="col-xs-12 text_color_negro top-xs ">Clientes Satisfechos</h3>
 					<mat-card class="shadow1 borde-radio-20">
 
 						<mat-card-header class="start-xs  middle-xs">
