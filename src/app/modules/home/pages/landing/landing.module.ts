@@ -11,21 +11,24 @@ import { PublicacionesListRoutingModule } from 'src/app/modules/publicaciones/pa
 
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
-
-
-
-
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
+
 @NgModule({
+  
   declarations: [
     LandingComponent
   ],
   imports: [
     CommonModule,
+    MatCardModule,
+    MatButtonModule,
     LandingRoutingModule,MatCardModule,MatGridListModule,MatButtonModule,MatRippleModule,NgbModule,PublicacionesListRoutingModule,MaterialModule
+  ],
+  exports: [
+    LandingComponent
   ]
 })
 export class LandingModule { }

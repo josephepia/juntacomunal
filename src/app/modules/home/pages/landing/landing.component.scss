@@ -158,4 +158,20 @@ top:60px;
   background-image: url(~src/assets/pqrs.svg);
   background-size: cover;
 }*/
-  
+.stars {
+	cursor: pointer;
+	display: flex;
+	
+	  &:hover {
+	  .star polygon {
+		fill: #ffd055 !important;
+	  }
+	}
+
+	&[data-stars] {
+	  .star polygon {
+		fill: #ffd055;
+	  }
+	}
+
+}
