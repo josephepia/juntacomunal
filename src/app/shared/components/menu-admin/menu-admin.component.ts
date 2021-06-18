@@ -52,36 +52,41 @@ export class MenuAdminComponent implements OnDestroy {
       iconMaterial: 'question_answer',
       iconFa: null
     },
+    /*
     {
       title: 'Correspondencia',
       url: '/correspondencias',
       iconMaterial: null,
       iconFa: 'fas fa-folder-open'
     },
+    */
     {
       title: 'Junta administrativa',
       url: '/junta',
       iconMaterial: null,
       iconFa: 'fas fa-user-shield'
-    }, 
+    },
+    /*
     {
       title: 'Convenios',
       url: '/convenios',
       iconMaterial: null,
       iconFa: 'fas fa-file-signature'
     },
+    */
     {
       title: 'Lineas de Atención',
       url: '/lineasAtencion',
       iconMaterial: null,
       iconFa: 'fas fa-file-signature'
     },
+    /*    
     {
       title: 'Publicaciones',
       url: '/publicaciones',
       iconMaterial: null,
       iconFa: 'fas fa-file-invoice'
-    },
+    },*/
 
   ];
 

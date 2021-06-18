@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit {
   login():void{
     this.userAuthService.loginEmail(this.email, this.password);
     console.log("logueado con exito");
+    
   }
 
+  
 
 }
