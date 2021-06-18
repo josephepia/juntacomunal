@@ -6,7 +6,7 @@
     col-md-6
     col-lg-4">
     <mat-card-header class="row margin-0 center-xs">
-      <mat-card-title>INISIAR SESIÓN</mat-card-title>
+      <mat-card-title>INICIAR SESIÓN</mat-card-title>
       <mat-card-subtitle>Inicia Sesión o crea tu cuenta.</mat-card-subtitle>
     </mat-card-header>
 
@@ -24,7 +24,7 @@
             <input type="password" matInput placeholder="Contraseña"  [(ngModel)]="password" name="password">
             <mat-icon color="primary"  matSuffix>vpn_key</mat-icon>
           </mat-form-field>
-          <button mat-raised-button color="primary" class="example-full-width" (click)="login()">Login</button>
+          <button mat-raised-button color="primary" class="example-full-width" (click)="login()" [routerLink]="['/home/landing']" >Login</button>
         </mat-tab>
 
         <mat-tab label="Registrer">
@@ -39,7 +39,7 @@
             <mat-icon color="primary"   matSuffix>vpn_key</mat-icon>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
+            <mat-label>RepetirContraseña</mat-label>
             <input type="password" matInput placeholder="Confirmar Contraseña" [(ngModel)]="cpasswordRegistrar" name="cpasswordRegistrar">
             <mat-icon color="primary"  matSuffix>vpn_key</mat-icon>
           </mat-form-field>
