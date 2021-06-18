@@ -46,8 +46,29 @@ export class HabitanteService {
     })
   }
 
+  ConsultarHabitanteIndividual(id: Habitante){
+    const url: firebase.database.Reference = firebase.database().ref('habitantes/'+id)
+
+    return url.once('value').then((datos)=>{
+      if(datos.exists()){
+        return datos.val();
+      }else{
+        return null
+      }
+    }).catch((error)=>{
+      return null
+    })
+  }
+
   //Actualiza  comuHabitantena
-  public updateHabitante() {
-   
+  public eliminarHabitante(id: Habitante) {
+
+    const url: firebase.database.Reference = firebase.database().ref('habitantes/'+id)
+
+    url.set(null)
+    .then(()=>{
+      console.log('comuna eliminada correctamte')
+    })
+    .catch((error)=>console.log('ocurrio un error al intentar eliminar la comuna ',error))
   }
 }
