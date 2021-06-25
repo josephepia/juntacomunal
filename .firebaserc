@@ -7,6 +7,12 @@
       "hosting": {
         "juntadeaccioncomunal": [
           "junta-de-accion-comunal"
+        ],
+        "pruebas": [
+          "juntaaccioncomunaltest"
+        ],
+        "produccion": [
+          "juntaaccioncomunalprod"
         ]
       }
     }
