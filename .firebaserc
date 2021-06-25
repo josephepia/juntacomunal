@@ -7,6 +7,9 @@
       "hosting": {
         "juntadeaccioncomunal": [
           "junta-de-accion-comunal"
+        ],
+        "desarrollo": [
+          "juntaaccioncomunalprod"
         ]
       }
     }

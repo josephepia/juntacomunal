@@ -1,0 +1,100 @@
+<section class="row margin-0 start-xs padding-16">
+
+    <div >
+      <button mat-fab color="primary" class="mat-focus-indicator fab-le mat-fab mat-button-base mat-primary"
+        routerLink="/roles">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+    
+      <div class="example-button-row ">
+        <mat-card-title >{{rol?.nombre}}</mat-card-title>
+      </div>
+  
+  
+  </section>
+  
+  
+  
+  <div class="row margin-0 center-xs padding-16">
+    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+      <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs">
+  
+          <mat-card-title>{{rol?.numeroHabitantes || '0'}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Habitantes</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+      <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs">
+  
+          <mat-card-title>{{rol?.pqrsActivos || '0'}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">PQRS activos</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="row margin-0 col-xs-12 col-sm-8 col-md-4 col-lg-4 padding-bottom-10 center-xs">
+      <mat-card class="shadow1 borde-radio-10">
+        <mat-card-header class="center-xs">
+  
+          <mat-card-title>{{rol?.barrios?.length || 0}}</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">Barrios</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+  
+  <!-- inicio tabla barrios-->
+  
+  <div class="row margin-0 padding-16">
+  
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg">
+        <div mat-card-avatar class="barriosimage"></div>
+        <mat-card-title>Permisos</mat-card-title>
+        <mat-card-subtitle class="margin-bottom-0">información</mat-card-subtitle>
+  
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="permisos">
+  
+          <!-- Position Column -->
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef>No </th>
+            <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+          </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="write">
+            <th mat-header-cell *matHeaderCellDef> Escritura </th>
+            <td mat-cell *matCellDef="let element"> {{element.write}} </td>
+          </ng-container>
+  
+          <!-- Weight Column -->
+          <ng-container matColumnDef="read">
+            <th mat-header-cell *matHeaderCellDef> Lectura </th>
+            <td mat-cell *matCellDef="let element"> {{element.read}} </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  
+  
+  
+  
+  </div>
+  
+  
+  <!-- boton foltante -->
+  <mat-fab-menu color="primary" direction="top" tooltipPosition="bottom" [fabButtons]="fabButtons" class="fab-right"
+    icon="edit_note" (onFabMenuItemSelected)="opcionSeleccionada($event)">
+  </mat-fab-menu>

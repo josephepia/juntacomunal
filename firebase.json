@@ -1,21 +1,6 @@
 {
   "hosting": [
     {
-      "target": "produccion",
-      "public": "dist",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "desarrollo",
       "public": "dist",
       "ignore": [
@@ -46,7 +31,7 @@
       ]
     },
     {
-      "target": "juntadeaccioncomunal",
+      "target": "produccion",
       "public": "dist",
       "ignore": [
         "**/.*"
