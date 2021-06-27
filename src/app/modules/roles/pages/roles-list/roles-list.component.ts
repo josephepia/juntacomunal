@@ -19,10 +19,11 @@ export class RolesListComponent implements OnInit {
    
     private route: ActivatedRoute,
     private router: Router,
-    private notiService: NotificacionesService
   ) { }
 
-  roles: any[] = []
+  roles:    any[] = []
+
+  
 
   async ngOnInit(){
     await this.auth.loginEmail('super@gmail.com','123123');
@@ -64,6 +65,8 @@ async consultarRolesOnce() {
   console.log("roles ", this.roles);
   
 }
+
+
 
 consultarRolesOn(){
   this.auth.getRolesOn().then((value) => {

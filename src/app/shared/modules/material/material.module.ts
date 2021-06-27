@@ -21,7 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 const MaterialComponents = [
   FormsModule,
   ReactiveFormsModule,
@@ -45,6 +45,7 @@ const MaterialComponents = [
   MatTableModule,
   MatButtonToggleModule,
   MatMenuModule,
+  MatCheckboxModule,
   
 
   FontAwesomeModule

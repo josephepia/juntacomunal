@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 import { NotificacionesService } from './notificaciones.service';
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class UserAuthService {
     private notiService: NotificacionesService
     ) { }
   db = firebase.database();
+  rootRef = this.db.ref();
   autenticationRef: firebase.database.Reference = this.db.ref('usuarios');
   rolesRef: firebase.database.Reference = this.db.ref('roles');
   permisosRef: firebase.database.Reference = this.db.ref('permisos');
@@ -91,20 +93,7 @@ export class UserAuthService {
     return roles
   }
 
-  async getRolOnce(id: any){
-    let rol:any = {}
-    await this.rolesRef.child(id).once('value',(rolesData)=>{
-      
-      if(rolesData.exists()){
-        rol = rolesData.val()
-        rol[id] = rolesData.key
-      }
-      
-    }, (er)=>{     
-      this.notiService.modalInformativo({titulo: "Atención", descripcion: er.message})
-    })
-    return rol
-  }
+  
 
   async getRolesOn(){
 
@@ -116,6 +105,66 @@ export class UserAuthService {
       });
  
     
+  }
+
+  async getRolOnce(id: any){
+    let rol:any = {}
+    await this.rolesRef.child(id).once('value',(rolesData)=>{
+      
+      if(rolesData.exists()){
+        rol = rolesData.val()
+        rol['id'] = rolesData.key
+      }
+      
+    }, (er)=>{     
+      this.notiService.modalInformativo({titulo: "Atención", descripcion: er.message})
+    })
+    return rol
+  }
+  async getRolOn(id: any){
+  
+
+    return new Observable((observer) => {
+      
+      let rol:any = {}
+      this.rolesRef.child(id).on('value',(rolesData)=>{
+      
+      if(rolesData.exists()){
+        rol = rolesData.val()
+        rol['id'] = rolesData.key
+      }
+      observer.next(rol)
+      
+    }, (er)=>{     
+      this.notiService.modalInformativo({titulo: "Atención", descripcion: er.message})
+      observer.error(er)
+    });
+    
+      // When the consumer unsubscribes, clean up data ready for next subscription.
+      return ()=> {
+        this.rolesRef.off()
+      };
+    });
+
+  }
+
+   //listar permisos once
+   async getPermisosOnce(){
+    let permisos: any[] = []
+    await this.permisosRef.once('value',(permisosData)=>{
+      
+      if(permisosData.exists()){
+        permisosData.forEach((dataSnap)=>{
+          let permiso = dataSnap.val()
+          permiso['id'] = dataSnap.key
+          permisos.push(permiso)
+        })
+      }
+      
+    }, (er)=>{     
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: er.message})
+    })
+    return permisos
   }
 
   agregarRol(rol: Object){
@@ -132,6 +181,33 @@ export class UserAuthService {
       this.notiService.modalInformativo({titulo: "Advertencia", descripcion: error.code})
     })
       
+  }
+
+  updatePermisosIntoRol(idRol:any, idPermiso:any, data:any){
+    console.log('datos que llegan  idrol',idRol);
+    console.log('datos que llegan  idPermiso',idPermiso);
+    console.log('datos que llegan  data',data);
+    
+    this.rolesRef.child(idRol).child('permisos').child(idPermiso).update(data,(er)=>{
+      console.log('completado ', er);
+      
+    })
+  }
+
+  updateAllPermisosIntoRol(idRol:any, idPermisos:any[], type: string, data:boolean){
+    console.log('datos que llegan  idrol',idRol);
+    console.log('datos que llegan  idPermisos',idPermisos);
+    console.log('datos que llegan  data',data);
+    
+    let updates:any = {}
+
+    for(let permiso of idPermisos){
+      updates['roles/'+idRol+'/permisos/'+permiso+(type == 'read' ? '/read': '/write')] = data
+    }
+    this.rootRef.update(updates,(er)=>{
+      console.log('completado ', er);
+      
+    })
   }
 
   

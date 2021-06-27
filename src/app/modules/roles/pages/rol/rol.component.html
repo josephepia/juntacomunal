@@ -58,28 +58,56 @@
   
       </mat-card-header>
       <mat-card-content>
-        <table mat-table [dataSource]="permisos">
+        <table mat-table [dataSource]="dataSource">
   
           <!-- Position Column -->
           <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef>No </th>
             <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
           </ng-container>
+
             <!-- Name Column -->
             <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef> nombre </th>
+                <th mat-header-cell *matHeaderCellDef> id </th>
                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
           <!-- Name Column -->
           <ng-container matColumnDef="write">
-            <th mat-header-cell *matHeaderCellDef> Escritura </th>
-            <td mat-cell *matCellDef="let element"> {{element.write}} </td>
+           
+            
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle('write') : null"
+              [checked]="selectionWrite.hasValue() && isAllSelectedWrite()"
+              [indeterminate]="selectionWrite.hasValue() && !isAllSelectedWrite()">
+              </mat-checkbox>Escritura  
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? togglePermiso(element,'write') : null"
+                            [checked]="selectionWrite.isSelected(element)">
+              </mat-checkbox>
+            </td>
+ 
           </ng-container>
   
           <!-- Weight Column -->
           <ng-container matColumnDef="read">
-            <th mat-header-cell *matHeaderCellDef> Lectura </th>
-            <td mat-cell *matCellDef="let element"> {{element.read}} </td>
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle('read') : null"
+              [checked]="selectionRead.hasValue() && isAllSelectedRead()"
+              [indeterminate]="selectionRead.hasValue() && !isAllSelectedRead()">
+              </mat-checkbox>Lectura
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? togglePermiso(element,'read') : null"
+                            [checked]="selectionRead.isSelected(element)">
+              </mat-checkbox>
+            </td>
           </ng-container>
   
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
