@@ -13,55 +13,49 @@
 
 <!-- detalles del pqrs -->
 
+<div class="row margin-0 start-xs padding-16">
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+      <mat-card class="shadow1 borde-radio-10 ">
+          <mat-card-header >
+            <mat-card-subtitle class="margin-bottom-0">Asunto</mat-card-subtitle>
+            <mat-card-title>{{pqrs?.tituloPQRS}}</mat-card-title>
+          </mat-card-header>
+      </mat-card>
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+    <mat-card class="shadow1 borde-radio-10 ">
+        <mat-card-header >
+          <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
+        <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+    <mat-card class="shadow1 borde-radio-10 ">
+        <mat-card-header >
+          <mat-card-subtitle class="margin-bottom-0">Estado</mat-card-subtitle>
+          <mat-card-title>{{pqrs?.estadoPQRS}}</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+  </div>
+</div>
+
 <div class="row margin-0 padding-16">
 
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Asunto</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.tituloPQRS}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
 
   <div class="padding-bottom-15 center-xs">
     <mat-card class="shadow1 borde-radio-10">
       <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
-
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Estado</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.estadoPQRS}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
-
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Fecha</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.fecha | date:'short'}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
-
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-title>Descripcion</mat-card-title>
-        <mat-card-subtitle class="margin-bottom-0">{{pqrs?.descripcion}}</mat-card-subtitle>
-
+        <mat-card-subtitle class="margin-bottom-0">{{pqrs?.fecha | date:'short'}} <br> {{pqrs?.descripcion}}</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
   </div>
 
 </div>
+
+
 
 
 <!-- boton foltante -->

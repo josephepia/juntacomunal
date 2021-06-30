@@ -44,6 +44,7 @@ export class PqrsComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this.consultarPQRSOnce(id);
+    this.consultarRespuestasOnce(id);
   }
 
   consultarPQRSOnce(id: any){
@@ -59,6 +60,22 @@ export class PqrsComponent implements OnInit {
     this.pqrsService.ConsultarPQRSIndividual(id).then((datos)=>{
       this.pqrs = datos;
       this.pqrs['id']= id;
+    })
+  }
+  
+  consultarRespuestasOnce(id: any){
+    firebase.database().ref('respuestas/').orderByChild('idPqrs').equalTo(id).once('value')
+    .then((datos)=>{
+      if(datos.exists()){
+        let respuestas:any[] = []
+        datos.forEach(datosChildren => {
+          respuestas.push(Object.assign({id: datosChildren.key},datosChildren.val()))
+        });
+        
+        this.pqrs['barrios'] = respuestas
+        console.log('datos de todos los barrios -> ', datos.val());
+        console.log('datos de todos los barrios dentro de comuna -> ', this.pqrs);
+      }
     })
   }
 
