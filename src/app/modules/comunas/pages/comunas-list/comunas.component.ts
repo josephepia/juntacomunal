@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormularioComponent } from '../../components/formulario/formulario.component';
 import { Comuna } from './../../../../core/Modelos/comuna';
 import { ComunaService } from './../../../../core/services/comuna.service';
+import { UserAuthService } from 'src/app/core/services/user-auth.service';
 
 @Component({
   selector: 'app-comunas',
@@ -15,7 +16,7 @@ import { ComunaService } from './../../../../core/services/comuna.service';
 export class ComunasComponent implements OnInit {
 
   comuna: any = {}
-  comunas: any
+  comunas: any[] = []
   barrios: any
 
   navigationExtras: NavigationExtras = {
@@ -29,11 +30,16 @@ export class ComunasComponent implements OnInit {
    
     private route: ActivatedRoute,
     private router: Router,
-    private comunaService: ComunaService
+    private comunaService: ComunaService,
+    private auth: UserAuthService
   ) { }
 
-  ngOnInit(): void {
-    this.consultarComunasOnce();
+  async ngOnInit() {
+    await this.consultarComunasOnce();
+
+    
+    
+    
   }
 
   keys(objeto: Object) {
@@ -60,15 +66,8 @@ export class ComunasComponent implements OnInit {
     });
   }
   //CONSULTAR SERVICE
-  consultarComunasOnce() {
-    this.comunaService.getComunasOnce().then((comunas) => {
-      if (comunas) {
-        console.log('comunas segundo then', comunas);
-      } else {
-        console.log('no existen comunas');
-      }
-      this.comunas = comunas || {}
-    })
+  async consultarComunasOnce() {
+    this.comunas = await this.comunaService.getComunasOnce()
   }
   //REVISAR
   goToComuna(comuna: any) {

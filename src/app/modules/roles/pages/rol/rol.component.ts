@@ -161,7 +161,7 @@ export class RolComponent implements OnInit {
     this.permisos = await this.authService.getPermisosOnce()
     
     this.misPermisos = []
-    let permisosActuales = Object.keys(this.rol.permisos)
+    let permisosActuales = Object.keys(this.rol.permisos || {})
     
     
     for(let permiso of this.permisos){

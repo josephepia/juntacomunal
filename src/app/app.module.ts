@@ -87,18 +87,11 @@ export class AppModule {
           5001
           );
         console.log('Functions local conected')
+        //descomentar para usar un usuario de la base de datos de prueba
+        //firebase.auth().signInWithEmailAndPassword('super@gmail.com','123123');
 
-        firebase.database().ref('comunas').on('value',(dataSnapshot)=>{
-          if(dataSnapshot.exists()){
-            console.log('comunas locales => ', dataSnapshot.val());
-            
-          }else{
-            console.log('no existen comunas locales');
-            
-          }
-        })
-
-        console.log('ruta root realtime local => ', firebase.database().ref().toString());
+        //descomentar y comentar para cerrar sesion
+        //firebase.auth().signOut()
 
         
 

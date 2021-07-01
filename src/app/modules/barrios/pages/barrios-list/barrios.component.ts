@@ -14,7 +14,7 @@ import { FormularioComponent } from '../../components/formulario/formulario.comp
 export class BarriosComponent implements OnInit {
  
   barrio: any = {}
-  barrios: any
+  barrios: any[] = []
 
   constructor(
     public dialog: MatDialog,

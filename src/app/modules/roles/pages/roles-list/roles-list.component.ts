@@ -26,7 +26,7 @@ export class RolesListComponent implements OnInit {
   
 
   async ngOnInit(){
-    await this.auth.loginEmail('super@gmail.com','123123');
+    //await this.auth.loginEmail('super@gmail.com','123123');
     console.log('roles');
     this.consultarRolesOnce();
     //this.consultarRolesOn();

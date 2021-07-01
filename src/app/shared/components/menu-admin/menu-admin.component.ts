@@ -86,12 +86,12 @@ export class MenuAdminComponent implements OnDestroy {
   ];
 
   private _mobileQueryListener: () => void;
-
+  user:any
   constructor(
     changeDetectorRef: ChangeDetectorRef,
      media: MediaMatcher, 
      library: FaIconLibrary,
-     private userAuthService: UserAuthService
+     private auth: UserAuthService
     ) {
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -99,9 +99,18 @@ export class MenuAdminComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
 
     library.addIcons(faCoffee)
+
+    this.auth.userChanges.subscribe((user)=>{
+      this.user = user
+      console.log('usuario logueado ', this.user);
+      console.log('token', user?.getIdTokenResult());
+      
+      
+    })
   }
+
   CerrarSesion():void{
-    this.userAuthService.logOutSession();
+    this.auth.logOutSession();
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);

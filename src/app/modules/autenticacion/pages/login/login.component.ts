@@ -11,34 +11,38 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   //Variables
-  user: any = {}
-  email : any;
-  password:any;
-  emailRegistrar : any;
-  passwordRegistrar:any;
+  
   cpasswordRegistrar:any;
+
+  buttonDisabled:boolean = false
   constructor(
-    private userAuthService: UserAuthService
+    private auth: UserAuthService
   ) {    }
 
   ngOnInit(): void {
 
   }
 
-  registrar():void {
-    if (this.passwordRegistrar == this.cpasswordRegistrar){
-      this.userAuthService.signUpEmail(this.emailRegistrar, this.passwordRegistrar);
-      console.log("Registrado con exito");
-    }else{
-      console.log("Password diferentes")
-    }
+  //estructura para usar formulario reactivo
+  formulario = new FormGroup({
+    correo: new FormControl(null, [Validators.required, Validators.email]),
+    contrasena: new FormControl(null, [Validators.required, Validators.minLength(6)]),
 
+  });
+
+  //al cancelar el modal
+  cancelar() {
+   
   }
 
-  login():void{
-    this.userAuthService.loginEmail(this.email, this.password);
-    console.log("logueado con exito");
+  //al confirmar el registro
+  registrar(): void {
+
+    this.auth.loginEmail(this.formulario.value.correo,this.formulario.value.contrasena).then(()=>{
+      this.buttonDisabled = true
+    })
   }
+
 
 
 }

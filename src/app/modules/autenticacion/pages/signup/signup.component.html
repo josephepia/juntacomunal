@@ -1,1 +1,46 @@
-<p>signup works!</p>
+<div class="h-p-100 row margin-0 middle-xs">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-16">
+        <mat-card class="shadow1 borde-radio-10 ">
+          <mat-card-header >
+            <div mat-card-avatar class="comunasimage"></div>
+  
+            <mat-card-title class="trunc-1">Registrarme</mat-card-title>
+            <mat-card-subtitle class="margin-bottom-0">ingrese sus credenciales</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="padding-8">
+            <form [formGroup]="formulario" (ngSubmit)="registrar()"  autocomplete="on">
+
+               
+           
+                 
+                  <div class="row center-xs">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Correo (*)</mat-label>
+                      <input matInput placeholder="correo"  formControlName="correo">
+                    </mat-form-field>
+                
+                  </div>
+                  <div class="row center-xs">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Contrasena (*)</mat-label>
+                      <input matInput placeholder="contrasena"  formControlName="contrasena">
+                    </mat-form-field>
+                
+                  </div>
+                
+              
+                <div class="row center-xs">
+                  <div class="col-xs">
+                    <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
+            
+                  </div>
+                  <div class="col-xs">
+                    <button mat-flat-button type="submit" color="primary" [disabled]="formulario.invalid || buttonDisabled" >Guardar</button>
+                  </div>
+                </div>
+                   
+              </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+</div>

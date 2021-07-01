@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { NotificacionesService } from './notificaciones.service';
 @Injectable({
   providedIn: 'root'
@@ -11,37 +11,70 @@ export class UserAuthService {
   constructor(
     private router: Router,
     private notiService: NotificacionesService
-    ) { }
+    ) {
+      console.log('constructor de user service');
+      
+      this.userChanges.subscribe((value) => {
+        this.user = value
+       
+        
+    });
+
+    this.auth.onAuthStateChanged((user)=>{
+     
+      if(user){
+        this.userChanges.next(user)
+      }else{
+        this.userChanges.next(null)
+
+      }
+    })
+
+     }
   db = firebase.database();
+  auth = firebase.auth()
   rootRef = this.db.ref();
   autenticationRef: firebase.database.Reference = this.db.ref('usuarios');
   rolesRef: firebase.database.Reference = this.db.ref('roles');
   permisosRef: firebase.database.Reference = this.db.ref('permisos');
   autorizacionesRef: firebase.database.Reference = this.db.ref('autorizaciones');
 
+  user:any
 
-  user:any = {}
-
-  async isAutenticated(){
+  async currentUser(){
   let consulta = await new Promise((resolve, reject) => {
-      const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      const unsubscribe = this.auth.onAuthStateChanged(user => {
         unsubscribe();
         resolve(user);
       }, reject);
     });
 
-    this.user = (consulta || null)
+ //   this.user = (consulta || null)    
+ //this.userChanges.next(consulta)
     return consulta
   }
+
+  userChanges: Subject<firebase.User | null> = new Subject<firebase.User | null>()
+
+
+
+
+  
+
+
   //INICIAR SESION
   loginEmail(email: string, password: string){
     return firebase.auth().signInWithEmailAndPassword(email,password)
     .then( res =>{
-      console.log(res);
+      
+      //ctualizar el estado global de user 
+      //this.userChanges.next(res.user)
+
+      this.router.navigate(['/'])
     })
     .catch((error) => {
       console.log('error al iniciar sesion: ', error);
-      this.notiService.modalInformativo({titulo: "Atención", descripcion: error.code})
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: error.code})
     });
   }
   //Registrarse
@@ -65,7 +98,8 @@ export class UserAuthService {
     firebase.auth().signOut()
     .then(()=>{
       console.log('sesion de firebase cerrada');
-      //this.router.navigate(['home'])
+      //this.userChanges.next({})
+      this.router.navigate(['/'])
       
     }).catch((error)=>{
       console.log('error al intentar desconectarse de firebase->', error);
@@ -88,7 +122,7 @@ export class UserAuthService {
       }
       
     }, (er)=>{     
-      this.notiService.modalInformativo({titulo: "Atención", descripcion: er.message})
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: er.message})
     })
     return roles
   }
@@ -117,7 +151,7 @@ export class UserAuthService {
       }
       
     }, (er)=>{     
-      this.notiService.modalInformativo({titulo: "Atención", descripcion: er.message})
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: er.message})
     })
     return rol
   }
@@ -136,7 +170,7 @@ export class UserAuthService {
       observer.next(rol)
       
     }, (er)=>{     
-      this.notiService.modalInformativo({titulo: "Atención", descripcion: er.message})
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: er.message})
       observer.error(er)
     });
     
@@ -170,7 +204,7 @@ export class UserAuthService {
   agregarRol(rol: Object){
     let agregarRol = firebase.functions().httpsCallable('agregarRol');
     return agregarRol(rol).catch((error)=>{
-      this.notiService.modalInformativo({titulo: "Advertencia", descripcion: error.code})
+      this.notiService.modalInformativo({titulo: "Advertencia", errorCode: error.code})
     })
       
   }
@@ -178,7 +212,7 @@ export class UserAuthService {
   agregarPermiso(rol: Object){
     let agregarPermiso = firebase.functions().httpsCallable('agregarPermiso');
     return agregarPermiso(rol).catch((error)=>{
-      this.notiService.modalInformativo({titulo: "Advertencia", descripcion: error.code})
+      this.notiService.modalInformativo({titulo: "Advertencia", errorCode: error.code})
     })
       
   }

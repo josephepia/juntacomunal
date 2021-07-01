@@ -28,7 +28,12 @@ const routes: Routes = [
   { path: 'habitantes', loadChildren: () => import('./modules/habitantes/habitantes.module').then(m => m.HabitantesModule) },
   { path: 'convenios', loadChildren: () => import('./modules/convenios/convenios.module').then(m => m.ConveniosModule) },
   { path: 'lineasAtencion', loadChildren: () => import('./modules/lineas-atencion/lineas-atencion.module').then(m => m.LineasAtencionModule) },
-  { path: 'roles', loadChildren: () => import('./modules/roles/roles.module').then(m => m.RolesModule) },
+  { 
+    path: 'roles',
+    loadChildren: () => import('./modules/roles/roles.module').then(m => m.RolesModule),
+    canActivate: [LoginGuard]
+  
+  },
   { path: 'permisos', loadChildren: () => import('./modules/permisos/permisos.module').then(m => m.PermisosModule) },
   //{ path: 'pqrs-list', loadChildren: () => import('./modules/pqrs/pages/pqrs-list/pqrs-list.module').then(m => m.PqrsListModule) },
   //{ path: 'publicaciones-list', loadChildren: () => import('./modules/publicaciones/pages/publicaciones-list/publicaciones-list.module').then(m => m.PublicacionesListModule) },
