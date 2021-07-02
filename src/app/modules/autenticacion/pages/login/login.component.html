@@ -1,52 +1,46 @@
-<div style="height: 100%; background-color:#e0e0e0 ; " class="row margin-0 middle-xs center-xs padding-16" >
+<div class="h-p-100 row margin-0 middle-xs">
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-16">
+      <mat-card class="shadow1 borde-radio-10 ">
+        <mat-card-header >
+          <div mat-card-avatar class="comunasimage"></div>
 
-  <mat-card class="shadow1 borde-radio-10 cursor-pointer
-    col-xs-12
-    col-sm-8
-    col-md-6
-    col-lg-4">
-    <mat-card-header class="row margin-0 center-xs">
-      <mat-card-title>INICIAR SESIÓN</mat-card-title>
-      <mat-card-subtitle>Inicia Sesión o crea tu cuenta.</mat-card-subtitle>
-    </mat-card-header>
+          <mat-card-title class="trunc-1">Ingresar</mat-card-title>
+          <mat-card-subtitle class="margin-bottom-0">ingrese sus credenciales</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="padding-8">
+          <form [formGroup]="formulario" (ngSubmit)="registrar()"  autocomplete="on">
 
-    <mat-card-content >
-      <mat-tab-group mat-align-tabs="center">
-
-        <mat-tab label="Login">
-          <mat-form-field class="example-full-width">
-            <mat-label >Email</mat-label>
-            <input type="email" matInput placeholder="Email" [(ngModel)]="email" name="email" >
-            <mat-icon color="primary" matSuffix>email</mat-icon>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
-            <input type="password" matInput placeholder="Contraseña"  [(ngModel)]="password" name="password">
-            <mat-icon color="primary"  matSuffix>vpn_key</mat-icon>
-          </mat-form-field>
-          <button mat-raised-button color="primary" class="example-full-width" (click)="login()" [routerLink]="['/home/landing']" >Login</button>
-        </mat-tab>
-
-        <mat-tab label="Registrer">
-          <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Email" value="" [(ngModel)]="emailRegistrar" name="emailRegistrar">
-            <mat-icon color="primary"  matSuffix>email</mat-icon>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
-            <input type="password" matInput placeholder="Contraseña" [(ngModel)]="passwordRegistrar" name="passwordRegistrar">
-            <mat-icon color="primary"   matSuffix>vpn_key</mat-icon>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>RepetirContraseña</mat-label>
-            <input type="password" matInput placeholder="Confirmar Contraseña" [(ngModel)]="cpasswordRegistrar" name="cpasswordRegistrar">
-            <mat-icon color="primary"  matSuffix>vpn_key</mat-icon>
-          </mat-form-field>
-          <button mat-raised-button color="primary" class="example-full-width" (click)="registrar()">Registrar</button>
-        </mat-tab>
-
-      </mat-tab-group>
-    </mat-card-content>
-  </mat-card>
+             
+         
+               
+                <div class="row center-xs">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Correo (*)</mat-label>
+                    <input matInput placeholder="correo"  formControlName="correo">
+                  </mat-form-field>
+              
+                </div>
+                <div class="row center-xs">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Contrasena (*)</mat-label>
+                    <input matInput placeholder="contrasena"  formControlName="contrasena">
+                  </mat-form-field>
+              
+                </div>
+              
+            
+              <div class="row center-xs">
+                <div class="col-xs">
+                  <button mat-flat-button (click)="cancelar()" type="button" color="warn">Cancelar</button>
+          
+                </div>
+                <div class="col-xs">
+                  <button mat-flat-button type="submit" color="primary" [disabled]="formulario.invalid || buttonDisabled" >Guardar</button>
+                </div>
+              </div>
+                 
+            </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
 </div>

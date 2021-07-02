@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
+import { NotificacionesService } from './notificaciones.service';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ import firebase from 'firebase/app';
 export class ComunaService {
 
   constructor(
-    
+    private notiService: NotificacionesService
   ) {  }
   database = firebase.database();
   comuna: Comuna = new Comuna;
@@ -38,16 +39,25 @@ export class ComunaService {
     
   }
 
-  getComunasOnce(){
-    return this.comunaRef.once('value').then((datos)=>{
-      if(datos.exists()){       
-        return datos.val()
+  async getComunasOnce(){
+    let comunas: any[] = []
+    await this.comunaRef.once('value',(comunasData)=>{
+      
+      if(comunasData.exists()){
+        comunasData.forEach((dataSnap)=>{
+          let comuna = dataSnap.val()
+          comuna['id'] = dataSnap.key
+          comunas.push(comuna)
+        })
       }else{
-        return null
+        console.log('no existen comunas');
+        
       }
-    }).catch((error)=>{
-      return null
+      
+    }, (er)=>{     
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: er.message})
     })
+    return comunas
   }
   //Actualiza  comuna
   public updateComuna() {

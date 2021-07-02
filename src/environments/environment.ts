@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  emulator: false,
   firebaseConfig: {
     apiKey: "AIzaSyAnrlKVK2AIwPz65GnDbYqISq6OBJF-0Jk",
     authDomain: "junta-de-accion-comunal.firebaseapp.com",

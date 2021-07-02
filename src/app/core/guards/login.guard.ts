@@ -14,7 +14,7 @@ export class LoginGuard implements CanActivate {
 
   }
   async canActivate(){
-    return this.authService.isAutenticated().then((user)=>{
+    return this.authService.currentUser().then((user)=>{
       if(user){
         console.log('usuario logueaado', user);
         

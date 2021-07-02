@@ -5,13 +5,16 @@ import firebase from 'firebase/app'
 import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NotificacionesService } from './notificaciones.service';
 export interface Item { name: string; }
 @Injectable({
   providedIn: 'root'
 })
 export class BarrioService {
 
-  constructor() {  }
+  constructor(
+    private notiService: NotificacionesService
+  ) {  }
   database = firebase.database();
   barrio: Barrio = new Barrio;
   barrioRef: firebase.database.Reference = firebase.database().ref('barrios')
@@ -39,16 +42,25 @@ export class BarrioService {
       }
     })
   }
-  getBarriosOnce(){
-    return this.barrioRef.once('value').then((datos)=>{
-      if(datos.exists()){       
-        return datos.val()
+  async getBarriosOnce(){
+    let barrios: any[] = []
+    await this.barrioRef.once('value',(barriosData)=>{
+      
+      if(barriosData.exists()){
+        barriosData.forEach((dataSnap)=>{
+          let barrio = dataSnap.val()
+          barrio['id'] = dataSnap.key
+          barrios.push(barrio)
+        })
       }else{
-        return null
+        console.log('no existen barrios');
+        
       }
-    }).catch((error)=>{
-      return null
+      
+    }, (er)=>{     
+      this.notiService.modalInformativo({titulo: "Atención", errorCode: er.message})
     })
+    return barrios
   }
   //Actualiza  Barrio
   public updateBarrio() {

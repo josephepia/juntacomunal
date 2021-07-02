@@ -31,6 +31,7 @@ import { ModalConfirmacionComponent } from './shared/components/modal-confirmaci
 import { CardComponent } from './shared/components/card/card.component';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { ModalInformativoComponent } from './shared/components/modal-informativo/modal-informativo.component';
 
 
 
@@ -40,7 +41,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MenuAdminComponent,
     MenuInvitadoComponent,
     ModalConfirmacionComponent,
-    CardComponent
+    CardComponent,
+    ModalInformativoComponent
     //NavBarComponent
     
   ],
@@ -66,6 +68,35 @@ export class AppModule {
   constructor(){
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebaseConfig);
+    
+        if (location.hostname === "localhost") {
+         firebase.database().useEmulator(
+        "localhost",
+        9000
+        );
+        console.log('RealtimeDatabase local conected')
+
+        firebase.auth().useEmulator(
+          "http://localhost:9099/auth",
+          );
+
+        console.log('Auth local conected')
+
+        firebase.functions().useEmulator(
+          "localhost",
+          5001
+          );
+        console.log('Functions local conected')
+        //descomentar para usar un usuario de la base de datos de prueba
+        //firebase.auth().signInWithEmailAndPassword('super@gmail.com','123123');
+
+        //descomentar y comentar para cerrar sesion
+        //firebase.auth().signOut()
+
+        
+
+        }
+        
       
     }
   }
