@@ -13,8 +13,8 @@
     </button>
     
     <mat-menu #menu="matMenu">
-     
-      <button mat-menu-item>
+     <div *ngIf="user">
+      <button mat-menu-item [routerLink]="['/perfil']">
         <mat-icon color="primary">assignment_ind</mat-icon>
         <span>Perfil</span>
       </button>
@@ -22,6 +22,18 @@
         <mat-icon class="material-icons color_red">keyboard_tab</mat-icon>
         <span>Cerrar Sesion</span>
       </button>
+     </div>
+      
+     <div *ngIf="!user">
+      <button mat-menu-item [routerLink]="['/perfil']">
+        <mat-icon color="primary">assignment_ind</mat-icon>
+        <span>Perfil</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/autenticacion/login']">
+        <mat-icon class="material-icons color_red">keyboard_tab</mat-icon>
+        <span>Iniciar sesion</span>
+      </button>
+     </div>
     </mat-menu>
   </mat-toolbar>
 
@@ -35,6 +47,7 @@
           <h3 matLine> {{page.title}}</h3>
           <i *ngIf="page.iconFa" [class]="page.iconFa + ' primary'" matListIcon></i>
         </mat-list-item>
+     
 
       </mat-nav-list>
     </mat-sidenav>

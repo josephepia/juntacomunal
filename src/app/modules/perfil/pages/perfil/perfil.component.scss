@@ -1,0 +1,30 @@
+
+
+.profile-card{
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+ }
+ 
+ .pic{
+     display: inline-block;
+     padding: 8px;
+     background: grey;
+     margin: auto;
+     border-radius: 50%;
+     background-size: 200% 200%;
+ }
+   
+ .pic img{
+     display: block;
+     width: 120px;
+     height: 120px;
+     border-radius: 50%;
+ }
+ 
+ h1{
+     color: blue;
+ }
+   
+ 

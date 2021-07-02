@@ -4,6 +4,7 @@ import firebase from "firebase/app"
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { PQRSService } from './../../../../core/services/pqrs.service';
 import { FormularioPQRSComponent} from './../../components/formulario-pqrs/formulario-pqrs.component'
+import { UserAuthService } from 'src/app/core/services/user-auth.service';
 
 
 @Component({
@@ -24,29 +25,44 @@ export class PqrsListComponent implements OnInit {
     public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
-    private pqrsService: PQRSService
+    private pqrsService: PQRSService,
+    private auth: UserAuthService
   ){}
   
-  pqrs_list:any
+  pqrsList:any[] =[]
 
-  consultarPQRSOnce(){
-    this.pqrsService.getPQRSOnce().then((pqrs)=>{
-     if(pqrs){
-      console.log('pqrs segundo then', this.pqrs_list);
-      
-      
-     }else{
-       console.log('no existen pqrs');
-       
-     }
-      this.pqrs_list = pqrs || {}
-    })
-   
+  async consultarPqrsOnce(){
+   this.pqrsList = await this.pqrsService.getPqrsListOnce()
+  }
+
+  userAuth:any = {}
+  userDatabase:any = {}
+  async consultarPropiosPqrsOnce(){
+    this.pqrsList = await this.pqrsService.getPqrsListOwnerOnce(this.userAuth.uid)
   }
 
   
-  ngOnInit(): void {
-    this.consultarPQRSOnce();
+  async ngOnInit() {
+   this.userAuth = await this.auth.currentUser()
+
+   //await this.consultarPqrsOnce();
+
+   
+  this.codigo()
+  }
+
+  async codigo(){
+    let condicion = await this.auth.isOnlyHabitante()
+    console.log('es solo habitante_? ', condicion);
+   if(condicion){
+    this.consultarPropiosPqrsOnce()
+    console.log('entr[e al true');
+    
+   }else{
+    this.consultarPqrsOnce();
+    console.log('entr[e al false');
+
+   }
   }
 
   keys(objeto: Object){
@@ -69,7 +85,8 @@ export class PqrsListComponent implements OnInit {
         this.pqrsService.createPQRS(pqrs)
           .then(() => {
             console.log("peticion registrada exitosamente");
-            this.consultarPQRSOnce();
+            // this.consultarPqrsOnce();
+            this.codigo()
 
           })
           .catch((error) => {

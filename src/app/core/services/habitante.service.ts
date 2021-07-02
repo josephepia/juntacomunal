@@ -6,20 +6,29 @@ import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
 
 import { Observable } from 'rxjs';
+import { UserAuthService } from './user-auth.service';
 export interface Item { name: string; }
 @Injectable({
   providedIn: 'root'
 })
 export class HabitanteService {
-  constructor() {  }
+  constructor(
+    private auth: UserAuthService
+  ) {  }
   database = firebase.database();
   habitante: Habitante = new Habitante;
   habitanteRef: firebase.database.Reference = firebase.database().ref('habitantes')
+  userRef: firebase.database.Reference = firebase.database().ref('usuarios')
 
   //Crea un nueva Habitante
   public createHabitante(habitante: Object) {
-    return this.habitanteRef.push(habitante);
+    return this.userRef.push(habitante);
     }
+
+  async updateProfile(data:any){
+    let user = await this.auth.currentUser()
+    this.userRef.child(user?.uid ||'').update(data)
+  }
   //Obtiene nueva Habitante
   public getHabitante() {
     

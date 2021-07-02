@@ -9,7 +9,8 @@ import { PQRSService } from './../../../../core/services/pqrs.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RespuestaPQRSService } from './../../../../core/services/respuesta-pqrs.service';
-
+import { Observable, Subscription } from 'rxjs';
+import { UserAuthService } from 'src/app/core/services/user-auth.service';
 
 @Component({
   selector: 'app-pqrs',
@@ -35,12 +36,11 @@ export class PqrsComponent implements OnInit {
     },
   ];*/
 
-  keys(objeto: Object) {
-    return Object.keys(objeto || {})
-  }
 
   pqrs:any = {}
-  respuestas: any
+  respuestas:any[] = [] 
+  respuestasObserver!: Subscription
+
 
   constructor(
     private route: ActivatedRoute,
@@ -48,7 +48,7 @@ export class PqrsComponent implements OnInit {
     public dialog: MatDialog,
     private pqrsService: PQRSService,
     private respuestaService: RespuestaPQRSService,
-    
+    private auth: UserAuthService
 
   ) { }
   public datosEntrada: any
@@ -58,38 +58,42 @@ export class PqrsComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this.consultarPQRSOnce(id);
-    this.consultarRespuestasOnce(id);
+  
 
     this.formulario.controls.idPqrs.setValue(id|| null);
     this.formulario.controls.descripcion.setValue(this.respuesta?.descripcion || null);
-    this.formulario.controls.fecha.setValue(this.respuesta?.fecha || null);
+    // this.formulario.controls.fecha.setValue(this.respuesta?.fecha || null);
     this.formulario.controls.remitente.setValue(this.respuesta?.remitente || "JAC");
   }
 
   formulario = new FormGroup({
     idPqrs: new FormControl(null),
     descripcion: new FormControl(null, [Validators.required, Validators.maxLength(2000)]),
-    fecha: new FormControl(null),
     remitente: new FormControl(null, [Validators.required]),
+    nombreRemitente: new FormControl(null),
   });
 
-  consultarPQRSOnce(id: any){
-    this.pqrsService.ConsultarPQRSIndividual(id).then((datos)=>{
-      this.pqrs = datos;
-      this.pqrs['id']= id;
+  async consultarPQRSOnce(id: any){
+    this.pqrs = await this.pqrsService.getPqrsOnce(id)
+    console.log('pqrs consultado ', this.pqrs);
+    
+    //ahora consultaremos todas las respuestas de este pqrs
+    this.consultarUltimasRespuestasOn(id)
+  }
+
+  pqrsObserver!: Subscription
+  
+
+  async consultarUltimasRespuestasOn(id: any){
+    this.respuestasObserver = (await this.pqrsService.getRespuestasLastOn(id)).subscribe((respuestas)=>{
+        this.respuestas = respuestas
+        console.log('respuestas ', this.respuestas);
+        
     })
   }
   
-  consultarRespuestasOnce(id: any){
-    firebase.database().ref('respuestas/').orderByChild('idPqrs').equalTo(id).once('value')
-    .then((datos)=>{
-      if(datos.exists()){
-        this.respuestas = datos.val()
+  
 
-        console.log('datos de todos las respuestas -> ', datos.val());
-      }
-    })
-  }
 
   opcionSeleccionada(item: any){
     console.log("seleccione la opcion -> ",  item);
@@ -113,15 +117,18 @@ export class PqrsComponent implements OnInit {
     
   }
 
-  responder(){
+  async responder(){
 
     if (this.formulario.invalid) {
       return;
     }
     console.log('datos ingresados al crear peticiones', this.formulario.value);
+    let user = await this.auth.currentUserDatabase()
+    this.formulario.value['nombreRemitente'] = user.child('nombre').val()
     this.respuestaService.createRespuesta(this.formulario.value)
           .then(() => {
             console.log("peticion registrada exitosamente");
+            this.formulario.controls.descripcion.setValue(null)
           })
           .catch((error) => {
             console.log("error al registrar peticion ", error);

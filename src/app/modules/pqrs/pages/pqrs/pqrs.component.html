@@ -28,7 +28,7 @@
     <mat-card class="shadow1 borde-radio-10 ">
         <mat-card-header >
           <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
+        <mat-card-title>{{pqrs?.nombre}}</mat-card-title>
         </mat-card-header>
     </mat-card>
   </div>
@@ -37,7 +37,7 @@
     <mat-card class="shadow1 borde-radio-10 ">
         <mat-card-header >
           <mat-card-subtitle class="margin-bottom-0">Estado</mat-card-subtitle>
-          <mat-card-title>{{pqrs?.estadoPQRS}}</mat-card-title>
+          <mat-card-title>{{pqrs?.estado}}</mat-card-title>
         </mat-card-header>
     </mat-card>
   </div>
@@ -60,14 +60,17 @@
     </mat-card>
   </div>
 
-  <div class="padding-bottom-15 center-xs" *ngFor="let respuesta of keys(respuestas)">
+  <div class="padding-bottom-15 center-xs" *ngFor="let respuesta of respuestas">
     <mat-card class="shadow1 borde-radio-10">
       <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">
-          <span style="color: blue;">{{respuestas[respuesta]?.fecha | date:'short'}}</span> <br> 
-          {{respuestas[respuesta]?.descripcion}} <br>
-          <span style="color: #6FE717;">{{respuestas[respuesta]?.remitente}}</span>
-        </mat-card-subtitle>
+        <div class="row margin-0 between-xs">
+          <span style="color: #6FE717;">{{respuesta?.nombreRemitente}}</span>
+          <mat-card-subtitle class="margin-bottom-0">
+            <span style="color: blue;">{{respuesta?.fecha | date:'short'}}</span> <br> 
+            {{respuesta?.descripcion}} <br>
+          </mat-card-subtitle>
+        </div>
+        
       </mat-card-header>
     </mat-card>
   </div>

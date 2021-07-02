@@ -34,27 +34,79 @@ export class UserAuthService {
   db = firebase.database();
   auth = firebase.auth()
   rootRef = this.db.ref();
-  autenticationRef: firebase.database.Reference = this.db.ref('usuarios');
+  userRef: firebase.database.Reference = this.db.ref('usuarios');
   rolesRef: firebase.database.Reference = this.db.ref('roles');
   permisosRef: firebase.database.Reference = this.db.ref('permisos');
   autorizacionesRef: firebase.database.Reference = this.db.ref('autorizaciones');
 
+
   user:any
 
   async currentUser(){
-  let consulta = await new Promise((resolve, reject) => {
+  let consulta = await new Promise<firebase.User | null>((resolve, reject) => {
       const unsubscribe = this.auth.onAuthStateChanged(user => {
         unsubscribe();
         resolve(user);
       }, reject);
     });
 
- //   this.user = (consulta || null)    
+ this.user = (consulta || null)    
  //this.userChanges.next(consulta)
     return consulta
   }
 
+  async currentUserDatabase(){
+    await this.currentUser()
+    return await this.userRef.child(this.user.uid).get()
+  }
+
+  async isOnlyHabitante(){
+
+    console.log('user uid habitante ', this.user.uid);
+    
+    let roles:any[] = []
+    let rolesFiltrados:any[] = []
+    await this.userRef.child(this.user.uid).child('roles').once('value',(datos)=>{
+      if(datos.exists()){
+        //tiene roles 
+        datos.forEach((dataRol)=>{
+          roles.push(dataRol.key)
+        })
+
+        console.log('roles database ', roles);
+        
+        rolesFiltrados = roles.filter((rol) => {
+          console.log('rol consultado ', rol);
+          
+          if(rol != 'habitante'){
+            return true
+          }
+          return false
+        
+        } )
+       console.log('roles encontrados ', rolesFiltrados);
+       
+      }else{
+        //no tiene roles 
+      }
+    })
+
+    console.log('tamano roles filtrados ', rolesFiltrados.length);
+    
+    if(rolesFiltrados.length == 0){
+      
+      //es solo habitante
+      return true
+    }else{
+      //es funcionario 
+      return false
+    }
+
+  }
+
+
   userChanges: Subject<firebase.User | null> = new Subject<firebase.User | null>()
+  //userDatabaseChanges: Subject<any> = new Subject<any>()
 
 
 
@@ -83,6 +135,8 @@ export class UserAuthService {
     .then((userCredential) => {
       // Signed in 
       console.log('user creado');
+      this.router.navigate(['/'])
+
       return userCredential.user
      
     })
@@ -155,6 +209,8 @@ export class UserAuthService {
     })
     return rol
   }
+
+  ///la funcional
   async getRolOn(id: any){
   
 

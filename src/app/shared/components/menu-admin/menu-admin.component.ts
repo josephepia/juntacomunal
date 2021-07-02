@@ -92,6 +92,7 @@ export class MenuAdminComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
   user:any
+  userDatabase:any
   constructor(
     changeDetectorRef: ChangeDetectorRef,
      media: MediaMatcher, 
@@ -105,13 +106,18 @@ export class MenuAdminComponent implements OnDestroy {
 
     library.addIcons(faCoffee)
 
-    this.auth.userChanges.subscribe((user)=>{
+    this.auth.userChanges.subscribe(async (user)=>{
       this.user = user
       console.log('usuario logueado ', this.user);
       console.log('token', user?.getIdTokenResult());
-      
+      this.userDatabase = await this.auth.currentUserDatabase()
+
       
     })
+  }
+
+  async isOnlyHabitante(){
+    return await this.auth.isOnlyHabitante
   }
 
   CerrarSesion():void{

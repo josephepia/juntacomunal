@@ -16,14 +16,22 @@ export class AppComponent implements OnInit{
 
   }
 
+  user:any= null
+  userDatabase:any= null
   async ngOnInit(){
- 
-
+    
+    
+    
+    //this.isSuperAdmin = this.userDatabase!.child('roles').hasChild('superAdministrador')
+    
 
   }
 
   userObservable!: Subscription
+  isSuperAdmin:boolean = false
 
+
+  
   
 
   ngOnDestroy(){
