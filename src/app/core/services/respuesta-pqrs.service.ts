@@ -4,11 +4,22 @@ import firebase from 'firebase/app'
 import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-export interface Item { name: string; }
+import { RespuestaPQRS } from './../Modelos/respuesta-pqrs';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class RespuestaPQRSService {
 
-  constructor() { }
+  constructor() {  }
+  database = firebase.database();
+  respuesta: RespuestaPQRS = new RespuestaPQRS;
+  respuestasRef: firebase.database.Reference = firebase.database().ref('respuestas')
+
+  //Crea un nuevo PQRS
+  createRespuesta(respuesta: any) {
+    respuesta['fecha'] = firebase.database.ServerValue.TIMESTAMP
+   return this.respuestasRef.push(respuesta);
+  }
 }

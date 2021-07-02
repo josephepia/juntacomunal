@@ -13,58 +13,78 @@
 
 <!-- detalles del pqrs -->
 
-<div class="row margin-0 padding-16">
-
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Asunto</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.tituloPQRS}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
+<div class="row margin-0 start-xs padding-16">
+  
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+      <mat-card class="shadow1 borde-radio-10 ">
+          <mat-card-header >
+            <mat-card-subtitle class="margin-bottom-0">Asunto</mat-card-subtitle>
+            <mat-card-title>{{pqrs?.tituloPQRS}}</mat-card-title>
+          </mat-card-header>
+      </mat-card>
   </div>
 
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+    <mat-card class="shadow1 borde-radio-10 ">
+        <mat-card-header >
+          <mat-card-subtitle class="margin-bottom-0">Remitente</mat-card-subtitle>
         <mat-card-title>{{pqrs?.remitente}}</mat-card-title>
-      </mat-card-header>
+        </mat-card-header>
     </mat-card>
   </div>
 
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Estado</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.estadoPQRS}}</mat-card-title>
-      </mat-card-header>
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 padding-10">
+    <mat-card class="shadow1 borde-radio-10 ">
+        <mat-card-header >
+          <mat-card-subtitle class="margin-bottom-0">Estado</mat-card-subtitle>
+          <mat-card-title>{{pqrs?.estadoPQRS}}</mat-card-title>
+        </mat-card-header>
     </mat-card>
   </div>
 
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-subtitle class="margin-bottom-0">Fecha</mat-card-subtitle>
-        <mat-card-title>{{pqrs?.fecha | date:'short'}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
-
-  <div class="padding-bottom-15 center-xs">
-    <mat-card class="shadow1 borde-radio-10">
-      <mat-card-header class="center-xs start-md start-lg">
-        <mat-card-title>Descripcion</mat-card-title>
-        <mat-card-subtitle class="margin-bottom-0">{{pqrs?.descripcion}}</mat-card-subtitle>
-
-      </mat-card-header>
-    </mat-card>
-  </div>
-
+  
 </div>
 
 
-<!-- boton foltante -->
+<div class="row margin-0 padding-16">
+  
+
+  <div class="padding-bottom-15 center-xs">
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg">
+        <mat-card-subtitle class="margin-bottom-0">
+          <span style="color: red;">{{pqrs?.fecha | date:'short'}}</span> <br> 
+          {{pqrs?.descripcion}}
+        </mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+  <div class="padding-bottom-15 center-xs" *ngFor="let respuesta of keys(respuestas)">
+    <mat-card class="shadow1 borde-radio-10">
+      <mat-card-header class="center-xs start-md start-lg">
+        <mat-card-subtitle class="margin-bottom-0">
+          <span style="color: blue;">{{respuestas[respuesta]?.fecha | date:'short'}}</span> <br> 
+          {{respuestas[respuesta]?.descripcion}} <br>
+          <span style="color: #6FE717;">{{respuestas[respuesta]?.remitente}}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+ 
+  <form [formGroup]="formulario" (ngSubmit)="responder()" autocomplete="on">
+    <mat-form-field appearance="outline" class="input">
+      <mat-label>Responder</mat-label>
+      <textarea  matInput placeholder="Escriba aqui su respuesta"  rows="3" formControlName="descripcion"></textarea>
+      <button mat-flat-button  type="button" (click)="responder()" color="primary">Enviar respuesta</button>
+    </mat-form-field>
+  </form>
+</div>
+
+
+<!-- boton foltante 
 <mat-fab-menu color="primary" direction="top" tooltipPosition="bottom" [fabButtons]="fabButtons" class="fab-right"
   icon="edit_note" (onFabMenuItemSelected)="opcionSeleccionada($event)">
 </mat-fab-menu>
+-->
